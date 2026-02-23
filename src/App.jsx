@@ -46,6 +46,30 @@ const themes = {
   20: { base: 'zinc', bg: 'bg-zinc-800', text: 'text-zinc-800', border: 'border-zinc-800', glow: 'bg-zinc-700' },
 };
 
+const ADDITION_QUESTION_COUNT = 5;
+
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const createAdditionQuestion = (difficulty, index) => {
+  let terms;
+  if (difficulty === 'easy') {
+    terms = [getRandomInt(10, 99), getRandomInt(10, 99)];
+  } else if (difficulty === 'hard') {
+    terms = [getRandomInt(100, 999), getRandomInt(100, 999), getRandomInt(100, 999), getRandomInt(100, 999)];
+  } else {
+    terms = [getRandomInt(20, 199), getRandomInt(20, 199), getRandomInt(20, 199)];
+  }
+  const answer = terms.reduce((sum, value) => sum + value, 0);
+  return {
+    id: `addition-${Date.now()}-${index}-${Math.random().toString(36).slice(2, 8)}`,
+    terms,
+    answer,
+  };
+};
+
+const createAdditionSet = (difficulty) =>
+  Array.from({ length: ADDITION_QUESTION_COUNT }, (_, index) => createAdditionQuestion(difficulty, index));
+
 export default function App() {
   const RRB_STORAGE_KEY = 'rrb-progress-v1';
   const [authLoading, setAuthLoading] = useState(AUTH_ENABLED);
@@ -82,6 +106,9 @@ export default function App() {
   const [isPracticing, setIsPracticing] = useState(false);
   const [practiceAnswers, setPracticeAnswers] = useState(Array(10).fill(''));
   const [practiceErrors, setPracticeErrors] = useState(Array(10).fill(false));
+  const [additionQuestions, setAdditionQuestions] = useState(() => createAdditionSet('medium'));
+  const [additionAnswers, setAdditionAnswers] = useState(Array(ADDITION_QUESTION_COUNT).fill(''));
+  const [additionResults, setAdditionResults] = useState(Array(ADDITION_QUESTION_COUNT).fill(null));
 
   // Shared Game State
   const [gameMode, setGameMode] = useState(null); 
@@ -107,7 +134,7 @@ export default function App() {
   const rrbDataLoading = false;
 
   useEffect(() => {
-    const validOperations = new Set(['multiply', 'divide', 'rrb']);
+    const validOperations = new Set(['multiply', 'addition', 'divide', 'rrb']);
     const validRanges = new Set(['apprentice', 'wizard']);
     const validDifficulties = new Set(['easy', 'medium', 'hard']);
     const validTabs = new Set(['learn', 'games']);
@@ -272,6 +299,9 @@ export default function App() {
       setSelectedTable(2);
       setRrbAnswers({});
       setRrbResults({});
+      setAdditionQuestions(createAdditionSet('medium'));
+      setAdditionAnswers(Array(ADDITION_QUESTION_COUNT).fill(''));
+      setAdditionResults(Array(ADDITION_QUESTION_COUNT).fill(null));
       setShowAdminPanel(false);
       return;
     }
@@ -416,6 +446,13 @@ export default function App() {
       setActiveTab('learn');
     }
   }, [operation, levelRange, difficulty]);
+
+  useEffect(() => {
+    if (operation !== 'addition') return;
+    setAdditionQuestions(createAdditionSet(difficulty));
+    setAdditionAnswers(Array(ADDITION_QUESTION_COUNT).fill(''));
+    setAdditionResults(Array(ADDITION_QUESTION_COUNT).fill(null));
+  }, [operation, difficulty]);
 
   useEffect(() => {
     if (levelRange === 'apprentice' && selectedTable > 10) {
@@ -747,6 +784,60 @@ export default function App() {
     }
   };
 
+  const buildAdditionResult = (index) => {
+    const questionItem = additionQuestions[index];
+    if (!questionItem) return { status: 'empty', message: 'Question not available.' };
+
+    const raw = additionAnswers[index]?.toString().trim() || '';
+    if (raw.length === 0) {
+      return { status: 'empty', message: 'Enter an answer first.' };
+    }
+
+    const userValue = Number(raw);
+    if (!Number.isFinite(userValue)) {
+      return { status: 'empty', message: 'Enter a valid number.' };
+    }
+
+    if (userValue === questionItem.answer) {
+      return { status: 'correct', message: 'Correct!' };
+    }
+
+    return { status: 'incorrect', message: `Incorrect. Correct answer: ${questionItem.answer}` };
+  };
+
+  const handleAdditionAnswerChange = (index, value) => {
+    setAdditionAnswers((prev) => {
+      const next = [...prev];
+      next[index] = value;
+      return next;
+    });
+
+    setAdditionResults((prev) => {
+      if (!prev[index]) return prev;
+      const next = [...prev];
+      next[index] = null;
+      return next;
+    });
+  };
+
+  const handleAdditionCheck = (index) => {
+    setAdditionResults((prev) => {
+      const next = [...prev];
+      next[index] = buildAdditionResult(index);
+      return next;
+    });
+  };
+
+  const handleAdditionCheckAll = () => {
+    setAdditionResults(additionQuestions.map((_, index) => buildAdditionResult(index)));
+  };
+
+  const handleAdditionRefresh = () => {
+    setAdditionQuestions(createAdditionSet(difficulty));
+    setAdditionAnswers(Array(ADDITION_QUESTION_COUNT).fill(''));
+    setAdditionResults(Array(ADDITION_QUESTION_COUNT).fill(null));
+  };
+
   const checkDirectAnswer = useCallback(() => {
     if (!question) return;
     const numInput = Number.parseInt(inputValue, 10);
@@ -962,6 +1053,16 @@ export default function App() {
     if (gameStatus === 'gameover') return `gameover:${operation}:${gameMode || 'default'}`;
     return `${operation}:${activeTab}:${levelRange}`;
   }, [operation, activeTab, levelRange, gameStatus, gameMode, difficulty, rrbTopic, rrbPage]);
+
+  const additionCheckedCount = useMemo(
+    () => additionResults.filter((result) => result !== null).length,
+    [additionResults]
+  );
+
+  const additionCorrectCount = useMemo(
+    () => additionResults.filter((result) => result?.status === 'correct').length,
+    [additionResults]
+  );
 
   if (AUTH_ENABLED && authLoading) {
     return (
@@ -1376,6 +1477,12 @@ export default function App() {
               >
                 <X size={14} /> Multiply
               </button>
+              <button
+                onClick={() => setOperation('addition')}
+                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'addition' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+              >
+                <span className="text-base leading-none font-black">+</span> Addition
+              </button>
               <button 
                 onClick={() => setOperation('divide')}
                 className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'divide' ? 'bg-white text-pink-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
@@ -1586,6 +1693,95 @@ export default function App() {
                     ))}
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* ========================================= */}
+          {/* ADDITION PRACTICE                         */}
+          {/* ========================================= */}
+          {operation === 'addition' && gameStatus === 'idle' && (
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4">
+              <div className="w-full max-w-4xl bg-white/70 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="bg-emerald-100 p-2 rounded-xl text-emerald-600 text-xl leading-none font-black">+</div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Practice</span>
+                    <span className="text-lg sm:text-xl font-black text-slate-800 leading-tight">Addition Questions</span>
+                    <span className="text-xs text-slate-500 font-medium">Solve 5 questions and check each answer.</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                  <span className="bg-white/80 px-2 py-1 rounded-md shadow-sm">Checked: {additionCheckedCount}/{ADDITION_QUESTION_COUNT}</span>
+                  <span className="bg-white/80 px-2 py-1 rounded-md shadow-sm text-emerald-700">Correct: {additionCorrectCount}/{ADDITION_QUESTION_COUNT}</span>
+                  <button
+                    onClick={handleAdditionCheckAll}
+                    className="px-3 py-1.5 rounded-lg font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-colors"
+                  >
+                    Check All
+                  </button>
+                  <button
+                    onClick={handleAdditionRefresh}
+                    className="px-3 py-1.5 rounded-lg font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
+                  >
+                    New 5
+                  </button>
+                </div>
+              </div>
+
+              <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-3 pb-4">
+                {additionQuestions.map((questionItem, index) => {
+                  const result = additionResults[index];
+                  const cardTone = [
+                    'from-emerald-50/90 via-white/95 to-cyan-50/75 border-emerald-100',
+                    'from-blue-50/90 via-white/95 to-indigo-50/75 border-blue-100',
+                    'from-rose-50/90 via-white/95 to-pink-50/75 border-rose-100',
+                    'from-amber-50/90 via-white/95 to-orange-50/75 border-amber-100',
+                  ][index % 4];
+
+                  return (
+                    <div key={questionItem.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3`}>
+                      <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                        <span className="text-slate-400 font-black mr-2">Q{index + 1}.</span>
+                        {questionItem.terms.join(' + ')} = ?
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          placeholder="Your answer"
+                          value={additionAnswers[index] || ''}
+                          onChange={(e) => handleAdditionAnswerChange(index, e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleAdditionCheck(index);
+                          }}
+                          className="w-full sm:w-44 text-center text-base sm:text-lg font-black py-2 rounded-xl outline-none transition-all bg-slate-50 border-2 border-slate-100 text-emerald-600 focus:border-emerald-400 focus:bg-white shadow-inner"
+                        />
+                        <button
+                          onClick={() => handleAdditionCheck(index)}
+                          className="px-4 py-2 rounded-xl font-bold text-sm sm:text-base bg-emerald-600 text-white hover:bg-emerald-700 shadow-md hover:shadow-emerald-500/30 transition-all"
+                        >
+                          Check
+                        </button>
+                      </div>
+                      {result && (
+                        <div
+                          className={`text-xs sm:text-sm font-bold flex items-center gap-2 px-3 py-1.5 rounded-full border ${
+                            result.status === 'correct'
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                              : result.status === 'incorrect'
+                                ? 'bg-rose-50 text-rose-700 border-rose-200'
+                                : 'bg-amber-50 text-amber-700 border-amber-200'
+                          }`}
+                        >
+                          {result.status === 'correct' && (<><CheckCircle2 size={14}/> {result.message}</>)}
+                          {result.status === 'incorrect' && (<><X size={14}/> {result.message}</>)}
+                          {result.status === 'empty' && (<><HelpCircle size={14}/> {result.message}</>)}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
