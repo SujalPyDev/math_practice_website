@@ -135,7 +135,7 @@ export default function App() {
   const rrbDataLoading = false;
 
   useEffect(() => {
-    const validOperations = new Set(['multiply', 'addition', 'divide', 'rrb']);
+    const validOperations = new Set(['multiply', 'addition', 'divide', 'rrb', 'formula']);
     const validRanges = new Set(['apprentice', 'wizard']);
     const validDifficulties = new Set(['easy', 'medium', 'hard']);
     const validTabs = new Set(['learn', 'games']);
@@ -1057,6 +1057,7 @@ export default function App() {
 
   const activeViewKey = useMemo(() => {
     if (operation === 'rrb') return `rrb:${rrbTopic}:${rrbPage}`;
+    if (operation === 'formula') return `formula:${rrbTopic}`;
     if (operation === 'divide') return `divide:${gameStatus}:${difficulty}:${levelRange}`;
     if (gameStatus === 'playing') return `playing:${operation}:${gameMode || 'default'}`;
     if (gameStatus === 'gameover') return `gameover:${operation}:${gameMode || 'default'}`;
@@ -1479,7 +1480,7 @@ export default function App() {
             </h1>
 
             {/* Central Toggle */}
-            <div className="flex w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1">
+            <div className="flex flex-wrap w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1">
               <button 
                 onClick={() => setOperation('multiply')}
                 className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'multiply' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
@@ -1503,6 +1504,12 @@ export default function App() {
                 className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'rrb' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <Target size={14} /> Quant Lab
+              </button>
+              <button
+                onClick={() => setOperation('formula')}
+                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'formula' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+              >
+                <BookOpen size={14} /> Formula
               </button>
             </div>
 
@@ -1853,6 +1860,71 @@ export default function App() {
           )}
 
           {/* ========================================= */}
+          {/* FORMULA LAB                               */}
+          {/* ========================================= */}
+          {operation === 'formula' && gameStatus === 'idle' && (
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-indigo-50/65 via-sky-50/60 to-cyan-50/55 border border-white/80">
+              <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-100/75 via-white/75 to-sky-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="bg-indigo-100 p-2 rounded-xl"><BookOpen className="text-indigo-600" size={20}/></div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">MATH FOCUS</span>
+                    <span className="text-lg sm:text-xl font-black text-slate-800 leading-tight">Formula Lab</span>
+                    <span className="text-xs text-slate-500 font-medium">Written formulas by topic for quick revision</span>
+                  </div>
+                </div>
+                <span className="bg-white/80 px-2 py-1 rounded-md shadow-sm text-xs sm:text-sm">
+                  Topic: {currentRrbTopicLabel}
+                </span>
+              </div>
+
+              <div className="w-full max-w-6xl flex flex-wrap gap-2 mb-4 shrink-0">
+                {rrbTopics.map((topic) => (
+                  <button
+                    key={topic.id}
+                    onClick={() => setRrbTopic(topic.id)}
+                    className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
+                      rrbTopic === topic.id ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                    }`}
+                  >
+                    {topic.label}
+                    <span className={`ml-2 text-[10px] px-2 py-0.5 rounded-full ${rrbTopic === topic.id ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}`}>
+                      {(rrbFormulaBank[topic.id] || []).length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-indigo-50/45 to-sky-50/45 border border-white/80">
+                {rrbFormulas.length === 0 ? (
+                  <div className="w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-center text-slate-500 font-medium">
+                    No formulas added for this topic yet.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {rrbFormulas.map((formula, index) => {
+                      const cardTone = [
+                        'from-indigo-50/90 via-white/95 to-sky-50/75 border-indigo-100',
+                        'from-cyan-50/90 via-white/95 to-blue-50/75 border-cyan-100',
+                        'from-emerald-50/90 via-white/95 to-teal-50/75 border-emerald-100',
+                        'from-amber-50/90 via-white/95 to-orange-50/75 border-amber-100',
+                      ][index % 4];
+                      return (
+                        <div key={`${rrbTopic}-formula-${index}`} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm`}>
+                          <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                            <span className="text-indigo-500 font-black mr-2">F{index + 1}.</span>
+                            {formula}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* ========================================= */}
           {/* QUANT PRACTICE                             */}
           {/* ========================================= */}
           {operation === 'rrb' && (
@@ -1911,30 +1983,6 @@ export default function App() {
                     </span>
                   </button>
                 ))}
-              </div>
-
-              <div className="w-full max-w-6xl mb-4 shrink-0 bg-gradient-to-r from-indigo-50/80 via-white/80 to-sky-50/80 backdrop-blur-md border border-indigo-100 rounded-2xl p-4 shadow-sm">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <div className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-lg text-xs font-black uppercase tracking-wide">Formula Lab</div>
-                    <h3 className="text-sm sm:text-base font-black text-slate-800">{currentRrbTopicLabel} Formulas</h3>
-                  </div>
-                  <span className="text-xs font-bold text-slate-500 bg-white/80 border border-slate-200 px-2 py-1 rounded-lg">
-                    {rrbFormulas.length} formulas
-                  </span>
-                </div>
-                {rrbFormulas.length === 0 ? (
-                  <div className="text-sm text-slate-500 font-medium">No formulas added for this topic yet.</div>
-                ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {rrbFormulas.map((formula, index) => (
-                      <div key={`${rrbTopic}-formula-${index}`} className="bg-white/85 border border-indigo-100 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-slate-700">
-                        <span className="text-indigo-500 font-black mr-2">F{index + 1}.</span>
-                        {formula}
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
 
               <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80">
