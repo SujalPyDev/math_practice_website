@@ -955,6 +955,14 @@ export default function App() {
     }
   };
 
+  const activeViewKey = useMemo(() => {
+    if (operation === 'rrb') return `rrb:${rrbTopic}:${rrbPage}`;
+    if (operation === 'divide') return `divide:${gameStatus}:${difficulty}:${levelRange}`;
+    if (gameStatus === 'playing') return `playing:${operation}:${gameMode || 'default'}`;
+    if (gameStatus === 'gameover') return `gameover:${operation}:${gameMode || 'default'}`;
+    return `${operation}:${activeTab}:${levelRange}`;
+  }, [operation, activeTab, levelRange, gameStatus, gameMode, difficulty, rrbTopic, rrbPage]);
+
   if (AUTH_ENABLED && authLoading) {
     return (
     <div className="min-h-[100dvh] w-full flex items-center justify-center p-4 app-bg mobile-safe mobile-touch">
@@ -1132,9 +1140,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-[100dvh] sm:h-[100svh] w-full flex items-start sm:items-center justify-center p-2 sm:p-4 md:p-6 font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-y-auto sm:overflow-hidden mobile-safe mobile-touch">
+    <div className="h-[100dvh] min-h-[100dvh] sm:h-[100svh] w-full flex items-stretch sm:items-center justify-center p-0 sm:p-4 md:p-6 font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-hidden mobile-safe mobile-touch">
       {/* Main Application Container */}
-      <div className="w-full max-w-[96rem] 2xl:max-w-[106rem] h-auto sm:h-full max-h-none sm:max-h-full rounded-[2rem] flex flex-col relative overflow-hidden app-card center-stage">
+      <div className="w-full max-w-[96rem] 2xl:max-w-[106rem] h-full max-h-full rounded-none sm:rounded-[2rem] flex flex-col relative overflow-hidden app-card center-stage">
 
         {showAdminPanel && isAdmin && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm p-4">
@@ -1353,15 +1361,15 @@ export default function App() {
         {/* LIGHT COMPACT HEADER                      */}
         {/* ========================================= */}
         <div className="bg-white/80 z-20 shrink-0 border-b border-slate-200/50 backdrop-blur-md">
-          <div className="p-3 md:px-6 flex justify-between items-center gap-2">
+          <div className="p-3 md:px-6 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-2">
             
             {/* Logo */}
-            <h1 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center gap-2 tracking-tight">
+            <h1 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center gap-2 tracking-tight self-start">
               <Calculator size={22} className="text-blue-600" /> <span className="hidden sm:block">Math Engine</span>
             </h1>
 
             {/* Central Toggle */}
-            <div className="flex bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1">
+            <div className="flex w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1">
               <button 
                 onClick={() => setOperation('multiply')}
                 className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'multiply' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
@@ -1382,9 +1390,9 @@ export default function App() {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap justify-end">
+            <div className="flex w-full sm:w-auto items-center gap-2 flex-wrap justify-between sm:justify-end">
               {/* Difficulty Controls */}
-              <div className="flex bg-slate-100/80 rounded-xl p-1 items-center shadow-inner">
+              <div className="flex bg-slate-100/80 rounded-xl p-1 items-center shadow-inner w-full sm:w-auto justify-center">
                 <Settings2 size={16} className="text-slate-400 ml-2 mr-1 hidden sm:block" />
                 <button onClick={() => setDifficulty('easy')} className={`px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'easy' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Easy</button>
                 <button onClick={() => setDifficulty('medium')} className={`px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'medium' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Med</button>
@@ -1433,11 +1441,12 @@ export default function App() {
         {/* ========================================= */}
         {/* MAIN NO-SCROLL CONTENT AREA               */}
         {/* ========================================= */}
-        <div className="flex-grow flex flex-col relative w-full overflow-y-auto sm:overflow-hidden">
+        <div className="flex-grow min-h-0 flex flex-col relative w-full overflow-y-auto">
+          <div key={activeViewKey} className="view-transition flex h-full min-h-0 flex-col">
           
           {/* MULTIPLICATION: TABLE MASTERY */}
           {operation === 'multiply' && activeTab === 'learn' && gameStatus === 'idle' && (
-             <div className="w-full h-full flex flex-col items-center justify-start p-4">
+             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4">
               
               {/* Top Controls: Level Pill & Number Selector */}
               <div className="w-full max-w-5xl flex flex-col items-center shrink-0">
@@ -1513,7 +1522,7 @@ export default function App() {
               )}
 
               {/* CONTENT AREA: Grid or Practice (Takes remaining height) */}
-              <div className="w-full max-w-6xl flex-grow overflow-y-auto pb-4 custom-scrollbar">
+              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto pb-4 custom-scrollbar">
                 
                 {/* PRACTICE VIEW */}
                 {isPracticing ? (
@@ -1557,7 +1566,7 @@ export default function App() {
                   </div>
                 ) : (
                   /* STATIC VIEW: Compact Card Grid */
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 w-full h-full pb-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 w-full min-h-0 pb-4">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, idx) => (
                       <div 
                         key={multiplier} 
@@ -1585,7 +1594,7 @@ export default function App() {
           {/* MULTIPLICATION: EXPANDED GAMES MENU       */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'idle' && (
-            <div className="w-full h-full flex flex-col items-center justify-start p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4">
               <div className="w-full max-w-6xl bg-white/60 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-6 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="bg-blue-100 p-1.5 rounded-lg"><Gamepad2 className="text-blue-600" size={20}/></div>
@@ -1642,7 +1651,7 @@ export default function App() {
           {/* QUANT PRACTICE                             */}
           {/* ========================================= */}
           {operation === 'rrb' && (
-            <div className="w-full h-full flex flex-col items-center justify-start p-4 overflow-hidden custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto sm:overflow-hidden custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80">
               <div className="w-full max-w-6xl bg-gradient-to-r from-emerald-100/75 via-white/75 to-cyan-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-100 p-2 rounded-xl"><Target className="text-emerald-600" size={20}/></div>
@@ -1775,7 +1784,7 @@ export default function App() {
           {/* DIVISION MODE: DIRECT ENTRY (CHALLENGE FOCUSED) */}
           {/* ========================================= */}
           {operation === 'divide' && question && gameStatus === 'playing' && (
-            <div className="w-full h-full flex flex-col items-center justify-center p-4 animate-in fade-in zoom-in-95 duration-500">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in zoom-in-95 duration-500">
               
               <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white">
                 <div className="flex items-center gap-3">
@@ -1796,7 +1805,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="w-full max-w-5xl flex-grow flex flex-col md:flex-row gap-6 justify-center items-center bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-white relative overflow-hidden">
+              <div className="w-full max-w-5xl flex-grow flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 shadow-sm border border-white relative overflow-hidden">
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'correct' ? 'opacity-100 bg-green-500' : 'opacity-0'}`}></div>
                 <div className={`absolute inset-0 z-0 transition-all duration-300 ${feedback === 'incorrect' ? 'opacity-100 bg-red-50 animate-shake border-4 border-red-500' : 'opacity-0'}`}></div>
 
@@ -1863,7 +1872,7 @@ export default function App() {
           {/* MULTIPLICATION ACTIVE GAMEPLAY            */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'playing' && question && (
-             <div className="w-full h-full flex flex-col items-center justify-center p-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
+             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
               
               <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white">
                 <button onClick={() => setGameStatus('idle')} className="text-slate-500 hover:text-slate-800 flex items-center gap-1 font-bold bg-white px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors text-sm">
@@ -1882,7 +1891,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="w-full max-w-5xl flex-grow flex flex-col justify-center bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 text-center shadow-lg border border-white relative overflow-hidden min-h-[400px]">
+              <div className="w-full max-w-5xl flex-grow flex flex-col justify-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 text-center shadow-lg border border-white relative overflow-hidden min-h-[320px] sm:min-h-[400px]">
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'correct' ? 'opacity-100 bg-green-500' : 'opacity-0'} pointer-events-none`}></div>
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'incorrect' ? 'opacity-100 bg-red-500' : 'opacity-0'} pointer-events-none`}></div>
 
@@ -1946,8 +1955,8 @@ export default function App() {
 
           {/* GAME OVER SCREEN (Shared) */}
           {activeTab === 'games' && gameStatus === 'gameover' && (
-            <div className="w-full h-full flex items-center justify-center p-4">
-              <div className="animate-in zoom-in duration-500 w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-[2rem] p-8 text-center shadow-[0_10px_40px_rgb(0,0,0,0.08)] border border-white">
+            <div className="w-full h-full min-h-0 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto">
+              <div className="animate-in zoom-in duration-500 w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_40px_rgb(0,0,0,0.08)] border border-white">
                 <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><Timer className="text-orange-500" size={32} /></div>
                 <h2 className="text-2xl font-black text-slate-800 mb-2">Time's Up!</h2>
                 <div className="bg-slate-50 rounded-2xl p-4 mb-6 border border-slate-100 flex flex-col items-center">
@@ -1962,6 +1971,7 @@ export default function App() {
             </div>
           )}
 
+          </div>
         </div>
       </div>
 

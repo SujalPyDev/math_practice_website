@@ -246,6 +246,50 @@ body,
   z-index: 1;
 }
 
+/* Screen-level transition for tab/mode/page switches */
+.view-transition {
+  width: 100%;
+  animation: view-enter 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center top;
+  will-change: transform, opacity;
+}
+
+@keyframes view-enter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ui-shake {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  40% {
+    transform: translate3d(5px, 0, 0);
+  }
+  60% {
+    transform: translate3d(-3px, 0, 0);
+  }
+  80% {
+    transform: translate3d(3px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-shake {
+  animation: ui-shake 260ms ease-in-out;
+}
+
 @keyframes stage-float {
   0% {
     transform: translate3d(0, 0, 0);
@@ -290,11 +334,28 @@ body,
   }
 
   .app-card.center-stage {
-    border-radius: 1.25rem;
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .app-card.center-stage::before,
+  .app-card.center-stage::after {
+    animation: none;
+    opacity: 0.45;
+  }
+
+  .view-transition {
+    animation-duration: 240ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .view-transition {
+    animation: none;
+  }
+
   .app-card.center-stage,
   .app-card.center-stage::before,
   .app-card.center-stage::after {
