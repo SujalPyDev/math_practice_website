@@ -1140,9 +1140,9 @@ export default function App() {
   }
 
   return (
-    <div className="h-[100dvh] min-h-[100dvh] sm:h-[100svh] w-full flex items-stretch sm:items-center justify-center p-0 sm:p-4 md:p-6 font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-hidden mobile-safe mobile-touch">
+    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-hidden mobile-safe mobile-touch">
       {/* Main Application Container */}
-      <div className="w-full max-w-[96rem] 2xl:max-w-[106rem] h-full max-h-full rounded-none sm:rounded-[2rem] flex flex-col relative overflow-hidden app-card center-stage">
+      <div className="w-full h-full min-h-0 flex flex-col relative overflow-hidden">
 
         {showAdminPanel && isAdmin && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm p-4">
