@@ -1,0 +1,1661 @@
+RRB NTPC Quantitative Practice Set (Easy → Hard)
+Topics: Percentage | Discount | Time & Work | Train Problems
+Total Questions: 800 (200 per topic)
+Generated on: 2026-02-22 15:45:31
+
+SECTION A — Percentage (200 Questions)
+1. 5% of 100 is ?
+2. 5% of 200 is ?
+3. 5% of 300 is ?
+4. 5% of 400 is ?
+5. 10% of 100 is ?
+6. 10% of 200 is ?
+7. 10% of 300 is ?
+8. 10% of 400 is ?
+9. 15% of 100 is ?
+10. 15% of 200 is ?
+11. 15% of 300 is ?
+12. 15% of 400 is ?
+13. 20% of 100 is ?
+14. 20% of 200 is ?
+15. 20% of 300 is ?
+16. 20% of 400 is ?
+17. 25% of 100 is ?
+18. 25% of 200 is ?
+19. 25% of 300 is ?
+20. 25% of 400 is ?
+21. 30% of 100 is ?
+22. 30% of 200 is ?
+23. 30% of 300 is ?
+24. 30% of 400 is ?
+25. 35% of 100 is ?
+26. 35% of 200 is ?
+27. 35% of 300 is ?
+28. 35% of 400 is ?
+29. 40% of 100 is ?
+30. 40% of 200 is ?
+31. 40% of 300 is ?
+32. 40% of 400 is ?
+33. 45% of 100 is ?
+34. 45% of 200 is ?
+35. 45% of 300 is ?
+36. 45% of 400 is ?
+
+37. 50% of 100 is ?
+38. 50% of 200 is ?
+39. 50% of 300 is ?
+40. 50% of 400 is ?
+41. 55% of 100 is ?
+42. 55% of 200 is ?
+43. 55% of 300 is ?
+44. 55% of 400 is ?
+45. 60% of 100 is ?
+46. 60% of 200 is ?
+47. 60% of 300 is ?
+48. 60% of 400 is ?
+49. 65% of 100 is ?
+50. 65% of 200 is ?
+51. 65% of 300 is ?
+52. 65% of 400 is ?
+53. 70% of 100 is ?
+54. 70% of 200 is ?
+55. 70% of 300 is ?
+56. 70% of 400 is ?
+57. Increase 237 by 9%. Find new value.
+58. Increase 361 by 12%. Find new value.
+59. Increase 607 by 33%. Find new value.
+60. Increase 583 by 29%. Find new value.
+61. Increase 314 by 11%. Find new value.
+62. Increase 599 by 6%. Find new value.
+63. Increase 499 by 32%. Find new value.
+64. Increase 722 by 5%. Find new value.
+65. Increase 556 by 22%. Find new value.
+66. Increase 334 by 11%. Find new value.
+67. Increase 425 by 6%. Find new value.
+68. Increase 122 by 6%. Find new value.
+69. Increase 765 by 39%. Find new value.
+70. Increase 109 by 29%. Find new value.
+71. Increase 321 by 32%. Find new value.
+72. Increase 129 by 38%. Find new value.
+73. Increase 327 by 33%. Find new value.
+74. Increase 607 by 40%. Find new value.
+
+75. Increase 338 by 27%. Find new value.
+76. Increase 336 by 19%. Find new value.
+77. Increase 570 by 23%. Find new value.
+78. Increase 122 by 31%. Find new value.
+79. Increase 669 by 11%. Find new value.
+80. Increase 290 by 23%. Find new value.
+81. Increase 223 by 26%. Find new value.
+82. Increase 612 by 32%. Find new value.
+83. Increase 619 by 17%. Find new value.
+84. Increase 410 by 23%. Find new value.
+85. Increase 701 by 36%. Find new value.
+86. Increase 617 by 30%. Find new value.
+87. Increase 703 by 7%. Find new value.
+88. Increase 591 by 20%. Find new value.
+89. Increase 513 by 31%. Find new value.
+90. Increase 780 by 16%. Find new value.
+91. Increase 475 by 40%. Find new value.
+92. Increase 790 by 28%. Find new value.
+93. Increase 188 by 33%. Find new value.
+94. Increase 779 by 37%. Find new value.
+95. Increase 210 by 15%. Find new value.
+96. Increase 633 by 30%. Find new value.
+97. Increase 479 by 36%. Find new value.
+98. Increase 130 by 35%. Find new value.
+99. Increase 144 by 24%. Find new value.
+100. Increase 729 by 30%. Find new value.
+101. Increase 762 by 15%. Find new value.
+102. Increase 272 by 37%. Find new value.
+103. Increase 332 by 5%. Find new value.
+104. Increase 304 by 39%. Find new value.
+105. Increase 661 by 19%. Find new value.
+106. Increase 514 by 37%. Find new value.
+107. Increase 452 by 27%. Find new value.
+108. Increase 570 by 22%. Find new value.
+109. Increase 775 by 40%. Find new value.
+110. Increase 723 by 5%. Find new value.
+111. Increase 492 by 37%. Find new value.
+112. Increase 232 by 38%. Find new value.
+
+113. Increase 674 by 18%. Find new value.
+114. Increase 536 by 8%. Find new value.
+115. Increase 592 by 28%. Find new value.
+116. Increase 683 by 40%. Find new value.
+117. Increase 304 by 37%. Find new value.
+118. Increase 523 by 36%. Find new value.
+119. Increase 465 by 31%. Find new value.
+120. Increase 454 by 5%. Find new value.
+121. Increase 651 by 39%. Find new value.
+122. Increase 738 by 26%. Find new value.
+123. Increase 569 by 6%. Find new value.
+124. Increase 335 by 16%. Find new value.
+125. Increase 663 by 16%. Find new value.
+126. Increase 193 by 40%. Find new value.
+127. Increase 361 by 7%. Find new value.
+128. Increase 789 by 9%. Find new value.
+129. Increase 185 by 6%. Find new value.
+130. Increase 563 by 5%. Find new value.
+131. Increase 387 by 20%. Find new value.
+132. Increase 375 by 12%. Find new value.
+133. Increase 739 by 16%. Find new value.
+134. Increase 452 by 23%. Find new value.
+135. Increase 171 by 15%. Find new value.
+136. Increase 263 by 21%. Find new value.
+137. Increase 640 by 15%. Find new value.
+138. Increase 772 by 22%. Find new value.
+139. Increase 763 by 23%. Find new value.
+140. Increase 565 by 25%. Find new value.
+141. A value 708 is increased by 25% and then decreased by 8%. Final value?
+142. A value 224 is increased by 19% and then decreased by 17%. Final value?
+143. A value 551 is increased by 23% and then decreased by 11%. Final value?
+144. A value 464 is increased by 13% and then decreased by 13%. Final value?
+145. A value 947 is increased by 26% and then decreased by 11%. Final value?
+146. A value 820 is increased by 23% and then decreased by 5%. Final value?
+147. A value 430 is increased by 10% and then decreased by 17%. Final value?
+148. A value 349 is increased by 11% and then decreased by 10%. Final value?
+149. A value 656 is increased by 26% and then decreased by 18%. Final value?
+150. A value 757 is increased by 17% and then decreased by 25%. Final value?
+
+151. A value 911 is increased by 26% and then decreased by 19%. Final value?
+152. A value 428 is increased by 26% and then decreased by 25%. Final value?
+153. A value 231 is increased by 22% and then decreased by 23%. Final value?
+154. A value 528 is increased by 30% and then decreased by 18%. Final value?
+155. A value 260 is increased by 19% and then decreased by 9%. Final value?
+156. A value 417 is increased by 11% and then decreased by 14%. Final value?
+157. A value 272 is increased by 12% and then decreased by 14%. Final value?
+158. A value 505 is increased by 15% and then decreased by 18%. Final value?
+159. A value 778 is increased by 18% and then decreased by 9%. Final value?
+160. A value 208 is increased by 27% and then decreased by 6%. Final value?
+161. A value 804 is increased by 16% and then decreased by 23%. Final value?
+162. A value 671 is increased by 15% and then decreased by 24%. Final value?
+163. A value 721 is increased by 11% and then decreased by 17%. Final value?
+164. A value 405 is increased by 21% and then decreased by 8%. Final value?
+165. A value 410 is increased by 28% and then decreased by 18%. Final value?
+166. A value 805 is increased by 16% and then decreased by 20%. Final value?
+167. A value 306 is increased by 22% and then decreased by 14%. Final value?
+168. A value 716 is increased by 25% and then decreased by 5%. Final value?
+169. A value 533 is increased by 29% and then decreased by 17%. Final value?
+170. A value 488 is increased by 10% and then decreased by 10%. Final value?
+171. A value 405 is increased by 20% and then decreased by 23%. Final value?
+172. A value 338 is increased by 20% and then decreased by 18%. Final value?
+173. A value 418 is increased by 18% and then decreased by 8%. Final value?
+174. A value 588 is increased by 27% and then decreased by 16%. Final value?
+175. A value 903 is increased by 27% and then decreased by 20%. Final value?
+176. A value 986 is increased by 27% and then decreased by 12%. Final value?
+177. A value 266 is increased by 11% and then decreased by 7%. Final value?
+178. A value 336 is increased by 15% and then decreased by 10%. Final value?
+179. A value 751 is increased by 16% and then decreased by 13%. Final value?
+180. A value 977 is increased by 20% and then decreased by 24%. Final value?
+181. A value 718 is increased by 18% and then decreased by 16%. Final value?
+182. A value 546 is increased by 20% and then decreased by 8%. Final value?
+183. A value 498 is increased by 17% and then decreased by 24%. Final value?
+184. A value 998 is increased by 25% and then decreased by 9%. Final value?
+185. A value 793 is increased by 27% and then decreased by 8%. Final value?
+186. A value 528 is increased by 11% and then decreased by 18%. Final value?
+187. A value 274 is increased by 22% and then decreased by 9%. Final value?
+188. A value 328 is increased by 20% and then decreased by 8%. Final value?
+
+189. A value 829 is increased by 28% and then decreased by 17%. Final value?
+190. A value 278 is increased by 28% and then decreased by 22%. Final value?
+191. A value 429 is increased by 28% and then decreased by 7%. Final value?
+192. A value 473 is increased by 21% and then decreased by 14%. Final value?
+193. A value 777 is increased by 27% and then decreased by 8%. Final value?
+194. A value 668 is increased by 18% and then decreased by 8%. Final value?
+195. A value 246 is increased by 19% and then decreased by 5%. Final value?
+196. A value 828 is increased by 10% and then decreased by 7%. Final value?
+197. A value 623 is increased by 13% and then decreased by 6%. Final value?
+198. A value 392 is increased by 17% and then decreased by 23%. Final value?
+199. A value 631 is increased by 15% and then decreased by 8%. Final value?
+200. A value 661 is increased by 15% and then decreased by 12%. Final value?
+
+Answers — SECTION A — Percentage (200
+Questions)
+1. 5
+2. 10
+3. 15
+4. 20
+5. 10
+6. 20
+7. 30
+8. 40
+9. 15
+10. 30
+11. 45
+12. 60
+13. 20
+14. 40
+15. 60
+16. 80
+17. 25
+18. 50
+19. 75
+20. 100
+21. 30
+22. 60
+23. 90
+24. 120
+25. 35
+26. 70
+27. 105
+28. 140
+29. 40
+30. 80
+31. 120
+32. 160
+33. 45
+34. 90
+35. 135
+36. 180
+37. 50
+38. 100
+39. 150
+40. 200
+
+41. 55
+42. 110
+43. 165
+44. 220
+45. 60
+46. 120
+47. 180
+48. 240
+49. 65
+50. 130
+51. 195
+52. 260
+53. 70
+54. 140
+55. 210
+56. 280
+57. 258
+58. 404
+59. 807
+60. 752
+61. 348
+62. 634
+63. 658
+64. 758
+65. 678
+66. 370
+67. 450
+68. 129
+69. 1063
+70. 140
+71. 423
+72. 178
+73. 434
+74. 849
+75. 429
+76. 399
+77. 701
+78. 159
+79. 742
+80. 356
+81. 280
+82. 807
+83. 724
+
+84. 504
+85. 953
+86. 802
+87. 752
+88. 709
+89. 672
+90. 904
+91. 665
+92. 1011
+93. 250
+94. 1067
+95. 241
+96. 822
+97. 651
+98. 175
+99. 178
+100. 947
+101. 876
+102. 372
+103. 348
+104. 422
+105. 786
+106. 704
+107. 574
+108. 695
+109. 1085
+110. 759
+111. 674
+112. 320
+113. 795
+114. 578
+115. 757
+116. 956
+117. 416
+118. 711
+119. 609
+120. 476
+121. 904
+122. 929
+123. 603
+124. 388
+125. 769
+126. 270
+127. 386
+
+128. 860
+129. 196
+130. 591
+131. 464
+132. 420
+133. 857
+134. 555
+135. 196
+136. 318
+137. 736
+138. 941
+139. 938
+140. 706
+141. 814
+142. 220
+143. 602
+144. 455
+145. 1061
+146. 957
+147. 392
+148. 348
+149. 677
+150. 663
+151. 929
+152. 404
+153. 216
+154. 562
+155. 281
+156. 397
+157. 261
+158. 475
+159. 835
+160. 248
+161. 717
+162. 585
+163. 664
+164. 450
+165. 429
+166. 746
+167. 320
+168. 850
+169. 570
+170. 482
+
+171. 374
+172. 332
+173. 453
+174. 626
+175. 916
+176. 1101
+177. 274
+178. 347
+179. 757
+180. 890
+181. 711
+182. 602
+183. 442
+184. 1134
+185. 926
+186. 480
+187. 303
+188. 361
+189. 880
+190. 276
+191. 510
+192. 491
+193. 907
+194. 724
+195. 277
+196. 846
+197. 660
+198. 352
+199. 667
+200. 668
+
+SECTION B — Discount (200 Questions)
+1. Marked price Rs. 200. Discount 10%. Selling price?
+2. Marked price Rs. 200. Discount 20%. Selling price?
+3. Marked price Rs. 200. Discount 25%. Selling price?
+4. Marked price Rs. 400. Discount 10%. Selling price?
+5. Marked price Rs. 400. Discount 20%. Selling price?
+6. Marked price Rs. 400. Discount 25%. Selling price?
+7. Marked price Rs. 600. Discount 10%. Selling price?
+8. Marked price Rs. 600. Discount 20%. Selling price?
+9. Marked price Rs. 600. Discount 25%. Selling price?
+10. Marked price Rs. 800. Discount 10%. Selling price?
+11. Marked price Rs. 800. Discount 20%. Selling price?
+12. Marked price Rs. 800. Discount 25%. Selling price?
+13. Marked price Rs. 1000. Discount 10%. Selling price?
+14. Marked price Rs. 1000. Discount 20%. Selling price?
+15. Marked price Rs. 1000. Discount 25%. Selling price?
+16. MP Rs. 1151. Successive discounts 20% and 5%. Final price?
+17. MP Rs. 2282. Successive discounts 15% and 10%. Final price?
+18. MP Rs. 2753. Successive discounts 15% and 10%. Final price?
+19. MP Rs. 1788. Successive discounts 10% and 5%. Final price?
+20. MP Rs. 1800. Successive discounts 10% and 5%. Final price?
+21. MP Rs. 543. Successive discounts 15% and 10%. Final price?
+22. MP Rs. 2342. Successive discounts 15% and 10%. Final price?
+23. MP Rs. 2132. Successive discounts 10% and 5%. Final price?
+24. MP Rs. 1799. Successive discounts 20% and 10%. Final price?
+25. MP Rs. 956. Successive discounts 15% and 5%. Final price?
+26. MP Rs. 2723. Successive discounts 20% and 10%. Final price?
+27. MP Rs. 1957. Successive discounts 15% and 5%. Final price?
+28. MP Rs. 2718. Successive discounts 10% and 10%. Final price?
+29. MP Rs. 1315. Successive discounts 10% and 10%. Final price?
+30. MP Rs. 833. Successive discounts 15% and 5%. Final price?
+31. MP Rs. 2334. Successive discounts 10% and 10%. Final price?
+32. MP Rs. 1431. Successive discounts 15% and 10%. Final price?
+33. MP Rs. 668. Successive discounts 15% and 5%. Final price?
+34. MP Rs. 1797. Successive discounts 20% and 10%. Final price?
+35. MP Rs. 1506. Successive discounts 15% and 5%. Final price?
+36. MP Rs. 2729. Successive discounts 20% and 5%. Final price?
+
+37. MP Rs. 1503. Successive discounts 10% and 5%. Final price?
+38. MP Rs. 1498. Successive discounts 15% and 5%. Final price?
+39. MP Rs. 1597. Successive discounts 20% and 5%. Final price?
+40. MP Rs. 807. Successive discounts 10% and 5%. Final price?
+41. MP Rs. 1691. Successive discounts 15% and 10%. Final price?
+42. MP Rs. 2420. Successive discounts 10% and 5%. Final price?
+43. MP Rs. 2553. Successive discounts 15% and 5%. Final price?
+44. MP Rs. 2585. Successive discounts 20% and 5%. Final price?
+45. MP Rs. 1235. Successive discounts 10% and 5%. Final price?
+46. MP Rs. 1809. Successive discounts 15% and 5%. Final price?
+47. MP Rs. 2606. Successive discounts 20% and 10%. Final price?
+48. MP Rs. 1017. Successive discounts 10% and 5%. Final price?
+49. MP Rs. 2734. Successive discounts 20% and 5%. Final price?
+50. MP Rs. 1794. Successive discounts 20% and 5%. Final price?
+51. MP Rs. 1229. Successive discounts 15% and 10%. Final price?
+52. MP Rs. 2701. Successive discounts 10% and 5%. Final price?
+53. MP Rs. 1512. Successive discounts 15% and 5%. Final price?
+54. MP Rs. 2329. Successive discounts 15% and 10%. Final price?
+55. MP Rs. 2717. Successive discounts 15% and 10%. Final price?
+56. MP Rs. 544. Successive discounts 15% and 10%. Final price?
+57. MP Rs. 1202. Successive discounts 15% and 10%. Final price?
+58. MP Rs. 599. Successive discounts 20% and 10%. Final price?
+59. MP Rs. 2837. Successive discounts 10% and 5%. Final price?
+60. MP Rs. 1953. Successive discounts 20% and 5%. Final price?
+61. MP Rs. 2931. Successive discounts 10% and 5%. Final price?
+62. MP Rs. 1561. Successive discounts 15% and 10%. Final price?
+63. MP Rs. 2810. Successive discounts 15% and 5%. Final price?
+64. MP Rs. 865. Successive discounts 10% and 10%. Final price?
+65. MP Rs. 530. Successive discounts 10% and 10%. Final price?
+66. MP Rs. 2551. Successive discounts 20% and 10%. Final price?
+67. MP Rs. 1424. Successive discounts 10% and 10%. Final price?
+68. MP Rs. 2527. Successive discounts 20% and 10%. Final price?
+69. MP Rs. 1421. Successive discounts 20% and 10%. Final price?
+70. MP Rs. 1880. Successive discounts 20% and 10%. Final price?
+71. MP Rs. 1398. Successive discounts 10% and 5%. Final price?
+72. MP Rs. 2595. Successive discounts 20% and 10%. Final price?
+73. MP Rs. 1153. Successive discounts 20% and 5%. Final price?
+74. MP Rs. 1777. Successive discounts 15% and 10%. Final price?
+
+75. MP Rs. 2762. Successive discounts 15% and 5%. Final price?
+76. MP Rs. 2403. Successive discounts 20% and 5%. Final price?
+77. MP Rs. 1004. Successive discounts 20% and 10%. Final price?
+78. MP Rs. 1222. Successive discounts 10% and 10%. Final price?
+79. MP Rs. 2247. Successive discounts 10% and 5%. Final price?
+80. MP Rs. 2527. Successive discounts 20% and 10%. Final price?
+81. MP Rs. 1925. Successive discounts 15% and 5%. Final price?
+82. MP Rs. 2729. Successive discounts 20% and 5%. Final price?
+83. MP Rs. 2647. Successive discounts 10% and 10%. Final price?
+84. MP Rs. 913. Successive discounts 15% and 5%. Final price?
+85. MP Rs. 1069. Successive discounts 20% and 5%. Final price?
+86. MP Rs. 2322. Successive discounts 10% and 10%. Final price?
+87. MP Rs. 2273. Successive discounts 15% and 5%. Final price?
+88. MP Rs. 1833. Successive discounts 15% and 5%. Final price?
+89. MP Rs. 2498. Successive discounts 10% and 5%. Final price?
+90. MP Rs. 2266. Successive discounts 20% and 10%. Final price?
+91. MP Rs. 983. Successive discounts 20% and 10%. Final price?
+92. MP Rs. 1637. Successive discounts 10% and 10%. Final price?
+93. MP Rs. 2791. Successive discounts 10% and 5%. Final price?
+94. MP Rs. 2664. Successive discounts 15% and 5%. Final price?
+95. MP Rs. 626. Successive discounts 20% and 5%. Final price?
+96. MP Rs. 1566. Successive discounts 10% and 5%. Final price?
+97. MP Rs. 1666. Successive discounts 10% and 5%. Final price?
+98. MP Rs. 1619. Successive discounts 15% and 10%. Final price?
+99. MP Rs. 2328. Successive discounts 10% and 10%. Final price?
+100. MP Rs. 2510. Successive discounts 15% and 5%. Final price?
+101. MP Rs. 1355. Successive discounts 20% and 10%. Final price?
+102. MP Rs. 1338. Successive discounts 15% and 5%. Final price?
+103. MP Rs. 598. Successive discounts 10% and 5%. Final price?
+104. MP Rs. 2733. Successive discounts 15% and 5%. Final price?
+105. MP Rs. 807. Successive discounts 20% and 10%. Final price?
+106. MP Rs. 2845. Successive discounts 15% and 10%. Final price?
+107. MP Rs. 2560. Successive discounts 20% and 10%. Final price?
+108. MP Rs. 2664. Successive discounts 15% and 5%. Final price?
+109. MP Rs. 1007. Successive discounts 15% and 10%. Final price?
+110. MP Rs. 1934. Successive discounts 15% and 10%. Final price?
+111. MP Rs. 1890. Successive discounts 20% and 10%. Final price?
+112. MP Rs. 963. Successive discounts 20% and 10%. Final price?
+
+113. MP Rs. 2066. Successive discounts 10% and 5%. Final price?
+114. MP Rs. 1637. Successive discounts 20% and 5%. Final price?
+115. MP Rs. 2390. Successive discounts 20% and 10%. Final price?
+116. MP Rs. 1750. Successive discounts 20% and 5%. Final price?
+117. MP Rs. 2340. Successive discounts 20% and 5%. Final price?
+118. MP Rs. 1972. Successive discounts 20% and 5%. Final price?
+119. MP Rs. 2094. Successive discounts 20% and 10%. Final price?
+120. MP Rs. 2159. Successive discounts 15% and 5%. Final price?
+121. MP Rs. 2518. Successive discounts 20% and 5%. Final price?
+122. MP Rs. 1691. Successive discounts 20% and 5%. Final price?
+123. MP Rs. 2167. Successive discounts 20% and 5%. Final price?
+124. MP Rs. 2127. Successive discounts 15% and 5%. Final price?
+125. MP Rs. 800. Successive discounts 20% and 5%. Final price?
+126. MP Rs. 1931. Successive discounts 15% and 10%. Final price?
+127. MP Rs. 2729. Successive discounts 15% and 5%. Final price?
+128. MP Rs. 2392. Successive discounts 15% and 10%. Final price?
+129. MP Rs. 1194. Successive discounts 15% and 5%. Final price?
+130. MP Rs. 1609. Successive discounts 20% and 5%. Final price?
+131. MP Rs. 2919. Successive discounts 15% and 5%. Final price?
+132. MP Rs. 1954. Successive discounts 10% and 10%. Final price?
+133. MP Rs. 580. Successive discounts 10% and 5%. Final price?
+134. MP Rs. 881. Successive discounts 15% and 10%. Final price?
+135. MP Rs. 2978. Successive discounts 15% and 5%. Final price?
+136. MP Rs. 2663. Successive discounts 10% and 5%. Final price?
+137. MP Rs. 1867. Successive discounts 15% and 5%. Final price?
+138. MP Rs. 806. Successive discounts 20% and 10%. Final price?
+139. MP Rs. 2416. Successive discounts 20% and 5%. Final price?
+140. MP Rs. 1190. Successive discounts 15% and 10%. Final price?
+141. CP Rs. 1128, MP Rs. 1565, discount 20%. Profit/Loss amount?
+142. CP Rs. 1549, MP Rs. 2158, discount 10%. Profit/Loss amount?
+143. CP Rs. 1390, MP Rs. 1855, discount 25%. Profit/Loss amount?
+144. CP Rs. 1075, MP Rs. 1502, discount 20%. Profit/Loss amount?
+145. CP Rs. 1649, MP Rs. 2099, discount 25%. Profit/Loss amount?
+146. CP Rs. 462, MP Rs. 1074, discount 20%. Profit/Loss amount?
+147. CP Rs. 1284, MP Rs. 1738, discount 20%. Profit/Loss amount?
+148. CP Rs. 788, MP Rs. 1062, discount 25%. Profit/Loss amount?
+149. CP Rs. 1899, MP Rs. 2268, discount 25%. Profit/Loss amount?
+150. CP Rs. 1308, MP Rs. 2103, discount 25%. Profit/Loss amount?
+
+151. CP Rs. 703, MP Rs. 1171, discount 20%. Profit/Loss amount?
+152. CP Rs. 1478, MP Rs. 1844, discount 10%. Profit/Loss amount?
+153. CP Rs. 1994, MP Rs. 2335, discount 25%. Profit/Loss amount?
+154. CP Rs. 1302, MP Rs. 1871, discount 20%. Profit/Loss amount?
+155. CP Rs. 1938, MP Rs. 2548, discount 10%. Profit/Loss amount?
+156. CP Rs. 637, MP Rs. 1048, discount 25%. Profit/Loss amount?
+157. CP Rs. 1795, MP Rs. 2307, discount 10%. Profit/Loss amount?
+158. CP Rs. 617, MP Rs. 1050, discount 20%. Profit/Loss amount?
+159. CP Rs. 1058, MP Rs. 1762, discount 10%. Profit/Loss amount?
+160. CP Rs. 782, MP Rs. 1028, discount 10%. Profit/Loss amount?
+161. CP Rs. 1623, MP Rs. 1846, discount 10%. Profit/Loss amount?
+162. CP Rs. 1799, MP Rs. 2034, discount 20%. Profit/Loss amount?
+163. CP Rs. 1841, MP Rs. 2582, discount 25%. Profit/Loss amount?
+164. CP Rs. 1655, MP Rs. 2307, discount 20%. Profit/Loss amount?
+165. CP Rs. 1757, MP Rs. 2238, discount 10%. Profit/Loss amount?
+166. CP Rs. 1655, MP Rs. 2031, discount 10%. Profit/Loss amount?
+167. CP Rs. 854, MP Rs. 1463, discount 10%. Profit/Loss amount?
+168. CP Rs. 1413, MP Rs. 2073, discount 20%. Profit/Loss amount?
+169. CP Rs. 1937, MP Rs. 2309, discount 10%. Profit/Loss amount?
+170. CP Rs. 882, MP Rs. 1372, discount 20%. Profit/Loss amount?
+171. CP Rs. 1520, MP Rs. 2313, discount 20%. Profit/Loss amount?
+172. CP Rs. 833, MP Rs. 1495, discount 25%. Profit/Loss amount?
+173. CP Rs. 928, MP Rs. 1466, discount 20%. Profit/Loss amount?
+174. CP Rs. 1615, MP Rs. 1928, discount 10%. Profit/Loss amount?
+175. CP Rs. 561, MP Rs. 808, discount 10%. Profit/Loss amount?
+176. CP Rs. 410, MP Rs. 1101, discount 20%. Profit/Loss amount?
+177. CP Rs. 1184, MP Rs. 1978, discount 20%. Profit/Loss amount?
+178. CP Rs. 801, MP Rs. 1410, discount 10%. Profit/Loss amount?
+179. CP Rs. 1953, MP Rs. 2308, discount 10%. Profit/Loss amount?
+180. CP Rs. 431, MP Rs. 1027, discount 10%. Profit/Loss amount?
+181. CP Rs. 1761, MP Rs. 2516, discount 10%. Profit/Loss amount?
+182. CP Rs. 1556, MP Rs. 2144, discount 20%. Profit/Loss amount?
+183. CP Rs. 666, MP Rs. 947, discount 20%. Profit/Loss amount?
+184. CP Rs. 1735, MP Rs. 2245, discount 10%. Profit/Loss amount?
+185. CP Rs. 472, MP Rs. 1221, discount 10%. Profit/Loss amount?
+186. CP Rs. 1475, MP Rs. 1807, discount 10%. Profit/Loss amount?
+187. CP Rs. 960, MP Rs. 1280, discount 20%. Profit/Loss amount?
+188. CP Rs. 586, MP Rs. 980, discount 10%. Profit/Loss amount?
+
+189. CP Rs. 1423, MP Rs. 1756, discount 25%. Profit/Loss amount?
+190. CP Rs. 971, MP Rs. 1367, discount 25%. Profit/Loss amount?
+191. CP Rs. 1316, MP Rs. 1915, discount 20%. Profit/Loss amount?
+192. CP Rs. 1692, MP Rs. 2166, discount 20%. Profit/Loss amount?
+193. CP Rs. 1714, MP Rs. 2162, discount 10%. Profit/Loss amount?
+194. CP Rs. 523, MP Rs. 902, discount 20%. Profit/Loss amount?
+195. CP Rs. 1277, MP Rs. 2050, discount 25%. Profit/Loss amount?
+196. CP Rs. 1469, MP Rs. 1731, discount 20%. Profit/Loss amount?
+197. CP Rs. 1520, MP Rs. 2142, discount 25%. Profit/Loss amount?
+198. CP Rs. 808, MP Rs. 1557, discount 20%. Profit/Loss amount?
+199. CP Rs. 1756, MP Rs. 2027, discount 25%. Profit/Loss amount?
+200. CP Rs. 947, MP Rs. 1221, discount 20%. Profit/Loss amount?
+
+Answers — SECTION B — Discount (200
+Questions)
+1. 180
+2. 160
+3. 150
+4. 360
+5. 320
+6. 300
+7. 540
+8. 480
+9. 450
+10. 720
+11. 640
+12. 600
+13. 900
+14. 800
+15. 750
+16. 874
+17. 1745
+18. 2106
+19. 1528
+20. 1539
+21. 414
+22. 1791
+23. 1822
+24. 1295
+25. 771
+26. 1960
+27. 1579
+28. 2201
+29. 1064
+30. 672
+31. 1890
+32. 1094
+33. 538
+34. 1293
+35. 1216
+36. 2073
+37. 1284
+38. 1209
+39. 1213
+40. 689
+
+41. 1293
+42. 2069
+43. 2061
+44. 1964
+45. 1055
+46. 1460
+47. 1875
+48. 869
+49. 2077
+50. 1363
+51. 939
+52. 2308
+53. 1220
+54. 1781
+55. 2078
+56. 415
+57. 918
+58. 431
+59. 2425
+60. 1483
+61. 2505
+62. 1193
+63. 2268
+64. 700
+65. 429
+66. 1836
+67. 1152
+68. 1818
+69. 1022
+70. 1353
+71. 1195
+72. 1868
+73. 875
+74. 1359
+75. 2229
+76. 1825
+77. 722
+78. 989
+79. 1920
+80. 1818
+81. 1554
+82. 2073
+83. 2143
+
+84. 737
+85. 812
+86. 1880
+87. 1835
+88. 1480
+89. 2135
+90. 1630
+91. 707
+92. 1325
+93. 2385
+94. 2150
+95. 475
+96. 1338
+97. 1424
+98. 1238
+99. 1885
+100. 2026
+101. 975
+102. 1080
+103. 511
+104. 2206
+105. 580
+106. 2176
+107. 1843
+108. 2150
+109. 769
+110. 1478
+111. 1360
+112. 693
+113. 1766
+114. 1243
+115. 1720
+116. 1330
+117. 1778
+118. 1498
+119. 1507
+120. 1743
+121. 1913
+122. 1284
+123. 1646
+124. 1716
+125. 608
+126. 1476
+127. 2203
+
+128. 1829
+129. 963
+130. 1222
+131. 2356
+132. 1582
+133. 495
+134. 673
+135. 2404
+136. 2276
+137. 1506
+138. 579
+139. 1835
+140. 909
+141. 124
+142. 393
+143. 1
+144. 126
+145. -75
+146. 397
+147. 106
+148. 8
+149. -198
+150. 269
+151. 233
+152. 181
+153. -243
+154. 194
+155. 355
+156. 149
+157. 281
+158. 223
+159. 527
+160. 143
+161. 38
+162. -172
+163. 95
+164. 190
+165. 257
+166. 172
+167. 462
+168. 245
+169. 141
+170. 215
+
+171. 330
+172. 288
+173. 244
+174. 120
+175. 166
+176. 470
+177. 398
+178. 468
+179. 124
+180. 493
+181. 503
+182. 159
+183. 91
+184. 285
+185. 626
+186. 151
+187. 64
+188. 296
+189. -106
+190. 54
+191. 216
+192. 40
+193. 231
+194. 198
+195. 260
+196. -85
+197. 86
+198. 437
+199. -236
+200. 29
+
+SECTION C — Time & Work (200 Questions)
+1. A can do work in 5 days, B in 10 days. Together? (2 decimals)
+2. A can do work in 6 days, B in 11 days. Together? (2 decimals)
+3. A can do work in 7 days, B in 12 days. Together? (2 decimals)
+4. A can do work in 8 days, B in 13 days. Together? (2 decimals)
+5. A can do work in 9 days, B in 14 days. Together? (2 decimals)
+6. A can do work in 10 days, B in 15 days. Together? (2 decimals)
+7. A can do work in 11 days, B in 16 days. Together? (2 decimals)
+8. A can do work in 12 days, B in 17 days. Together? (2 decimals)
+9. A can do work in 13 days, B in 18 days. Together? (2 decimals)
+10. A can do work in 14 days, B in 19 days. Together? (2 decimals)
+11. 10 workers finish work in 13 days. 14 workers will take how many days?
+12. 6 workers finish work in 16 days. 14 workers will take how many days?
+13. 6 workers finish work in 11 days. 9 workers will take how many days?
+14. 20 workers finish work in 26 days. 27 workers will take how many days?
+15. 8 workers finish work in 20 days. 10 workers will take how many days?
+16. 9 workers finish work in 27 days. 11 workers will take how many days?
+17. 19 workers finish work in 14 days. 27 workers will take how many days?
+18. 19 workers finish work in 10 days. 29 workers will take how many days?
+19. 13 workers finish work in 12 days. 19 workers will take how many days?
+20. 15 workers finish work in 12 days. 21 workers will take how many days?
+21. 6 workers finish work in 22 days. 8 workers will take how many days?
+22. 13 workers finish work in 20 days. 17 workers will take how many days?
+23. 13 workers finish work in 22 days. 16 workers will take how many days?
+24. 14 workers finish work in 13 days. 22 workers will take how many days?
+25. 12 workers finish work in 26 days. 22 workers will take how many days?
+26. 11 workers finish work in 20 days. 18 workers will take how many days?
+27. 17 workers finish work in 28 days. 26 workers will take how many days?
+28. 8 workers finish work in 14 days. 17 workers will take how many days?
+29. 5 workers finish work in 19 days. 9 workers will take how many days?
+30. 11 workers finish work in 21 days. 19 workers will take how many days?
+31. 15 workers finish work in 13 days. 23 workers will take how many days?
+32. 16 workers finish work in 14 days. 19 workers will take how many days?
+33. 6 workers finish work in 19 days. 16 workers will take how many days?
+34. 15 workers finish work in 23 days. 21 workers will take how many days?
+35. 15 workers finish work in 21 days. 21 workers will take how many days?
+36. 15 workers finish work in 26 days. 25 workers will take how many days?
+
+37. 5 workers finish work in 26 days. 8 workers will take how many days?
+38. 9 workers finish work in 20 days. 16 workers will take how many days?
+39. 15 workers finish work in 28 days. 18 workers will take how many days?
+40. 19 workers finish work in 18 days. 28 workers will take how many days?
+41. 19 workers finish work in 21 days. 27 workers will take how many days?
+42. 7 workers finish work in 28 days. 9 workers will take how many days?
+43. 9 workers finish work in 11 days. 19 workers will take how many days?
+44. 20 workers finish work in 28 days. 26 workers will take how many days?
+45. 12 workers finish work in 28 days. 19 workers will take how many days?
+46. 16 workers finish work in 30 days. 23 workers will take how many days?
+47. 17 workers finish work in 19 days. 26 workers will take how many days?
+48. 15 workers finish work in 27 days. 25 workers will take how many days?
+49. 10 workers finish work in 10 days. 14 workers will take how many days?
+50. 13 workers finish work in 17 days. 17 workers will take how many days?
+51. 8 workers finish work in 15 days. 16 workers will take how many days?
+52. 6 workers finish work in 13 days. 16 workers will take how many days?
+53. 13 workers finish work in 13 days. 18 workers will take how many days?
+54. 13 workers finish work in 12 days. 23 workers will take how many days?
+55. 7 workers finish work in 12 days. 12 workers will take how many days?
+56. 10 workers finish work in 26 days. 18 workers will take how many days?
+57. 5 workers finish work in 28 days. 12 workers will take how many days?
+58. 20 workers finish work in 19 days. 25 workers will take how many days?
+59. 11 workers finish work in 29 days. 20 workers will take how many days?
+60. 12 workers finish work in 23 days. 21 workers will take how many days?
+61. 16 workers finish work in 27 days. 21 workers will take how many days?
+62. 20 workers finish work in 12 days. 26 workers will take how many days?
+63. 18 workers finish work in 16 days. 20 workers will take how many days?
+64. 17 workers finish work in 26 days. 26 workers will take how many days?
+65. 7 workers finish work in 22 days. 17 workers will take how many days?
+66. 18 workers finish work in 11 days. 25 workers will take how many days?
+67. 19 workers finish work in 10 days. 24 workers will take how many days?
+68. 14 workers finish work in 30 days. 16 workers will take how many days?
+69. 8 workers finish work in 19 days. 18 workers will take how many days?
+70. 15 workers finish work in 27 days. 25 workers will take how many days?
+71. 14 workers finish work in 26 days. 22 workers will take how many days?
+72. 18 workers finish work in 29 days. 24 workers will take how many days?
+73. 19 workers finish work in 19 days. 23 workers will take how many days?
+74. 19 workers finish work in 28 days. 23 workers will take how many days?
+
+75. 10 workers finish work in 18 days. 12 workers will take how many days?
+76. 18 workers finish work in 28 days. 20 workers will take how many days?
+77. 16 workers finish work in 23 days. 24 workers will take how many days?
+78. 14 workers finish work in 10 days. 17 workers will take how many days?
+79. 7 workers finish work in 10 days. 15 workers will take how many days?
+80. 13 workers finish work in 24 days. 19 workers will take how many days?
+81. 16 workers finish work in 30 days. 25 workers will take how many days?
+82. 15 workers finish work in 22 days. 24 workers will take how many days?
+83. 8 workers finish work in 25 days. 15 workers will take how many days?
+84. 9 workers finish work in 23 days. 13 workers will take how many days?
+85. 5 workers finish work in 15 days. 11 workers will take how many days?
+86. 16 workers finish work in 14 days. 22 workers will take how many days?
+87. 18 workers finish work in 18 days. 28 workers will take how many days?
+88. 14 workers finish work in 23 days. 20 workers will take how many days?
+89. 18 workers finish work in 20 days. 27 workers will take how many days?
+90. 11 workers finish work in 25 days. 19 workers will take how many days?
+91. 18 workers finish work in 12 days. 21 workers will take how many days?
+92. 9 workers finish work in 16 days. 13 workers will take how many days?
+93. 12 workers finish work in 10 days. 15 workers will take how many days?
+94. 13 workers finish work in 14 days. 22 workers will take how many days?
+95. 8 workers finish work in 22 days. 12 workers will take how many days?
+96. 5 workers finish work in 12 days. 13 workers will take how many days?
+97. 6 workers finish work in 27 days. 11 workers will take how many days?
+98. 18 workers finish work in 21 days. 20 workers will take how many days?
+99. 8 workers finish work in 27 days. 16 workers will take how many days?
+100. 8 workers finish work in 18 days. 14 workers will take how many days?
+101. 10 workers finish work in 25 days. 12 workers will take how many days?
+102. 11 workers finish work in 30 days. 14 workers will take how many days?
+103. 17 workers finish work in 13 days. 26 workers will take how many days?
+104. 14 workers finish work in 26 days. 23 workers will take how many days?
+105. 17 workers finish work in 13 days. 26 workers will take how many days?
+106. 8 workers finish work in 14 days. 16 workers will take how many days?
+107. 11 workers finish work in 15 days. 21 workers will take how many days?
+108. 13 workers finish work in 23 days. 23 workers will take how many days?
+109. 14 workers finish work in 25 days. 24 workers will take how many days?
+110. 11 workers finish work in 29 days. 18 workers will take how many days?
+111. 20 workers finish work in 13 days. 22 workers will take how many days?
+112. 16 workers finish work in 18 days. 18 workers will take how many days?
+
+113. 19 workers finish work in 19 days. 22 workers will take how many days?
+114. 12 workers finish work in 26 days. 18 workers will take how many days?
+115. 13 workers finish work in 17 days. 21 workers will take how many days?
+116. 9 workers finish work in 14 days. 15 workers will take how many days?
+117. 11 workers finish work in 23 days. 21 workers will take how many days?
+118. 6 workers finish work in 27 days. 16 workers will take how many days?
+119. 9 workers finish work in 23 days. 15 workers will take how many days?
+120. 13 workers finish work in 25 days. 19 workers will take how many days?
+121. 13 workers finish work in 25 days. 18 workers will take how many days?
+122. 20 workers finish work in 21 days. 29 workers will take how many days?
+123. 12 workers finish work in 20 days. 16 workers will take how many days?
+124. 10 workers finish work in 28 days. 19 workers will take how many days?
+125. 9 workers finish work in 11 days. 19 workers will take how many days?
+126. 15 workers finish work in 26 days. 19 workers will take how many days?
+127. 11 workers finish work in 20 days. 20 workers will take how many days?
+128. 20 workers finish work in 20 days. 23 workers will take how many days?
+129. 9 workers finish work in 14 days. 15 workers will take how many days?
+130. 12 workers finish work in 12 days. 22 workers will take how many days?
+131. 6 workers finish work in 28 days. 10 workers will take how many days?
+132. 8 workers finish work in 17 days. 13 workers will take how many days?
+133. 14 workers finish work in 23 days. 21 workers will take how many days?
+134. 5 workers finish work in 10 days. 11 workers will take how many days?
+135. 12 workers finish work in 12 days. 17 workers will take how many days?
+136. 13 workers finish work in 30 days. 20 workers will take how many days?
+137. 13 workers finish work in 29 days. 23 workers will take how many days?
+138. 17 workers finish work in 10 days. 20 workers will take how many days?
+139. 15 workers finish work in 21 days. 19 workers will take how many days?
+140. 8 workers finish work in 18 days. 12 workers will take how many days?
+141. Pipe fills tank in 16 hrs, waste empties in 27 hrs. Both open. Time to fill?
+142. Pipe fills tank in 11 hrs, waste empties in 29 hrs. Both open. Time to fill?
+143. Pipe fills tank in 7 hrs, waste empties in 31 hrs. Both open. Time to fill?
+144. Pipe fills tank in 10 hrs, waste empties in 45 hrs. Both open. Time to fill?
+145. Pipe fills tank in 9 hrs, waste empties in 42 hrs. Both open. Time to fill?
+146. Pipe fills tank in 14 hrs, waste empties in 28 hrs. Both open. Time to fill?
+147. Pipe fills tank in 11 hrs, waste empties in 26 hrs. Both open. Time to fill?
+148. Pipe fills tank in 7 hrs, waste empties in 33 hrs. Both open. Time to fill?
+149. Pipe fills tank in 20 hrs, waste empties in 50 hrs. Both open. Time to fill?
+150. Pipe fills tank in 11 hrs, waste empties in 40 hrs. Both open. Time to fill?
+
+151. Pipe fills tank in 7 hrs, waste empties in 46 hrs. Both open. Time to fill?
+152. Pipe fills tank in 10 hrs, waste empties in 25 hrs. Both open. Time to fill?
+153. Pipe fills tank in 14 hrs, waste empties in 45 hrs. Both open. Time to fill?
+154. Pipe fills tank in 7 hrs, waste empties in 47 hrs. Both open. Time to fill?
+155. Pipe fills tank in 20 hrs, waste empties in 33 hrs. Both open. Time to fill?
+156. Pipe fills tank in 15 hrs, waste empties in 42 hrs. Both open. Time to fill?
+157. Pipe fills tank in 12 hrs, waste empties in 30 hrs. Both open. Time to fill?
+158. Pipe fills tank in 16 hrs, waste empties in 58 hrs. Both open. Time to fill?
+159. Pipe fills tank in 13 hrs, waste empties in 51 hrs. Both open. Time to fill?
+160. Pipe fills tank in 14 hrs, waste empties in 50 hrs. Both open. Time to fill?
+161. Pipe fills tank in 10 hrs, waste empties in 39 hrs. Both open. Time to fill?
+162. Pipe fills tank in 16 hrs, waste empties in 44 hrs. Both open. Time to fill?
+163. Pipe fills tank in 14 hrs, waste empties in 33 hrs. Both open. Time to fill?
+164. Pipe fills tank in 6 hrs, waste empties in 57 hrs. Both open. Time to fill?
+165. Pipe fills tank in 7 hrs, waste empties in 36 hrs. Both open. Time to fill?
+166. Pipe fills tank in 9 hrs, waste empties in 38 hrs. Both open. Time to fill?
+167. Pipe fills tank in 20 hrs, waste empties in 52 hrs. Both open. Time to fill?
+168. Pipe fills tank in 10 hrs, waste empties in 59 hrs. Both open. Time to fill?
+169. Pipe fills tank in 6 hrs, waste empties in 41 hrs. Both open. Time to fill?
+170. Pipe fills tank in 14 hrs, waste empties in 42 hrs. Both open. Time to fill?
+171. Pipe fills tank in 14 hrs, waste empties in 41 hrs. Both open. Time to fill?
+172. Pipe fills tank in 13 hrs, waste empties in 33 hrs. Both open. Time to fill?
+173. Pipe fills tank in 12 hrs, waste empties in 31 hrs. Both open. Time to fill?
+174. Pipe fills tank in 17 hrs, waste empties in 48 hrs. Both open. Time to fill?
+175. Pipe fills tank in 7 hrs, waste empties in 59 hrs. Both open. Time to fill?
+176. Pipe fills tank in 11 hrs, waste empties in 59 hrs. Both open. Time to fill?
+177. Pipe fills tank in 14 hrs, waste empties in 57 hrs. Both open. Time to fill?
+178. Pipe fills tank in 16 hrs, waste empties in 26 hrs. Both open. Time to fill?
+179. Pipe fills tank in 15 hrs, waste empties in 44 hrs. Both open. Time to fill?
+180. Pipe fills tank in 13 hrs, waste empties in 33 hrs. Both open. Time to fill?
+181. Pipe fills tank in 8 hrs, waste empties in 29 hrs. Both open. Time to fill?
+182. Pipe fills tank in 20 hrs, waste empties in 34 hrs. Both open. Time to fill?
+183. Pipe fills tank in 16 hrs, waste empties in 38 hrs. Both open. Time to fill?
+184. Pipe fills tank in 13 hrs, waste empties in 46 hrs. Both open. Time to fill?
+185. Pipe fills tank in 11 hrs, waste empties in 43 hrs. Both open. Time to fill?
+186. Pipe fills tank in 8 hrs, waste empties in 34 hrs. Both open. Time to fill?
+187. Pipe fills tank in 19 hrs, waste empties in 49 hrs. Both open. Time to fill?
+188. Pipe fills tank in 19 hrs, waste empties in 53 hrs. Both open. Time to fill?
+
+189. Pipe fills tank in 12 hrs, waste empties in 32 hrs. Both open. Time to fill?
+190. Pipe fills tank in 15 hrs, waste empties in 34 hrs. Both open. Time to fill?
+191. Pipe fills tank in 10 hrs, waste empties in 43 hrs. Both open. Time to fill?
+192. Pipe fills tank in 16 hrs, waste empties in 25 hrs. Both open. Time to fill?
+193. Pipe fills tank in 14 hrs, waste empties in 25 hrs. Both open. Time to fill?
+194. Pipe fills tank in 20 hrs, waste empties in 33 hrs. Both open. Time to fill?
+195. Pipe fills tank in 12 hrs, waste empties in 60 hrs. Both open. Time to fill?
+196. Pipe fills tank in 20 hrs, waste empties in 31 hrs. Both open. Time to fill?
+197. Pipe fills tank in 13 hrs, waste empties in 26 hrs. Both open. Time to fill?
+198. Pipe fills tank in 18 hrs, waste empties in 52 hrs. Both open. Time to fill?
+199. Pipe fills tank in 15 hrs, waste empties in 52 hrs. Both open. Time to fill?
+200. Pipe fills tank in 10 hrs, waste empties in 48 hrs. Both open. Time to fill?
+
+Answers — SECTION C — Time & Work (200
+Questions)
+1. 3.33
+2. 3.88
+3. 4.42
+4. 4.95
+5. 5.48
+6. 6.0
+7. 6.52
+8. 7.03
+9. 7.55
+10. 8.06
+11. 9.29
+12. 6.86
+13. 7.33
+14. 19.26
+15. 16.0
+16. 22.09
+17. 9.85
+18. 6.55
+19. 8.21
+20. 8.57
+21. 16.5
+22. 15.29
+23. 17.88
+24. 8.27
+25. 14.18
+26. 12.22
+27. 18.31
+28. 6.59
+29. 10.56
+30. 12.16
+31. 8.48
+32. 11.79
+33. 7.12
+34. 16.43
+35. 15.0
+36. 15.6
+37. 16.25
+38. 11.25
+39. 23.33
+40. 12.21
+
+41. 14.78
+42. 21.78
+43. 5.21
+44. 21.54
+45. 17.68
+46. 20.87
+47. 12.42
+48. 16.2
+49. 7.14
+50. 13.0
+51. 7.5
+52. 4.88
+53. 9.39
+54. 6.78
+55. 7.0
+56. 14.44
+57. 11.67
+58. 15.2
+59. 15.95
+60. 13.14
+61. 20.57
+62. 9.23
+63. 14.4
+64. 17.0
+65. 9.06
+66. 7.92
+67. 7.92
+68. 26.25
+69. 8.44
+70. 16.2
+71. 16.55
+72. 21.75
+73. 15.7
+74. 23.13
+75. 15.0
+76. 25.2
+77. 15.33
+78. 8.24
+79. 4.67
+80. 16.42
+81. 19.2
+82. 13.75
+83. 13.33
+
+84. 15.92
+85. 6.82
+86. 10.18
+87. 11.57
+88. 16.1
+89. 13.33
+90. 14.47
+91. 10.29
+92. 11.08
+93. 8.0
+94. 8.27
+95. 14.67
+96. 4.62
+97. 14.73
+98. 18.9
+99. 13.5
+100. 10.29
+101. 20.83
+102. 23.57
+103. 8.5
+104. 15.83
+105. 8.5
+106. 7.0
+107. 7.86
+108. 13.0
+109. 14.58
+110. 17.72
+111. 11.82
+112. 16.0
+113. 16.41
+114. 17.33
+115. 10.52
+116. 8.4
+117. 12.05
+118. 10.12
+119. 13.8
+120. 17.11
+121. 18.06
+122. 14.48
+123. 15.0
+124. 14.74
+125. 5.21
+126. 20.53
+127. 11.0
+
+128. 17.39
+129. 8.4
+130. 6.55
+131. 16.8
+132. 10.46
+133. 15.33
+134. 4.55
+135. 8.47
+136. 19.5
+137. 16.39
+138. 8.5
+139. 16.58
+140. 12.0
+141. 39.27
+142. 17.72
+143. 9.04
+144. 12.86
+145. 11.45
+146. 28.0
+147. 19.07
+148. 8.88
+149. 33.33
+150. 15.17
+151. 8.26
+152. 16.67
+153. 20.32
+154. 8.23
+155. 50.77
+156. 23.33
+157. 20.0
+158. 22.1
+159. 17.45
+160. 19.44
+161. 13.45
+162. 25.14
+163. 24.32
+164. 6.71
+165. 8.69
+166. 11.79
+167. 32.5
+168. 12.04
+169. 7.03
+170. 21.0
+
+171. 21.26
+172. 21.45
+173. 19.58
+174. 26.32
+175. 7.94
+176. 13.52
+177. 18.56
+178. 41.6
+179. 22.76
+180. 21.45
+181. 11.05
+182. 48.57
+183. 27.64
+184. 18.12
+185. 14.78
+186. 10.46
+187. 31.03
+188. 29.62
+189. 19.2
+190. 26.84
+191. 13.03
+192. 44.44
+193. 31.82
+194. 50.77
+195. 15.0
+196. 56.36
+197. 26.0
+198. 27.53
+199. 21.08
+200. 12.63
+
+SECTION D — Train Problems (200 Questions)
+1. Train 100 m crosses pole in 6.0 sec. Speed km/h?
+2. Train 150 m crosses pole in 9.0 sec. Speed km/h?
+3. Train 200 m crosses pole in 12.0 sec. Speed km/h?
+4. Train 250 m crosses pole in 15.0 sec. Speed km/h?
+5. Train 300 m crosses pole in 18.0 sec. Speed km/h?
+6. Train 350 m crosses pole in 21.0 sec. Speed km/h?
+7. Train 204 m crosses 407 m platform in 25.0 sec. Speed?
+8. Train 218 m crosses 227 m platform in 28.61 sec. Speed?
+9. Train 220 m crosses 598 m platform in 56.63 sec. Speed?
+10. Train 265 m crosses 560 m platform in 59.4 sec. Speed?
+11. Train 110 m crosses 256 m platform in 15.14 sec. Speed?
+12. Train 135 m crosses 471 m platform in 26.6 sec. Speed?
+13. Train 295 m crosses 382 m platform in 28.67 sec. Speed?
+14. Train 169 m crosses 600 m platform in 32.19 sec. Speed?
+15. Train 267 m crosses 382 m platform in 29.21 sec. Speed?
+16. Train 278 m crosses 325 m platform in 24.39 sec. Speed?
+17. Train 161 m crosses 254 m platform in 17.58 sec. Speed?
+18. Train 191 m crosses 281 m platform in 29.81 sec. Speed?
+19. Train 298 m crosses 220 m platform in 26.64 sec. Speed?
+20. Train 208 m crosses 572 m platform in 39.0 sec. Speed?
+21. Train 164 m crosses 536 m platform in 28.0 sec. Speed?
+22. Train 297 m crosses 228 m platform in 21.24 sec. Speed?
+23. Train 211 m crosses 412 m platform in 30.31 sec. Speed?
+24. Train 191 m crosses 350 m platform in 27.43 sec. Speed?
+25. Train 212 m crosses 558 m platform in 42.65 sec. Speed?
+26. Train 262 m crosses 512 m platform in 33.57 sec. Speed?
+27. Train 136 m crosses 228 m platform in 18.46 sec. Speed?
+28. Train 272 m crosses 258 m platform in 23.27 sec. Speed?
+29. Train 144 m crosses 478 m platform in 24.88 sec. Speed?
+30. Train 224 m crosses 374 m platform in 37.77 sec. Speed?
+31. Train 249 m crosses 211 m platform in 20.7 sec. Speed?
+32. Train 153 m crosses 396 m platform in 21.96 sec. Speed?
+33. Train 144 m crosses 403 m platform in 30.77 sec. Speed?
+34. Train 125 m crosses 327 m platform in 22.92 sec. Speed?
+35. Train 184 m crosses 536 m platform in 39.88 sec. Speed?
+36. Train 300 m crosses 546 m platform in 38.55 sec. Speed?
+
+37. Train 290 m crosses 441 m platform in 36.05 sec. Speed?
+38. Train 226 m crosses 533 m platform in 44.07 sec. Speed?
+39. Train 210 m crosses 425 m platform in 30.48 sec. Speed?
+40. Train 238 m crosses 261 m platform in 20.89 sec. Speed?
+41. Train 224 m crosses 336 m platform in 34.76 sec. Speed?
+42. Train 138 m crosses 206 m platform in 16.74 sec. Speed?
+43. Train 206 m crosses 255 m platform in 32.54 sec. Speed?
+44. Train 267 m crosses 238 m platform in 29.8 sec. Speed?
+45. Train 217 m crosses 592 m platform in 39.36 sec. Speed?
+46. Train 270 m crosses 457 m platform in 38.49 sec. Speed?
+47. Train 139 m crosses 278 m platform in 18.09 sec. Speed?
+48. Train 127 m crosses 330 m platform in 32.26 sec. Speed?
+49. Train 218 m crosses 403 m platform in 24.84 sec. Speed?
+50. Train 280 m crosses 576 m platform in 48.15 sec. Speed?
+51. Train 237 m crosses 556 m platform in 38.06 sec. Speed?
+52. Train 101 m crosses 478 m platform in 32.07 sec. Speed?
+53. Train 208 m crosses 281 m platform in 28.86 sec. Speed?
+54. Train 187 m crosses 539 m platform in 40.21 sec. Speed?
+55. Train 119 m crosses 596 m platform in 30.64 sec. Speed?
+56. Train 242 m crosses 282 m platform in 30.92 sec. Speed?
+57. Train 196 m crosses 499 m platform in 49.06 sec. Speed?
+58. Train 231 m crosses 311 m platform in 25.34 sec. Speed?
+59. Train 160 m crosses 220 m platform in 16.48 sec. Speed?
+60. Train 285 m crosses 297 m platform in 25.55 sec. Speed?
+61. Train 276 m crosses 513 m platform in 33.81 sec. Speed?
+62. Train 119 m crosses 326 m platform in 21.36 sec. Speed?
+63. Train 299 m crosses 438 m platform in 46.55 sec. Speed?
+64. Train 245 m crosses 529 m platform in 52.57 sec. Speed?
+65. Train 199 m crosses 245 m platform in 18.8 sec. Speed?
+66. Train 124 m crosses 528 m platform in 29.34 sec. Speed?
+67. Train 111 m crosses 465 m platform in 31.9 sec. Speed?
+68. Train 299 m crosses 206 m platform in 35.65 sec. Speed?
+69. Train 179 m crosses 438 m platform in 33.15 sec. Speed?
+70. Train 285 m crosses 412 m platform in 41.82 sec. Speed?
+71. Train 252 m crosses 268 m platform in 22.02 sec. Speed?
+72. Train 281 m crosses 362 m platform in 27.56 sec. Speed?
+73. Train 262 m crosses 429 m platform in 30.34 sec. Speed?
+74. Train 206 m crosses 483 m platform in 41.34 sec. Speed?
+
+75. Train 278 m crosses 402 m platform in 33.08 sec. Speed?
+76. Train 151 m crosses 453 m platform in 32.45 sec. Speed?
+77. Train 192 m crosses 277 m platform in 25.58 sec. Speed?
+78. Train 245 m crosses 343 m platform in 34.7 sec. Speed?
+79. Train 299 m crosses 569 m platform in 35.11 sec. Speed?
+80. Train 121 m crosses 574 m platform in 34.27 sec. Speed?
+81. Train 186 m crosses 273 m platform in 25.04 sec. Speed?
+82. Train 165 m crosses 329 m platform in 24.7 sec. Speed?
+83. Train 198 m crosses 342 m platform in 22.6 sec. Speed?
+84. Train 219 m crosses 206 m platform in 25.93 sec. Speed?
+85. Train 133 m crosses 329 m platform in 25.99 sec. Speed?
+86. Train 150 m crosses 236 m platform in 15.97 sec. Speed?
+87. Train 237 m crosses 516 m platform in 43.72 sec. Speed?
+88. Train 239 m crosses 419 m platform in 36.44 sec. Speed?
+89. Train 247 m crosses 271 m platform in 21.94 sec. Speed?
+90. Train 217 m crosses 400 m platform in 35.83 sec. Speed?
+91. Train 121 m crosses 520 m platform in 42.73 sec. Speed?
+92. Train 139 m crosses 541 m platform in 46.19 sec. Speed?
+93. Train 107 m crosses 582 m platform in 33.07 sec. Speed?
+94. Train 197 m crosses 413 m platform in 37.86 sec. Speed?
+95. Train 251 m crosses 505 m platform in 46.92 sec. Speed?
+96. Train 272 m crosses 475 m platform in 32.01 sec. Speed?
+97. Train 118 m crosses 323 m platform in 21.45 sec. Speed?
+98. Train 135 m crosses 346 m platform in 27.93 sec. Speed?
+99. Train 269 m crosses 568 m platform in 40.18 sec. Speed?
+100. Train 191 m crosses 583 m platform in 45.68 sec. Speed?
+101. Train 157 m crosses 352 m platform in 31.06 sec. Speed?
+102. Train 189 m crosses 451 m platform in 27.43 sec. Speed?
+103. Train 174 m crosses 245 m platform in 18.4 sec. Speed?
+104. Train 176 m crosses 306 m platform in 21.96 sec. Speed?
+105. Train 105 m crosses 348 m platform in 18.32 sec. Speed?
+106. Train 251 m crosses 252 m platform in 20.35 sec. Speed?
+107. Train 195 m crosses 586 m platform in 36.05 sec. Speed?
+108. Train 165 m crosses 516 m platform in 46.26 sec. Speed?
+109. Train 113 m crosses 600 m platform in 36.67 sec. Speed?
+110. Train 140 m crosses 267 m platform in 16.28 sec. Speed?
+111. Train 126 m crosses 257 m platform in 17.91 sec. Speed?
+112. Train 262 m crosses 500 m platform in 42.2 sec. Speed?
+
+113. Train 290 m crosses 306 m platform in 26.17 sec. Speed?
+114. Train 229 m crosses 403 m platform in 39.92 sec. Speed?
+115. Train 281 m crosses 308 m platform in 28.65 sec. Speed?
+116. Train 269 m crosses 464 m platform in 45.5 sec. Speed?
+117. Train 283 m crosses 496 m platform in 42.49 sec. Speed?
+118. Train 285 m crosses 201 m platform in 30.69 sec. Speed?
+119. Train 151 m crosses 590 m platform in 31.02 sec. Speed?
+120. Train 196 m crosses 539 m platform in 33.08 sec. Speed?
+121. Train 239 m crosses 514 m platform in 42.36 sec. Speed?
+122. Train 168 m crosses 219 m platform in 15.48 sec. Speed?
+123. Train 142 m crosses 543 m platform in 29.01 sec. Speed?
+124. Train 228 m crosses 319 m platform in 25.91 sec. Speed?
+125. Train 170 m crosses 593 m platform in 36.14 sec. Speed?
+126. Train 202 m crosses 339 m platform in 24.04 sec. Speed?
+127. Train 125 m crosses 542 m platform in 41.4 sec. Speed?
+128. Train 147 m crosses 486 m platform in 44.68 sec. Speed?
+129. Train 216 m crosses 585 m platform in 55.45 sec. Speed?
+130. Train 225 m crosses 309 m platform in 25.63 sec. Speed?
+131. Train 286 m crosses 475 m platform in 38.59 sec. Speed?
+132. Train 162 m crosses 248 m platform in 27.33 sec. Speed?
+133. Train 273 m crosses 582 m platform in 59.19 sec. Speed?
+134. Train 208 m crosses 426 m platform in 36.81 sec. Speed?
+135. Train 144 m crosses 504 m platform in 28.45 sec. Speed?
+136. Train 148 m crosses 460 m platform in 29.58 sec. Speed?
+137. Train 233 m crosses 384 m platform in 35.83 sec. Speed?
+138. Train 159 m crosses 384 m platform in 22.47 sec. Speed?
+139. Train 293 m crosses 597 m platform in 59.33 sec. Speed?
+140. Train 187 m crosses 226 m platform in 18.82 sec. Speed?
+141. Two trains 111 m & 256 m opposite at 61 km/h & 49 km/h. Crossing time?
+142. Two trains 173 m & 220 m opposite at 52 km/h & 77 km/h. Crossing time?
+143. Two trains 228 m & 116 m opposite at 86 km/h & 65 km/h. Crossing time?
+144. Two trains 123 m & 202 m opposite at 100 km/h & 72 km/h. Crossing time?
+145. Two trains 246 m & 265 m opposite at 69 km/h & 65 km/h. Crossing time?
+146. Two trains 168 m & 190 m opposite at 80 km/h & 43 km/h. Crossing time?
+147. Two trains 241 m & 222 m opposite at 51 km/h & 67 km/h. Crossing time?
+148. Two trains 177 m & 250 m opposite at 97 km/h & 60 km/h. Crossing time?
+149. Two trains 138 m & 252 m opposite at 87 km/h & 75 km/h. Crossing time?
+150. Two trains 171 m & 116 m opposite at 88 km/h & 90 km/h. Crossing time?
+
+151. Two trains 298 m & 192 m opposite at 76 km/h & 65 km/h. Crossing time?
+152. Two trains 233 m & 106 m opposite at 86 km/h & 77 km/h. Crossing time?
+153. Two trains 129 m & 109 m opposite at 86 km/h & 73 km/h. Crossing time?
+154. Two trains 103 m & 125 m opposite at 71 km/h & 61 km/h. Crossing time?
+155. Two trains 194 m & 292 m opposite at 85 km/h & 42 km/h. Crossing time?
+156. Two trains 263 m & 194 m opposite at 87 km/h & 44 km/h. Crossing time?
+157. Two trains 224 m & 262 m opposite at 55 km/h & 74 km/h. Crossing time?
+158. Two trains 214 m & 185 m opposite at 82 km/h & 74 km/h. Crossing time?
+159. Two trains 100 m & 141 m opposite at 70 km/h & 63 km/h. Crossing time?
+160. Two trains 154 m & 137 m opposite at 87 km/h & 49 km/h. Crossing time?
+161. Two trains 250 m & 127 m opposite at 75 km/h & 60 km/h. Crossing time?
+162. Two trains 230 m & 207 m opposite at 73 km/h & 61 km/h. Crossing time?
+163. Two trains 166 m & 255 m opposite at 73 km/h & 42 km/h. Crossing time?
+164. Two trains 282 m & 116 m opposite at 99 km/h & 80 km/h. Crossing time?
+165. Two trains 163 m & 167 m opposite at 98 km/h & 65 km/h. Crossing time?
+166. Two trains 240 m & 172 m opposite at 86 km/h & 90 km/h. Crossing time?
+167. Two trains 258 m & 121 m opposite at 54 km/h & 85 km/h. Crossing time?
+168. Two trains 143 m & 168 m opposite at 76 km/h & 45 km/h. Crossing time?
+169. Two trains 132 m & 172 m opposite at 85 km/h & 86 km/h. Crossing time?
+170. Two trains 264 m & 167 m opposite at 65 km/h & 53 km/h. Crossing time?
+171. Two trains 125 m & 170 m opposite at 96 km/h & 70 km/h. Crossing time?
+172. Two trains 112 m & 288 m opposite at 82 km/h & 59 km/h. Crossing time?
+173. Two trains 152 m & 239 m opposite at 54 km/h & 75 km/h. Crossing time?
+174. Two trains 180 m & 186 m opposite at 68 km/h & 73 km/h. Crossing time?
+175. Two trains 134 m & 109 m opposite at 78 km/h & 63 km/h. Crossing time?
+176. Two trains 291 m & 109 m opposite at 51 km/h & 60 km/h. Crossing time?
+177. Two trains 206 m & 291 m opposite at 60 km/h & 75 km/h. Crossing time?
+178. Two trains 110 m & 280 m opposite at 87 km/h & 84 km/h. Crossing time?
+179. Two trains 269 m & 261 m opposite at 83 km/h & 67 km/h. Crossing time?
+180. Two trains 147 m & 150 m opposite at 64 km/h & 47 km/h. Crossing time?
+181. Two trains 250 m & 133 m opposite at 87 km/h & 72 km/h. Crossing time?
+182. Two trains 131 m & 284 m opposite at 67 km/h & 69 km/h. Crossing time?
+183. Two trains 150 m & 300 m opposite at 53 km/h & 63 km/h. Crossing time?
+184. Two trains 216 m & 185 m opposite at 89 km/h & 86 km/h. Crossing time?
+185. Two trains 190 m & 156 m opposite at 90 km/h & 40 km/h. Crossing time?
+186. Two trains 103 m & 225 m opposite at 52 km/h & 50 km/h. Crossing time?
+187. Two trains 164 m & 241 m opposite at 52 km/h & 40 km/h. Crossing time?
+188. Two trains 158 m & 295 m opposite at 55 km/h & 73 km/h. Crossing time?
+
+189. Two trains 144 m & 108 m opposite at 83 km/h & 52 km/h. Crossing time?
+190. Two trains 153 m & 213 m opposite at 68 km/h & 55 km/h. Crossing time?
+191. Two trains 225 m & 229 m opposite at 73 km/h & 60 km/h. Crossing time?
+192. Two trains 200 m & 267 m opposite at 54 km/h & 52 km/h. Crossing time?
+193. Two trains 252 m & 146 m opposite at 62 km/h & 83 km/h. Crossing time?
+194. Two trains 259 m & 176 m opposite at 87 km/h & 67 km/h. Crossing time?
+195. Two trains 257 m & 221 m opposite at 73 km/h & 41 km/h. Crossing time?
+196. Two trains 224 m & 105 m opposite at 56 km/h & 82 km/h. Crossing time?
+197. Two trains 260 m & 247 m opposite at 92 km/h & 79 km/h. Crossing time?
+198. Two trains 210 m & 281 m opposite at 87 km/h & 61 km/h. Crossing time?
+199. Two trains 186 m & 118 m opposite at 91 km/h & 66 km/h. Crossing time?
+200. Two trains 149 m & 279 m opposite at 82 km/h & 71 km/h. Crossing time?
+
+Answers — SECTION D — Train Problems (200
+Questions)
+1. 60
+2. 60
+3. 60
+4. 60
+5. 60
+6. 60
+7. 88
+8. 56
+9. 52
+10. 50
+11. 87
+12. 82
+13. 85
+14. 86
+15. 80
+16. 89
+17. 85
+18. 57
+19. 70
+20. 72
+21. 90
+22. 89
+23. 74
+24. 71
+25. 65
+26. 83
+27. 71
+28. 82
+29. 90
+30. 57
+31. 80
+32. 90
+33. 64
+34. 71
+35. 65
+36. 79
+37. 73
+38. 62
+39. 75
+40. 86
+
+41. 58
+42. 74
+43. 51
+44. 61
+45. 74
+46. 68
+47. 83
+48. 51
+49. 90
+50. 64
+51. 75
+52. 65
+53. 61
+54. 65
+55. 84
+56. 61
+57. 51
+58. 77
+59. 83
+60. 82
+61. 84
+62. 75
+63. 57
+64. 53
+65. 85
+66. 80
+67. 65
+68. 51
+69. 67
+70. 60
+71. 85
+72. 84
+73. 82
+74. 60
+75. 74
+76. 67
+77. 66
+78. 61
+79. 89
+80. 73
+81. 66
+82. 72
+83. 86
+
+84. 59
+85. 64
+86. 87
+87. 62
+88. 65
+89. 85
+90. 62
+91. 54
+92. 53
+93. 75
+94. 58
+95. 58
+96. 84
+97. 74
+98. 62
+99. 75
+100. 61
+101. 59
+102. 84
+103. 82
+104. 79
+105. 89
+106. 89
+107. 78
+108. 53
+109. 70
+110. 90
+111. 77
+112. 65
+113. 82
+114. 57
+115. 74
+116. 58
+117. 66
+118. 57
+119. 86
+120. 80
+121. 64
+122. 90
+123. 85
+124. 76
+125. 76
+126. 81
+127. 58
+
+128. 51
+129. 52
+130. 75
+131. 71
+132. 54
+133. 52
+134. 62
+135. 82
+136. 74
+137. 62
+138. 87
+139. 54
+140. 79
+141. 12.01
+142. 10.97
+143. 8.2
+144. 6.8
+145. 13.73
+146. 10.48
+147. 14.13
+148. 9.79
+149. 8.67
+150. 5.8
+151. 12.51
+152. 7.49
+153. 5.39
+154. 6.22
+155. 13.78
+156. 12.56
+157. 13.56
+158. 9.21
+159. 6.52
+160. 7.7
+161. 10.05
+162. 11.74
+163. 13.18
+164. 8.0
+165. 7.29
+166. 8.43
+167. 9.82
+168. 9.25
+169. 6.4
+170. 13.15
+
+171. 6.4
+172. 10.21
+173. 10.91
+174. 9.34
+175. 6.2
+176. 12.97
+177. 13.25
+178. 8.21
+179. 12.72
+180. 9.63
+181. 8.67
+182. 10.99
+183. 13.97
+184. 8.25
+185. 9.58
+186. 11.58
+187. 15.85
+188. 12.74
+189. 6.72
+190. 10.71
+191. 12.29
+192. 15.86
+193. 9.88
+194. 10.17
+195. 15.09
+196. 8.58
+197. 10.67
+198. 11.94
+199. 6.97
+200. 10.07
+
