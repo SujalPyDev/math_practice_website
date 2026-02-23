@@ -5,7 +5,7 @@ import {
   Grid3X3, Crown, Rocket, Lightbulb, X, Calculator, Settings2, Delete, Target, PenTool, PartyPopper, CheckSquare,
   User, Lock, LogOut, ShieldCheck, UserPlus, Users, KeyRound, Loader
 } from 'lucide-react';
-import { rrbTopics as labTopics, rrbQuestionBank as labQuestionBank } from './data/rrbData.js';
+import { rrbTopics as labTopics, rrbQuestionBank as labQuestionBank, rrbFormulaBank as labFormulaBank } from './data/rrbData.js';
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5174').replace(/\/+$/, '');
 const buildApiUrl = (path) => {
@@ -131,6 +131,7 @@ export default function App() {
   const [rrbResults, setRrbResults] = useState({});
   const rrbTopics = labTopics;
   const rrbQuestionBank = labQuestionBank;
+  const rrbFormulaBank = labFormulaBank;
   const rrbDataLoading = false;
 
   useEffect(() => {
@@ -488,6 +489,14 @@ export default function App() {
       return { ...question, id: question.id || `${rrbTopic}-${index + 1}` };
     });
   }, [rrbTopic, rrbQuestionBank]);
+
+  const rrbFormulas = useMemo(() => {
+    return rrbFormulaBank[rrbTopic] || [];
+  }, [rrbTopic, rrbFormulaBank]);
+
+  const currentRrbTopicLabel = useMemo(() => {
+    return rrbTopics.find((topic) => topic.id === rrbTopic)?.label || 'Topic';
+  }, [rrbTopics, rrbTopic]);
 
   useEffect(() => {
     setRrbPage(0);
@@ -1902,6 +1911,30 @@ export default function App() {
                     </span>
                   </button>
                 ))}
+              </div>
+
+              <div className="w-full max-w-6xl mb-4 shrink-0 bg-gradient-to-r from-indigo-50/80 via-white/80 to-sky-50/80 backdrop-blur-md border border-indigo-100 rounded-2xl p-4 shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-lg text-xs font-black uppercase tracking-wide">Formula Lab</div>
+                    <h3 className="text-sm sm:text-base font-black text-slate-800">{currentRrbTopicLabel} Formulas</h3>
+                  </div>
+                  <span className="text-xs font-bold text-slate-500 bg-white/80 border border-slate-200 px-2 py-1 rounded-lg">
+                    {rrbFormulas.length} formulas
+                  </span>
+                </div>
+                {rrbFormulas.length === 0 ? (
+                  <div className="text-sm text-slate-500 font-medium">No formulas added for this topic yet.</div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {rrbFormulas.map((formula, index) => (
+                      <div key={`${rrbTopic}-formula-${index}`} className="bg-white/85 border border-indigo-100 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-slate-700">
+                        <span className="text-indigo-500 font-black mr-2">F{index + 1}.</span>
+                        {formula}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80">

@@ -5,6 +5,44 @@ export const rrbTopics = [
   { id: 'train', label: 'Train Problems' },
 ];
 
+export const rrbFormulaBank = {
+  percentage: [
+    "Percentage = (Part / Whole) * 100",
+    "Part = (Percentage / 100) * Whole",
+    "Whole = (Part * 100) / Percentage",
+    "New value after +p% = Original * (100 + p) / 100",
+    "New value after -p% = Original * (100 - p) / 100",
+    "Net % change for +a% then -b% = a - b - (a*b)/100",
+  ],
+  discount: [
+    "Discount amount = MP * d/100",
+    "Selling Price (SP) = MP * (100 - d)/100",
+    "Discount % = ((MP - SP) / MP) * 100",
+    "Equivalent discount of d1% and d2% = d1 + d2 - (d1*d2)/100",
+    "Final SP after d1% then d2% = MP * (100 - d1)/100 * (100 - d2)/100",
+    "Profit/Loss amount = SP - CP (negative means loss)",
+    "Profit % = ((SP - CP) / CP) * 100, Loss % = ((CP - SP) / CP) * 100",
+  ],
+  time_work: [
+    "Work = Rate * Time",
+    "If A finishes in x days, Rate(A) = 1/x",
+    "Together rate = 1/x + 1/y + ...",
+    "Time together = 1 / (combined rate)",
+    "Workers and days are inversely proportional: w1*d1 = w2*d2",
+    "Pipe + leak net rate = 1/fill_time - 1/empty_time",
+    "Time to fill with leak = 1 / net rate",
+  ],
+  train: [
+    "Speed (m/s) = Distance (m) / Time (s)",
+    "Speed (km/h) = Speed (m/s) * 18/5",
+    "Speed (m/s) = Speed (km/h) * 5/18",
+    "Time to cross pole = Train length / Train speed",
+    "Time to cross platform = (Train length + Platform length) / Train speed",
+    "Opposite direction crossing time = (L1 + L2) / (S1 + S2)",
+    "Same direction crossing time = (L1 + L2) / abs(S1 - S2)",
+  ],
+};
+
 // TODO: Paste your math challenge questions here. Each entry can be a string or { id, text }.
 export const rrbQuestionBank = {
   percentage:   [
