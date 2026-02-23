@@ -1935,7 +1935,7 @@ export default function App() {
                   <div className="flex flex-col">
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">MATH FOCUS</span>
                     <span className="text-lg sm:text-xl font-black text-slate-800 leading-tight">Quant Practice</span>
-                    <span className="text-xs text-slate-500 font-medium">Percentage • Discount • Time & Work • Train Problems</span>
+                    <span className="text-xs text-slate-500 font-medium">Percentage • Discount • Successive Discount • Time & Work • Train Problems</span>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-xs sm:text-sm">

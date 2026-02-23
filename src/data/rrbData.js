@@ -1,6 +1,7 @@
 export const rrbTopics = [
   { id: 'percentage', label: 'Percentage' },
   { id: 'discount', label: 'Discount' },
+  { id: 'successive_discount', label: 'Successive Discount' },
   { id: 'time_work', label: 'Time & Work' },
   { id: 'train', label: 'Train Problems' },
 ];
@@ -23,6 +24,16 @@ export const rrbFormulaBank = {
     "Profit/Loss amount = SP - CP (negative means loss)",
     "Profit % = ((SP - CP) / CP) * 100, Loss % = ((CP - SP) / CP) * 100",
   ],
+  successive_discount: [
+    "Equivalent discount (two discounts) = d1 + d2 - (d1*d2)/100",
+    "Equivalent discount (three discounts) = 100 * [1 - (1-d1/100)(1-d2/100)(1-d3/100)]",
+    "Selling Price (SP) after successive discounts = MP * (1-d1/100) * (1-d2/100) * ...",
+    "Marked Price (MP) = SP / [(1-d1/100) * (1-d2/100) * ...]",
+    "Successive discounts are multiplicative, not additive",
+    "Discount amount = MP - SP",
+    "Compare offers by converting each offer to equivalent single discount %",
+    "If equivalent discount is D%, then SP = MP * (100-D)/100",
+  ],
   time_work: [
     "Work = Rate * Time",
     "If A finishes in x days, Rate(A) = 1/x",
@@ -41,6 +52,82 @@ export const rrbFormulaBank = {
     "Opposite direction crossing time = (L1 + L2) / (S1 + S2)",
     "Same direction crossing time = (L1 + L2) / abs(S1 - S2)",
   ],
+};
+
+const round2 = (value) => Number(value.toFixed(2));
+const formatNum = (value) => (Number.isInteger(value) ? value.toString() : value.toFixed(2));
+
+const createSuccessiveDiscountQuestionBank = () => {
+  const questions = [];
+  let idCounter = 1;
+
+  const d1Pool = [10, 12, 15, 18, 20, 22, 25, 30];
+  const d2Pool = [5, 8, 10, 12, 15, 18, 20];
+  const d3Pool = [5, 8, 10, 12, 15];
+
+  // 120 questions: final price after two successive discounts
+  for (let i = 0; i < 120; i += 1) {
+    const mp = 450 + i * 17;
+    const d1 = d1Pool[i % d1Pool.length];
+    const d2 = d2Pool[(i * 3 + 1) % d2Pool.length];
+    const answer = round2(mp * (1 - d1 / 100) * (1 - d2 / 100));
+    questions.push({
+      id: `successive-discount-${idCounter}`,
+      text: `MP Rs. ${mp}. Successive discounts ${d1}% and ${d2}%. Final price?`,
+      answer,
+      decimals: 2,
+    });
+    idCounter += 1;
+  }
+
+  // 80 questions: equivalent single discount for two successive discounts
+  for (let i = 0; i < 80; i += 1) {
+    const d1 = d1Pool[(i + 2) % d1Pool.length];
+    const d2 = d2Pool[(i * 2 + 3) % d2Pool.length];
+    const answer = round2(d1 + d2 - (d1 * d2) / 100);
+    questions.push({
+      id: `successive-discount-${idCounter}`,
+      text: `Successive discounts ${d1}% and ${d2}% are equal to single discount %?`,
+      answer,
+      decimals: 2,
+    });
+    idCounter += 1;
+  }
+
+  // 70 questions: marked price from final selling price after two discounts
+  for (let i = 0; i < 70; i += 1) {
+    const baseMp = 600 + i * 23;
+    const d1 = d1Pool[(i * 2 + 1) % d1Pool.length];
+    const d2 = d2Pool[(i * 4 + 2) % d2Pool.length];
+    const factor = (1 - d1 / 100) * (1 - d2 / 100);
+    const sp = round2(baseMp * factor);
+    const answer = round2(sp / factor);
+    questions.push({
+      id: `successive-discount-${idCounter}`,
+      text: `SP Rs. ${formatNum(sp)} after successive discounts ${d1}% and ${d2}%. Find marked price.`,
+      answer,
+      decimals: 2,
+    });
+    idCounter += 1;
+  }
+
+  // 30 questions: final price after three successive discounts
+  for (let i = 0; i < 30; i += 1) {
+    const mp = 900 + i * 37;
+    const d1 = d1Pool[(i + 4) % d1Pool.length];
+    const d2 = d2Pool[(i * 5 + 1) % d2Pool.length];
+    const d3 = d3Pool[(i * 3 + 2) % d3Pool.length];
+    const answer = round2(mp * (1 - d1 / 100) * (1 - d2 / 100) * (1 - d3 / 100));
+    questions.push({
+      id: `successive-discount-${idCounter}`,
+      text: `MP Rs. ${mp}. Successive discounts ${d1}%, ${d2}% and ${d3}%. Final price?`,
+      answer,
+      decimals: 2,
+    });
+    idCounter += 1;
+  }
+
+  return questions;
 };
 
 // TODO: Paste your math challenge questions here. Each entry can be a string or { id, text }.
@@ -449,6 +536,7 @@ export const rrbQuestionBank = {
     "CP Rs. 1756, MP Rs. 2027, discount 25%. Profit/Loss amount?",
     "CP Rs. 947, MP Rs. 1221, discount 20%. Profit/Loss amount?"
   ],
+  successive_discount: createSuccessiveDiscountQuestionBank(),
   time_work:   [
     "A can do work in 5 days, B in 10 days. Together? (2 decimals)",
     "A can do work in 6 days, B in 11 days. Together? (2 decimals)",
