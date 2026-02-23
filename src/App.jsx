@@ -12,6 +12,13 @@ const buildApiUrl = (path) => {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   return `${API_BASE_URL}${normalizedPath}`;
 };
+const AUTH_ENABLED = false;
+const APP_STORAGE_KEY = 'maths-app-progress-v1';
+const LOCAL_USER = Object.freeze({
+  id: 'local-user',
+  username: 'Learner',
+  role: 'user',
+});
 
 const themes = {
   // Apprentice Tier (2-10)
@@ -859,8 +866,8 @@ const rrbQuestionBank = {
 
 export default function App() {
   const RRB_STORAGE_KEY = 'rrb-progress-v1';
-  const [authLoading, setAuthLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(AUTH_ENABLED);
+  const [currentUser, setCurrentUser] = useState(AUTH_ENABLED ? null : LOCAL_USER);
   const [authMode, setAuthMode] = useState('login');
   const [authError, setAuthError] = useState('');
   const [authNotice, setAuthNotice] = useState('');
@@ -914,6 +921,43 @@ export default function App() {
   const [rrbAnswers, setRrbAnswers] = useState({});
   const [rrbResults, setRrbResults] = useState({});
 
+  useEffect(() => {
+    const validOperations = new Set(['multiply', 'divide', 'rrb']);
+    const validRanges = new Set(['apprentice', 'wizard']);
+    const validDifficulties = new Set(['easy', 'medium', 'hard']);
+    const validTabs = new Set(['learn', 'games']);
+
+    try {
+      const raw = localStorage.getItem(APP_STORAGE_KEY);
+      if (!raw) return;
+
+      const parsed = JSON.parse(raw);
+      if (validOperations.has(parsed?.operation)) setOperation(parsed.operation);
+      if (validRanges.has(parsed?.levelRange)) setLevelRange(parsed.levelRange);
+      if (validDifficulties.has(parsed?.difficulty)) setDifficulty(parsed.difficulty);
+      if (validTabs.has(parsed?.activeTab)) setActiveTab(parsed.activeTab);
+      if (Number.isInteger(parsed?.selectedTable)) setSelectedTable(parsed.selectedTable);
+      if (Array.isArray(parsed?.completedTables)) {
+        const sanitized = parsed.completedTables.filter((value) => Number.isInteger(value) && value >= 2 && value <= 20);
+        setCompletedTables([...new Set(sanitized)]);
+      }
+    } catch {
+      // Ignore corrupted local storage.
+    }
+  }, []);
+
+  useEffect(() => {
+    const payload = JSON.stringify({
+      operation,
+      levelRange,
+      difficulty,
+      activeTab,
+      selectedTable,
+      completedTables,
+    });
+    localStorage.setItem(APP_STORAGE_KEY, payload);
+  }, [operation, levelRange, difficulty, activeTab, selectedTable, completedTables]);
+
   const apiFetch = useCallback(async (path, options = {}) => {
     const headers = options.headers ? { ...options.headers } : {};
     if (options.body && !headers['Content-Type']) {
@@ -927,6 +971,12 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (!AUTH_ENABLED) {
+      setAuthLoading(false);
+      setCurrentUser(LOCAL_USER);
+      return;
+    }
+
     let active = true;
     const loadSession = async () => {
       try {
@@ -1019,6 +1069,21 @@ export default function App() {
   };
 
   const handleLogout = async () => {
+    if (!AUTH_ENABLED) {
+      localStorage.removeItem(APP_STORAGE_KEY);
+      localStorage.removeItem(RRB_STORAGE_KEY);
+      setCompletedTables([]);
+      setOperation('multiply');
+      setLevelRange('apprentice');
+      setDifficulty('medium');
+      setActiveTab('learn');
+      setSelectedTable(2);
+      setRrbAnswers({});
+      setRrbResults({});
+      setShowAdminPanel(false);
+      return;
+    }
+
     try {
       await apiFetch('/api/auth/logout', { method: 'POST' });
     } catch {
@@ -1131,7 +1196,7 @@ export default function App() {
     }
   };
 
-  const isAdmin = currentUser?.role === 'admin';
+  const isAdmin = AUTH_ENABLED && currentUser?.role === 'admin';
   const formatDateTime = (value) => {
     if (!value) return '—';
     const date = new Date(value);
@@ -1698,7 +1763,7 @@ export default function App() {
     }
   };
 
-  if (authLoading) {
+  if (AUTH_ENABLED && authLoading) {
     return (
     <div className="min-h-[100svh] w-full flex items-center justify-center p-4 app-bg">
         <div className="flex items-center gap-3 rounded-2xl px-6 py-4 app-card">
@@ -1709,7 +1774,7 @@ export default function App() {
     );
   }
 
-  if (!currentUser) {
+  if (AUTH_ENABLED && !currentUser) {
     return (
     <div className="min-h-[100svh] w-full flex items-start sm:items-center justify-center p-4 sm:p-6 app-bg overflow-y-auto">
         <div className="w-full max-w-5xl rounded-[2rem] overflow-hidden app-card">
@@ -2151,7 +2216,8 @@ export default function App() {
                   onClick={handleLogout}
                   className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white/80 border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
                 >
-                  <LogOut size={14} /> Logout
+                  {AUTH_ENABLED ? <LogOut size={14} /> : <Delete size={14} />}
+                  {AUTH_ENABLED ? 'Logout' : 'Reset Data'}
                 </button>
               </div>
             </div>

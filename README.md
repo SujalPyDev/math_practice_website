@@ -1,103 +1,54 @@
 # Maths Tabel
 
-Production-ready full-stack app:
-- Frontend: React 18 + Vite
-- Backend: Node.js + Express + MongoDB Atlas (Mongoose)
-- Auth: bcrypt + JWT + httpOnly cookies
+Frontend-only React app (no required backend).
 
-## Project Structure
+- Built with React 18 + Vite
+- Login/auth screens disabled
+- Progress stored in browser `localStorage`
+- Auto-deploy to GitHub Pages using GitHub Actions
 
-```text
-.
-|- src/                     # React frontend
-|- server/
-|  |- index.js              # backend entrypoint
-|  |- src/
-|     |- app.js
-|     |- config/
-|     |- middleware/
-|     |- models/
-|     |- routes/
-|     |- utils/
-|- .env.example
-|- DEPLOYMENT.md
-|- render.yaml
-|- vercel.json
-```
+## Run Locally
 
-## Local Run
-
-1. Install dependencies:
 ```bash
 npm install
+npm run dev
 ```
 
-2. Copy env file and update values:
-```bash
-cp .env.example .env
-```
+App URL: `http://localhost:5173`
 
-3. Start backend + frontend:
-```bash
-npm run dev:all
-```
+## Data Storage (No Server)
 
-Frontend: `http://localhost:5173`  
-Backend: `http://localhost:5174`
+This version stores user progress locally in the browser:
+- Table progress
+- Selected settings/mode
+- RRB answers/results
 
-## Environment Variables
+Clearing browser data or using another device/browser will not share that data.
 
-Use `.env.example` as the source of truth.
+## Publish Directly From GitHub (GitHub Pages)
 
-Important keys:
-- `MONGODB_URI`
-- `JWT_SECRET`
-- `CORS_ORIGINS`
-- `ADMIN_USERNAME`
-- `ADMIN_PASSWORD`
-- `VITE_API_BASE_URL`
+The workflow file is already included:
+- `.github/workflows/deploy-pages.yml`
 
-## Upload to GitHub
+### One-time GitHub setup
+1. Open your GitHub repo: `SujalPyDev/maths`
+2. Go to `Settings` -> `Pages`
+3. Under **Build and deployment**, set:
+   - `Source`: **GitHub Actions**
 
-Prerequisite:
-- Install Git: https://git-scm.com/downloads
-
-Recommended (safe one-command setup):
-
-```powershell
-cd "C:\Users\SUJAL\Desktop\Maths tabel"
-powershell -ExecutionPolicy Bypass -File .\setup-github.ps1 `
-  -RepoUrl "https://github.com/<your-username>/<your-repo>.git" `
-  -UserName "SujalPyDev" `
-  -UserEmail "sujaljaiswal9980@gmail.com"
-```
-
-If this folder is not already a git repo:
-
-```bash
-git init
-git branch -M main
-git add .
-git commit -m "Initial production-ready setup"
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
-```
-
-If this is already a git repo:
+### Deploy
+Every push to `main` will auto-deploy.
 
 ```bash
 git add .
-git commit -m "Prepare project for GitHub and deployment"
+git commit -m "Switch to frontend-only GitHub Pages deployment"
 git push
 ```
 
-## Deploy
+After workflow success, site URL will be:
+- `https://sujalpydev.github.io/maths/`
 
-- Backend (Render): see `DEPLOYMENT.md`
-- Frontend (Vercel): see `DEPLOYMENT.md`
+## Notes
 
-## Security Notes
-
-- Never commit `.env`
-- Rotate secrets if they were ever exposed
-- Keep CORS restricted to trusted frontend domains only
+- `Reset Data` button clears local progress.
+- If updates do not appear, hard refresh (`Ctrl + F5`).
