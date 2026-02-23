@@ -1,11 +1,14 @@
 # Maths Tabel
 
-Frontend-only React app (no required backend).
+Frontend-only maths practice app built with React + Vite.
 
-- Built with React 18 + Vite
-- Login/auth screens disabled
-- Progress stored in browser `localStorage`
-- Auto-deploy to GitHub Pages using GitHub Actions
+## What Was Cleaned
+
+- Removed backend/server files
+- Removed Render/Vercel/Netlify deployment configs
+- Removed login requirement (site opens directly)
+- Reduced dependencies to frontend-only packages
+- Split large quoted RRB question bank into a lazy-loaded module for faster first load
 
 ## Run Locally
 
@@ -14,41 +17,25 @@ npm install
 npm run dev
 ```
 
-App URL: `http://localhost:5173`
+Open: `http://localhost:5173`
 
-## Data Storage (No Server)
+## Data Storage
 
-This version stores user progress locally in the browser:
-- Table progress
-- Selected settings/mode
-- RRB answers/results
+This app stores progress in browser `localStorage` only.
 
-Clearing browser data or using another device/browser will not share that data.
+- Data stays on the same browser/device
+- No server/database is required
+- Use **Reset Data** button in the app header to clear local progress
 
-## Publish Directly From GitHub (GitHub Pages)
+## Deploy To GitHub Pages
 
-The workflow file is already included:
-- `.github/workflows/deploy-pages.yml`
+Workflow file is already included: `.github/workflows/deploy-pages.yml`
 
-### One-time GitHub setup
-1. Open your GitHub repo: `SujalPyDev/maths`
-2. Go to `Settings` -> `Pages`
-3. Under **Build and deployment**, set:
-   - `Source`: **GitHub Actions**
+1. Push to `main`
+2. In GitHub repo: `Settings` -> `Pages`
+3. Set source to **GitHub Actions**
+4. Wait for workflow success in `Actions` tab
 
-### Deploy
-Every push to `main` will auto-deploy.
+Site URL format:
 
-```bash
-git add .
-git commit -m "Switch to frontend-only GitHub Pages deployment"
-git push
-```
-
-After workflow success, site URL will be:
-- `https://sujalpydev.github.io/maths/`
-
-## Notes
-
-- `Reset Data` button clears local progress.
-- If updates do not appear, hard refresh (`Ctrl + F5`).
+`https://<github-username>.github.io/<repo-name>/`

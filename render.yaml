@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: maths-tabel-api
-    env: node
-    plan: free
-    buildCommand: npm install
-    startCommand: npm run start
-    healthCheckPath: /api/health
-    autoDeploy: true
