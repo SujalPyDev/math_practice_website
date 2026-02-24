@@ -181,6 +181,15 @@ export default function App() {
   }, [operation, levelRange, difficulty, themeMode, activeTab, selectedTable, completedTables]);
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', themeMode);
+    document.body.setAttribute('data-theme', themeMode);
+
+    return () => {
+      document.body.removeAttribute('data-theme');
+    };
+  }, [themeMode]);
+
+  useEffect(() => {
     if (rrbTopics.length === 0) return;
     if (!rrbTopics.some((topic) => topic.id === rrbTopic)) {
       setRrbTopic(rrbTopics[0].id);
@@ -1109,7 +1118,7 @@ export default function App() {
 
   if (AUTH_ENABLED && authLoading) {
     return (
-    <div className="min-h-[100dvh] w-full flex items-center justify-center p-4 app-bg mobile-safe mobile-touch">
+    <div className="min-h-[100dvh] w-full flex items-center justify-center p-4 app-bg mobile-safe mobile-touch engine-viewport">
         <div className="flex items-center gap-3 rounded-2xl px-6 py-4 app-card">
           <Loader className="animate-spin text-blue-600" size={22} />
           <span className="font-bold text-slate-600">Loading secure session...</span>
@@ -1120,7 +1129,7 @@ export default function App() {
 
   if (AUTH_ENABLED && !currentUser) {
     return (
-    <div className="min-h-[100dvh] w-full flex items-start sm:items-center justify-center p-4 sm:p-6 app-bg overflow-y-auto mobile-safe mobile-touch">
+    <div className="min-h-[100dvh] w-full flex items-start sm:items-center justify-center p-4 sm:p-6 app-bg overflow-y-auto mobile-safe mobile-touch engine-viewport">
         <div className="w-full max-w-5xl rounded-[2rem] overflow-hidden app-card">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="p-8 sm:p-10 flex flex-col justify-between bg-gradient-to-br from-white via-slate-50 to-sky-50">
@@ -1284,7 +1293,7 @@ export default function App() {
   }
 
   return (
-    <div className={`h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app theme-${themeMode}`}>
+    <div className={`h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app engine-viewport theme-${themeMode}`}>
       {/* Main Application Container */}
       <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden engine-main">
 
@@ -1564,6 +1573,7 @@ export default function App() {
                   onClick={() => toggleTheme('light')}
                   className={`engine-theme-btn ${themeMode === 'light' ? 'is-active' : ''}`}
                   aria-pressed={themeMode === 'light'}
+                  title="Switch to light theme"
                 >
                   <Sun size={14} />
                   Light
@@ -1572,10 +1582,12 @@ export default function App() {
                   onClick={() => toggleTheme('dark')}
                   className={`engine-theme-btn ${themeMode === 'dark' ? 'is-active' : ''}`}
                   aria-pressed={themeMode === 'dark'}
+                  title="Switch to dark theme"
                 >
                   <Moon size={14} />
                   Dark
                 </button>
+                <span className={`engine-theme-tag ${themeMode === 'dark' ? 'is-dark' : ''}`}>{themeMode === 'dark' ? 'Dark' : 'Light'}</span>
               </div>
 
               <div className="engine-user-tools">
@@ -1637,7 +1649,7 @@ export default function App() {
              <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 engine-section engine-multiply-learn">
               
               {/* Top Controls: Level Pill & Number Selector */}
-              <div className="w-full max-w-5xl flex flex-col items-center shrink-0">
+              <div className="w-full max-w-6xl flex flex-col items-center shrink-0 engine-middle-head">
                 {/* Level Selector Pill */}
                 <div className="bg-slate-100/80 p-1 rounded-full mb-4 flex shadow-inner w-full sm:w-auto engine-level-switch">
                   <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('apprentice'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
@@ -1713,7 +1725,7 @@ export default function App() {
               )}
 
               {/* CONTENT AREA: Grid or Practice (Takes remaining height) */}
-              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto pb-4 custom-scrollbar">
+              <div className="w-full max-w-7xl flex-grow min-h-0 overflow-y-auto pb-4 custom-scrollbar engine-middle-card">
                 
                 {/* PRACTICE VIEW */}
                 {isPracticing ? (
@@ -1761,7 +1773,7 @@ export default function App() {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, idx) => (
                       <div 
                         key={multiplier} 
-                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
+                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 min-h-[116px] sm:min-h-[132px] flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
                         style={{ animationDelay: `${idx * 20}ms`, animationFillMode: 'backwards' }}
                       >
                         <div className="text-slate-400 font-semibold mb-0.5 flex items-center justify-center gap-1 text-xs sm:text-sm">
