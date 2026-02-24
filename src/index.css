@@ -961,6 +961,43 @@ body {
   box-shadow: 0 7px 16px rgba(198, 135, 31, 0.33);
 }
 
+.engine-theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #edf1f8 0%, #e7edf7 100%);
+  border: 1px solid rgba(191, 203, 223, 0.82);
+}
+
+.engine-theme-btn {
+  border: 0;
+  min-height: 35px;
+  min-width: 64px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: transparent;
+  color: #5f6f86;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.79rem;
+  font-weight: 800;
+  transition: all 180ms ease;
+}
+
+.engine-theme-btn:hover {
+  color: #32415d;
+}
+
+.engine-theme-btn.is-active {
+  background: linear-gradient(145deg, #8aaae2 0%, #6386c5 100%);
+  color: #fff;
+  box-shadow: 0 7px 16px rgba(84, 114, 169, 0.3);
+}
+
 .engine-user-tools {
   display: flex;
   align-items: center;
@@ -1217,6 +1254,196 @@ body {
   color: #fff;
 }
 
+/* =========================================================
+   Theme variants
+   ========================================================= */
+
+.engine-app.theme-dark {
+  color-scheme: dark;
+  background:
+    radial-gradient(1200px 640px at 6% -24%, rgba(60, 92, 140, 0.42), transparent 62%),
+    radial-gradient(1080px 660px at 96% -10%, rgba(42, 70, 113, 0.4), transparent 62%),
+    linear-gradient(180deg, #0f1727 0%, #111c31 100%) !important;
+}
+
+.engine-app.theme-dark::before {
+  background-image:
+    linear-gradient(rgba(133, 151, 184, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(133, 151, 184, 0.16) 1px, transparent 1px) !important;
+  opacity: 0.14 !important;
+}
+
+.engine-app.theme-dark::after {
+  background: radial-gradient(720px 420px at 50% -10%, rgba(132, 156, 199, 0.2), transparent 60%) !important;
+  opacity: 0.38 !important;
+}
+
+.engine-app.theme-dark .engine-header {
+  border-color: rgba(71, 96, 138, 0.62);
+  background: linear-gradient(180deg, rgba(21, 32, 52, 0.96) 0%, rgba(19, 29, 48, 0.92) 100%);
+  box-shadow: 0 18px 38px rgba(3, 8, 18, 0.56);
+}
+
+.engine-app.theme-dark .engine-content {
+  border-color: rgba(71, 96, 138, 0.62);
+  background:
+    radial-gradient(380px 220px at 8% 5%, rgba(77, 107, 155, 0.26), transparent 72%),
+    radial-gradient(540px 240px at 96% 4%, rgba(77, 107, 155, 0.22), transparent 72%),
+    linear-gradient(180deg, rgba(15, 24, 40, 0.9) 0%, rgba(13, 22, 36, 0.9) 100%);
+  box-shadow: 0 22px 42px rgba(3, 8, 18, 0.58);
+}
+
+.engine-app.theme-dark .engine-content::before {
+  opacity: 0.42;
+}
+
+.engine-app.theme-dark .engine-brand-title {
+  color: #e4ecff;
+}
+
+.engine-app.theme-dark .engine-brand-sub {
+  color: #97aaca;
+}
+
+.engine-app.theme-dark .engine-op-switch,
+.engine-app.theme-dark .engine-difficulty-switch,
+.engine-app.theme-dark .engine-theme-switch {
+  background: linear-gradient(180deg, rgba(26, 39, 63, 0.95) 0%, rgba(23, 35, 56, 0.95) 100%);
+  border-color: rgba(69, 94, 135, 0.68);
+  box-shadow: inset 0 1px 1px rgba(150, 175, 216, 0.16);
+}
+
+.engine-app.theme-dark .engine-op-btn,
+.engine-app.theme-dark .engine-diff-btn,
+.engine-app.theme-dark .engine-theme-btn {
+  color: #b7c7e3;
+}
+
+.engine-app.theme-dark .engine-op-btn:hover,
+.engine-app.theme-dark .engine-diff-btn:hover,
+.engine-app.theme-dark .engine-theme-btn:hover {
+  color: #e4ecff;
+}
+
+.engine-app.theme-dark .engine-op-btn + .engine-op-btn::before {
+  background: rgba(95, 120, 160, 0.5);
+}
+
+.engine-app.theme-dark .engine-theme-btn.is-active {
+  background: linear-gradient(145deg, #5f7fb6 0%, #3f5f95 100%);
+  box-shadow: 0 7px 16px rgba(36, 56, 89, 0.42);
+}
+
+.engine-app.theme-dark .engine-tool-btn,
+.engine-app.theme-dark .engine-user-chip {
+  background: rgba(24, 36, 58, 0.88);
+  border-color: rgba(69, 94, 135, 0.66);
+  color: #d4e0f7;
+}
+
+.engine-app.theme-dark .engine-tool-btn:hover {
+  background: rgba(33, 48, 75, 0.95);
+  color: #f0f5ff;
+}
+
+.engine-app.theme-dark .tab-switcher {
+  background: linear-gradient(180deg, rgba(25, 38, 61, 0.96) 0%, rgba(21, 34, 55, 0.94) 100%);
+  border-color: rgba(70, 95, 137, 0.7);
+}
+
+.engine-app.theme-dark .tab-switcher-btn {
+  color: #c2d0e8;
+}
+
+.engine-app.theme-dark .tab-switcher-indicator {
+  background: linear-gradient(170deg, rgba(91, 129, 198, 0.96) 0%, rgba(63, 99, 163, 0.94) 100%);
+  border-color: rgba(94, 128, 188, 0.82);
+}
+
+.engine-app.theme-dark .engine-hero-strip,
+.engine-app.theme-dark .engine-level-switch,
+.engine-app.theme-dark .engine-number-rail,
+.engine-app.theme-dark .engine-practice-panel,
+.engine-app.theme-dark .engine-scroll-shell,
+.engine-app.theme-dark .engine-play-card,
+.engine-app.theme-dark .engine-scoreboard,
+.engine-app.theme-dark .engine-gameover-card,
+.engine-app.theme-dark .engine-question-card,
+.engine-app.theme-dark .engine-table-card,
+.engine-app.theme-dark .engine-feature-card,
+.engine-app.theme-dark .engine-plain-card {
+  border-color: rgba(73, 98, 139, 0.66) !important;
+  background: linear-gradient(180deg, rgba(25, 37, 59, 0.9) 0%, rgba(20, 31, 51, 0.9) 100%) !important;
+  box-shadow: 0 14px 28px rgba(2, 8, 19, 0.5);
+}
+
+.engine-app.theme-dark .engine-title-sub {
+  color: #a8b8d5;
+}
+
+.engine-app.theme-dark .engine-table-badge {
+  background: linear-gradient(145deg, #618fd5 0%, #3d67ac 100%);
+  box-shadow: 0 10px 20px rgba(47, 74, 118, 0.44);
+}
+
+.engine-app.theme-dark .engine-answer-input,
+.engine-app.theme-dark .engine-section input,
+.engine-app.theme-dark .engine-section textarea,
+.engine-app.theme-dark .engine-section select {
+  background: rgba(18, 28, 45, 0.88) !important;
+  border-color: rgba(80, 106, 148, 0.75) !important;
+  color: #deebff !important;
+}
+
+.engine-app.theme-dark .engine-section input::placeholder,
+.engine-app.theme-dark .engine-section textarea::placeholder {
+  color: #8ea5c9 !important;
+}
+
+.engine-app.theme-dark .engine-section .bg-white,
+.engine-app.theme-dark .engine-section .bg-white\/80,
+.engine-app.theme-dark .engine-section .bg-white\/90,
+.engine-app.theme-dark .engine-section .bg-slate-50,
+.engine-app.theme-dark .engine-section .bg-slate-100 {
+  background-color: rgba(22, 34, 54, 0.86) !important;
+}
+
+.engine-app.theme-dark .engine-section .border-white,
+.engine-app.theme-dark .engine-section .border-slate-100,
+.engine-app.theme-dark .engine-section .border-slate-200,
+.engine-app.theme-dark .engine-section .border-slate-300 {
+  border-color: rgba(74, 99, 141, 0.62) !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-800 {
+  color: #e7eefc !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-700 {
+  color: #d8e4f8 !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-600,
+.engine-app.theme-dark .engine-section .text-slate-500 {
+  color: #b6c6e2 !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-400 {
+  color: #8da5cc !important;
+}
+
+.engine-app.theme-dark .engine-soft-btn,
+.engine-app.theme-dark .engine-cancel-btn {
+  background: linear-gradient(180deg, rgba(26, 39, 62, 0.95) 0%, rgba(22, 34, 56, 0.92) 100%);
+  border-color: rgba(74, 99, 141, 0.72);
+  color: #c9d9f1;
+}
+
+.engine-app.theme-dark .engine-cta-btn {
+  background: linear-gradient(135deg, #648fd1 0%, #4268ab 100%);
+  border-color: rgba(92, 125, 182, 0.75);
+}
+
 @media (max-width: 1080px) {
   .engine-header-row {
     grid-template-columns: 1fr;
@@ -1250,7 +1477,8 @@ body {
   }
 
   .engine-op-switch,
-  .engine-difficulty-switch {
+  .engine-difficulty-switch,
+  .engine-theme-switch {
     width: 100%;
   }
 

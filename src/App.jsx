@@ -3,7 +3,7 @@ import {
   BookOpen, Gamepad2, Star, CheckCircle2,
   Zap, Timer, HelpCircle, ArrowLeft, ShieldAlert,
   Grid3X3, Crown, Rocket, Lightbulb, X, Calculator, Settings2, Delete, Target, PenTool, PartyPopper, CheckSquare,
-  User, Lock, LogOut, ShieldCheck, UserPlus, Users, KeyRound, Loader
+  User, Lock, LogOut, ShieldCheck, UserPlus, Users, KeyRound, Loader, Sun, Moon
 } from 'lucide-react';
 import { rrbTopics as labTopics, rrbQuestionBank as labQuestionBank, rrbFormulaBank as labFormulaBank } from './data/rrbData.js';
 
@@ -99,6 +99,7 @@ export default function App() {
   const [operation, setOperation] = useState('multiply'); 
   const [levelRange, setLevelRange] = useState('apprentice'); 
   const [difficulty, setDifficulty] = useState('medium'); 
+  const [themeMode, setThemeMode] = useState('light');
   const [activeTab, setActiveTab] = useState('learn'); 
   const [viewTransitionMode, setViewTransitionMode] = useState('neutral');
   
@@ -144,6 +145,7 @@ export default function App() {
     const validRanges = new Set(['apprentice', 'wizard']);
     const validDifficulties = new Set(['easy', 'medium', 'hard']);
     const validTabs = new Set(['learn', 'games']);
+    const validThemes = new Set(['light', 'dark']);
 
     try {
       const raw = localStorage.getItem(APP_STORAGE_KEY);
@@ -153,6 +155,7 @@ export default function App() {
       if (validOperations.has(parsed?.operation)) setOperation(parsed.operation);
       if (validRanges.has(parsed?.levelRange)) setLevelRange(parsed.levelRange);
       if (validDifficulties.has(parsed?.difficulty)) setDifficulty(parsed.difficulty);
+      if (validThemes.has(parsed?.themeMode)) setThemeMode(parsed.themeMode);
       if (validTabs.has(parsed?.activeTab)) setActiveTab(parsed.activeTab);
       if (Number.isInteger(parsed?.selectedTable)) setSelectedTable(parsed.selectedTable);
       if (Array.isArray(parsed?.completedTables)) {
@@ -169,12 +172,13 @@ export default function App() {
       operation,
       levelRange,
       difficulty,
+      themeMode,
       activeTab,
       selectedTable,
       completedTables,
     });
     localStorage.setItem(APP_STORAGE_KEY, payload);
-  }, [operation, levelRange, difficulty, activeTab, selectedTable, completedTables]);
+  }, [operation, levelRange, difficulty, themeMode, activeTab, selectedTable, completedTables]);
 
   useEffect(() => {
     if (rrbTopics.length === 0) return;
@@ -301,6 +305,7 @@ export default function App() {
       setOperation('multiply');
       setLevelRange('apprentice');
       setDifficulty('medium');
+      setThemeMode('light');
       setActiveTab('learn');
       setViewTransitionMode('neutral');
       setSelectedTable(2);
@@ -1087,6 +1092,11 @@ export default function App() {
     ? `view-transition--${viewTransitionMode}`
     : 'view-transition--neutral';
 
+  const toggleTheme = useCallback((nextTheme) => {
+    if (nextTheme === themeMode) return;
+    setThemeMode(nextTheme);
+  }, [themeMode]);
+
   const additionCheckedCount = useMemo(
     () => additionResults.filter((result) => result !== null).length,
     [additionResults]
@@ -1274,7 +1284,7 @@ export default function App() {
   }
 
   return (
-    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app">
+    <div className={`h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app theme-${themeMode}`}>
       {/* Main Application Container */}
       <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden engine-main">
 
@@ -1547,6 +1557,25 @@ export default function App() {
                 <button onClick={() => setDifficulty('easy')} className={`engine-diff-btn ${difficulty === 'easy' ? 'is-active' : ''}`}>Easy</button>
                 <button onClick={() => setDifficulty('medium')} className={`engine-diff-btn ${difficulty === 'medium' ? 'is-active' : ''}`}>Med</button>
                 <button onClick={() => setDifficulty('hard')} className={`engine-diff-btn ${difficulty === 'hard' ? 'is-active' : ''}`}>Hard</button>
+              </div>
+
+              <div className="engine-theme-switch" role="group" aria-label="Theme mode">
+                <button
+                  onClick={() => toggleTheme('light')}
+                  className={`engine-theme-btn ${themeMode === 'light' ? 'is-active' : ''}`}
+                  aria-pressed={themeMode === 'light'}
+                >
+                  <Sun size={14} />
+                  Light
+                </button>
+                <button
+                  onClick={() => toggleTheme('dark')}
+                  className={`engine-theme-btn ${themeMode === 'dark' ? 'is-active' : ''}`}
+                  aria-pressed={themeMode === 'dark'}
+                >
+                  <Moon size={14} />
+                  Dark
+                </button>
               </div>
 
               <div className="engine-user-tools">
