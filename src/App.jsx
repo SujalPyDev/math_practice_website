@@ -1251,9 +1251,9 @@ export default function App() {
   }
 
   return (
-    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-hidden mobile-safe mobile-touch">
+    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch">
       {/* Main Application Container */}
-      <div className="w-full h-full min-h-0 flex flex-col relative overflow-hidden">
+      <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden">
 
         {showAdminPanel && isAdmin && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm p-4">
@@ -1480,34 +1480,34 @@ export default function App() {
             </h1>
 
             {/* Central Toggle */}
-            <div className="flex flex-wrap w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1">
+            <div className="flex w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1 overflow-x-auto no-scrollbar">
               <button 
                 onClick={() => setOperation('multiply')}
-                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'multiply' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'multiply' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <X size={14} /> Multiply
               </button>
               <button
                 onClick={() => setOperation('addition')}
-                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'addition' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'addition' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <span className="text-base leading-none font-black">+</span> Addition
               </button>
               <button 
                 onClick={() => setOperation('divide')}
-                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'divide' ? 'bg-white text-pink-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'divide' ? 'bg-white text-pink-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <div className="text-lg leading-none font-black">÷</div> Divide
               </button>
               <button
                 onClick={() => setOperation('rrb')}
-                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'rrb' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'rrb' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <Target size={14} /> Quant Lab
               </button>
               <button
                 onClick={() => setOperation('formula')}
-                className={`flex items-center justify-center gap-1 flex-1 px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'formula' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'formula' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 <BookOpen size={14} /> Formula
               </button>
@@ -1515,11 +1515,11 @@ export default function App() {
 
             <div className="flex w-full sm:w-auto items-center gap-2 flex-wrap justify-between sm:justify-end">
               {/* Difficulty Controls */}
-              <div className="flex bg-slate-100/80 rounded-xl p-1 items-center shadow-inner w-full sm:w-auto justify-center">
+              <div className="flex bg-slate-100/80 rounded-xl p-1 items-center shadow-inner w-full sm:w-auto justify-start sm:justify-center overflow-x-auto no-scrollbar">
                 <Settings2 size={16} className="text-slate-400 ml-2 mr-1 hidden sm:block" />
-                <button onClick={() => setDifficulty('easy')} className={`px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'easy' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Easy</button>
-                <button onClick={() => setDifficulty('medium')} className={`px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'medium' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Med</button>
-                <button onClick={() => setDifficulty('hard')} className={`px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'hard' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Hard</button>
+                <button onClick={() => setDifficulty('easy')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'easy' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Easy</button>
+                <button onClick={() => setDifficulty('medium')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'medium' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Med</button>
+                <button onClick={() => setDifficulty('hard')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'hard' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Hard</button>
               </div>
 
               <div className="flex items-center gap-2">
@@ -1757,7 +1757,7 @@ export default function App() {
 
                   return (
                     <div key={questionItem.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3`}>
-                      <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                      <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                         <span className="text-slate-400 font-black mr-2">Q{index + 1}.</span>
                         {questionItem.terms.join(' + ')} = ?
                       </div>
@@ -1782,7 +1782,7 @@ export default function App() {
                       </div>
                       {result && (
                         <div
-                          className={`text-xs sm:text-sm font-bold flex items-center gap-2 px-3 py-1.5 rounded-full border ${
+                          className={`text-xs sm:text-sm font-bold flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full border ${
                             result.status === 'correct'
                               ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                               : result.status === 'incorrect'
@@ -1878,12 +1878,12 @@ export default function App() {
                 </span>
               </div>
 
-              <div className="w-full max-w-6xl flex flex-wrap gap-2 mb-4 shrink-0">
+              <div className="w-full max-w-6xl flex flex-nowrap overflow-x-auto no-scrollbar gap-2 mb-4 pb-1 shrink-0">
                 {rrbTopics.map((topic) => (
                   <button
                     key={topic.id}
                     onClick={() => setRrbTopic(topic.id)}
-                    className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
+                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
                       rrbTopic === topic.id ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -1911,7 +1911,7 @@ export default function App() {
                       ][index % 4];
                       return (
                         <div key={`${rrbTopic}-formula-${index}`} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm`}>
-                          <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                          <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                             <span className="text-indigo-500 font-black mr-2">F{index + 1}.</span>
                             {formula}
                           </div>
@@ -1968,12 +1968,12 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="w-full max-w-6xl flex flex-wrap gap-2 mb-4 shrink-0">
+              <div className="w-full max-w-6xl flex flex-nowrap overflow-x-auto no-scrollbar gap-2 mb-4 pb-1 shrink-0">
                 {rrbTopics.map((topic) => (
                   <button
                     key={topic.id}
                     onClick={() => setRrbTopic(topic.id)}
-                    className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
+                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
                       rrbTopic === topic.id ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -2007,7 +2007,7 @@ export default function App() {
                       ][(rrbPage * RRB_PAGE_SIZE + index) % 4];
                       return (
                         <div key={question.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3`}>
-                          <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                          <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                             <span className="text-slate-400 font-black mr-2">Q{rrbPage * RRB_PAGE_SIZE + index + 1}.</span>
                             {question.text}
                           </div>
@@ -2032,7 +2032,7 @@ export default function App() {
                           </div>
                           {result && (
                             <div
-                              className={`text-xs sm:text-sm font-bold flex items-center gap-2 px-3 py-1.5 rounded-full border ${
+                          className={`text-xs sm:text-sm font-bold flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full border ${
                                 result.status === 'correct'
                                   ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                                   : result.status === 'incorrect'
