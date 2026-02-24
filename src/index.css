@@ -249,10 +249,28 @@ body,
 /* Screen-level transition for tab/mode/page switches */
 .view-transition {
   width: 100%;
+  position: relative;
+  overflow: clip;
   transform-origin: center top;
-  animation-duration: 320ms;
+  animation-duration: 420ms;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+.view-transition::after {
+  content: "";
+  position: absolute;
+  inset: -12% -30%;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 36%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 64%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-28%, 0, 0);
   will-change: transform, opacity;
 }
 
@@ -268,6 +286,18 @@ body,
   animation-name: view-enter-backward;
 }
 
+.view-transition--neutral::after {
+  animation: view-sweep-neutral 520ms ease both;
+}
+
+.view-transition--forward::after {
+  animation: view-sweep-forward 620ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.view-transition--backward::after {
+  animation: view-sweep-backward 620ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
 .tab-switcher {
   position: relative;
   display: grid;
@@ -278,6 +308,30 @@ body,
   background: rgba(248, 250, 252, 0.8);
   border: 1px solid rgba(203, 213, 225, 0.7);
   border-bottom: 0;
+  overflow: hidden;
+}
+
+.tab-switcher::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(14, 165, 233, 0.1) 50%,
+    rgba(59, 130, 246, 0.08) 100%
+  );
+}
+
+.tab-switcher[data-switch-dir="forward"]::before {
+  animation: tab-track-sweep-forward 500ms ease-out both;
+}
+
+.tab-switcher[data-switch-dir="backward"]::before {
+  animation: tab-track-sweep-backward 500ms ease-out both;
 }
 
 .tab-switcher-indicator {
@@ -289,16 +343,24 @@ body,
   border-radius: 0.7rem 0.7rem 0 0;
   border: 1px solid rgba(148, 163, 184, 0.25);
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.2),
+    0 2px 8px rgba(14, 165, 233, 0.12);
   transition:
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 260ms ease;
+    transform 340ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 340ms ease;
   will-change: transform;
   pointer-events: none;
 }
 
+.tab-switcher[data-active-tab="learn"] .tab-switcher-indicator {
+  transform: translate3d(0, 0, 0);
+  animation: indicator-settle-left 360ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
 .tab-switcher[data-active-tab="games"] .tab-switcher-indicator {
   transform: translate3d(calc(100% + 0.25rem), 0, 0);
+  animation: indicator-settle-right 360ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
 .tab-switcher-btn {
@@ -316,11 +378,30 @@ body,
   font-weight: 800;
   transition:
     color 200ms ease,
-    transform 220ms ease;
+    transform 240ms ease;
 }
 
 .tab-switcher-btn:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+.tab-switcher-btn.is-active {
   transform: translate3d(0, -1px, 0);
+}
+
+.tab-switcher-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.tab-switcher-btn.is-active .tab-switcher-icon {
+  animation: tab-icon-bob 1600ms ease-in-out infinite;
+}
+
+.tab-switcher-btn.is-active span:last-child {
+  animation: tab-label-pop 360ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
 .tab-switcher-btn:focus-visible {
@@ -329,11 +410,11 @@ body,
 }
 
 .table-number-reveal {
-  animation: table-chip-enter 300ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation: table-chip-enter 400ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
 .arcade-grid > button {
-  animation: arcade-card-enter 380ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation: arcade-card-enter 520ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
 .arcade-grid > button:nth-child(1) {
@@ -377,7 +458,7 @@ body,
 @keyframes view-enter-neutral {
   0% {
     opacity: 0;
-    transform: translate3d(0, 14px, 0) scale(0.992);
+    transform: translate3d(0, 24px, 0) scale(0.982);
   }
   100% {
     opacity: 1;
@@ -388,29 +469,146 @@ body,
 @keyframes view-enter-forward {
   0% {
     opacity: 0;
-    transform: translate3d(24px, 10px, 0) scale(0.994);
+    transform: translate3d(56px, 18px, 0) scale(0.982) rotate(-0.35deg);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
 }
 
 @keyframes view-enter-backward {
   0% {
     opacity: 0;
-    transform: translate3d(-24px, 10px, 0) scale(0.994);
+    transform: translate3d(-56px, 18px, 0) scale(0.982) rotate(0.35deg);
   }
   100% {
     opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes view-sweep-neutral {
+  0% {
+    opacity: 0;
+    transform: translate3d(-18%, 0, 0);
+  }
+  35% {
+    opacity: 0.42;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(12%, 0, 0);
+  }
+}
+
+@keyframes view-sweep-forward {
+  0% {
+    opacity: 0;
+    transform: translate3d(-34%, 0, 0);
+  }
+  35% {
+    opacity: 0.48;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(24%, 0, 0);
+  }
+}
+
+@keyframes view-sweep-backward {
+  0% {
+    opacity: 0;
+    transform: translate3d(24%, 0, 0);
+  }
+  35% {
+    opacity: 0.48;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-34%, 0, 0);
+  }
+}
+
+@keyframes tab-track-sweep-forward {
+  0% {
+    opacity: 0;
+    transform: translate3d(-20%, 0, 0);
+  }
+  35% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(20%, 0, 0);
+  }
+}
+
+@keyframes tab-track-sweep-backward {
+  0% {
+    opacity: 0;
+    transform: translate3d(20%, 0, 0);
+  }
+  35% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-20%, 0, 0);
+  }
+}
+
+@keyframes indicator-settle-left {
+  0% {
+    transform: translate3d(8px, 0, 0) scaleX(0.98);
+  }
+  60% {
+    transform: translate3d(-3px, 0, 0) scaleX(1.02);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+}
+
+@keyframes indicator-settle-right {
+  0% {
+    transform: translate3d(calc(100% - 4px), 0, 0) scaleX(0.98);
+  }
+  60% {
+    transform: translate3d(calc(100% + 3px), 0, 0) scaleX(1.02);
+  }
+  100% {
+    transform: translate3d(calc(100% + 0.25rem), 0, 0) scaleX(1);
+  }
+}
+
+@keyframes tab-icon-bob {
+  0% {
     transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -2px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes tab-label-pop {
+  0% {
+    transform: translate3d(0, 5px, 0);
+    opacity: 0.72;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 
 @keyframes table-chip-enter {
   0% {
     opacity: 0;
-    transform: translate3d(0, 10px, 0) scale(0.92);
+    transform: translate3d(0, 20px, 0) scale(0.82);
   }
   100% {
     opacity: 1;
@@ -421,7 +619,7 @@ body,
 @keyframes arcade-card-enter {
   0% {
     opacity: 0;
-    transform: translate3d(0, 16px, 0) scale(0.985);
+    transform: translate3d(0, 28px, 0) scale(0.94);
   }
   100% {
     opacity: 1;
@@ -511,7 +709,7 @@ body,
   }
 
   .view-transition {
-    animation-duration: 240ms;
+    animation-duration: 320ms;
   }
 
   .tab-switcher-btn {
@@ -525,9 +723,13 @@ body,
   }
 
   .tab-switcher-indicator,
+  .tab-switcher::before,
+  .tab-switcher-btn.is-active .tab-switcher-icon,
+  .tab-switcher-btn.is-active span:last-child,
   .tab-switcher-btn,
   .table-number-reveal,
-  .arcade-grid > button {
+  .arcade-grid > button,
+  .view-transition::after {
     animation: none;
     transition: none;
   }

@@ -1572,19 +1572,21 @@ export default function App() {
           {/* Multiply Tab Navigation */}
           {operation === 'multiply' && gameStatus === 'idle' && (
             <div className="px-2 sm:px-6">
-              <div className="tab-switcher" data-active-tab={activeTab}>
+              <div className="tab-switcher" data-active-tab={activeTab} data-switch-dir={viewTransitionMode}>
                 <div className="tab-switcher-indicator"></div>
                 <button
                   onClick={() => handleTabSwitch('learn')}
-                  className={`tab-switcher-btn ${activeTab === 'learn' ? 'text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
+                  className={`tab-switcher-btn ${activeTab === 'learn' ? 'is-active text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
                 >
-                  <BookOpen size={18} /> Complete Tables
+                  <span className="tab-switcher-icon"><BookOpen size={18} /></span>
+                  <span>Complete Tables</span>
                 </button>
                 <button
                   onClick={() => handleTabSwitch('games')}
-                  className={`tab-switcher-btn ${activeTab === 'games' ? 'text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
+                  className={`tab-switcher-btn ${activeTab === 'games' ? 'is-active text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
                 >
-                  <Gamepad2 size={18} /> Training Arcade
+                  <span className="tab-switcher-icon"><Gamepad2 size={18} /></span>
+                  <span>Training Arcade</span>
                 </button>
               </div>
             </div>
