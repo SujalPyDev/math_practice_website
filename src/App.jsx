@@ -1512,7 +1512,7 @@ export default function App() {
                 onClick={() => setOperation('multiply')}
                 className={`engine-op-btn ${operation === 'multiply' ? 'is-active is-multiply' : ''}`}
               >
-                <span className="engine-op-btn-icon"><X size={14} /></span> Multiply
+                <span className="engine-op-btn-icon engine-op-hash">#</span> Multiply
               </button>
               <button
                 onClick={() => setOperation('addition')}
@@ -1645,14 +1645,17 @@ export default function App() {
 
                 {/* Title & Action */}
                 <div className="w-full flex justify-between items-center mb-4 px-2 engine-title-row">
-                  <h3 className={`text-xl sm:text-2xl font-black ${currentTheme.text} flex items-center gap-2`}>
-                    Table of {selectedTable}
-                  </h3>
+                  <div className="flex flex-col">
+                    <h3 className={`text-xl sm:text-2xl font-black ${currentTheme.text} flex items-center gap-2 engine-section-title`}>
+                      Table of <span className="engine-table-badge">{selectedTable}</span>
+                    </h3>
+                    <span className="engine-title-sub">Learn the {selectedTable} times table</span>
+                  </div>
                   
                   {!isPracticing ? (
                     <button 
                       onClick={handlePracticeStart}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm border shadow-sm hover:shadow-md hover:-translate-y-0.5
+                      className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm border shadow-sm hover:shadow-md hover:-translate-y-0.5 engine-cta-btn
                         ${completedTables.includes(selectedTable) ? 'bg-green-50 text-green-600 border-green-200' : 'bg-white text-blue-600 border-blue-200'}`}
                     >
                       <PenTool size={16}/> 
@@ -1661,7 +1664,7 @@ export default function App() {
                   ) : (
                     <button 
                       onClick={() => setIsPracticing(false)}
-                      className="flex items-center gap-1 bg-slate-100 px-4 py-2 rounded-full font-bold text-slate-500 text-sm hover:bg-slate-200 transition-all border border-slate-200"
+                      className="flex items-center gap-1 bg-slate-100 px-4 py-2 rounded-full font-bold text-slate-500 text-sm hover:bg-slate-200 transition-all border border-slate-200 engine-cancel-btn"
                     >
                       <ArrowLeft size={16}/> Cancel
                     </button>
@@ -1718,7 +1721,7 @@ export default function App() {
 
                     <button 
                       onClick={handlePracticeSubmit}
-                      className="mt-6 bg-blue-600 text-white font-bold text-base px-10 py-3 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
+                      className="mt-6 bg-blue-600 text-white font-bold text-base px-10 py-3 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all engine-cta-btn"
                     >
                       Check Answers
                     </button>
