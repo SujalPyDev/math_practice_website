@@ -513,6 +513,12 @@ html[data-theme="dark"] .app-bg::after {
 .custom-scrollbar {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #9eb1d1 transparent;
+}
+
+html[data-theme="dark"] .custom-scrollbar {
+  scrollbar-color: #5f78a3 transparent;
 }
 
 @keyframes view-enter-neutral {
@@ -1547,10 +1553,16 @@ body {
 }
 
 .engine-app.theme-dark .engine-section .bg-white,
+.engine-app.theme-dark .engine-section .bg-white\/55,
+.engine-app.theme-dark .engine-section .bg-white\/60,
+.engine-app.theme-dark .engine-section .bg-white\/70,
+.engine-app.theme-dark .engine-section .bg-white\/75,
 .engine-app.theme-dark .engine-section .bg-white\/80,
 .engine-app.theme-dark .engine-section .bg-white\/90,
+.engine-app.theme-dark .engine-section .bg-white\/95,
 .engine-app.theme-dark .engine-section .bg-slate-50,
-.engine-app.theme-dark .engine-section .bg-slate-100 {
+.engine-app.theme-dark .engine-section .bg-slate-100,
+.engine-app.theme-dark .engine-section .bg-slate-200 {
   background-color: rgba(22, 34, 54, 0.86) !important;
 }
 
@@ -1576,6 +1588,91 @@ body {
 
 .engine-app.theme-dark .engine-section .text-slate-400 {
   color: #8da5cc !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-300 {
+  color: #9aafd2 !important;
+}
+
+.engine-app.theme-dark .engine-section .text-slate-200 {
+  color: #b8c8e2 !important;
+}
+
+.engine-app.theme-dark .engine-topic-chip {
+  background: linear-gradient(180deg, rgba(28, 42, 66, 0.95) 0%, rgba(22, 35, 56, 0.94) 100%) !important;
+  border-color: rgba(74, 99, 142, 0.74) !important;
+  color: #bed0eb !important;
+}
+
+.engine-app.theme-dark .engine-topic-chip.bg-slate-900 {
+  background: linear-gradient(145deg, #5f7fb6 0%, #44689f 100%) !important;
+  border-color: rgba(103, 136, 191, 0.82) !important;
+  color: #f5f8ff !important;
+  box-shadow: 0 9px 18px rgba(34, 53, 86, 0.42);
+}
+
+.engine-app.theme-dark .engine-scoreboard .bg-pink-100 {
+  background-color: rgba(132, 72, 113, 0.36) !important;
+}
+
+.engine-app.theme-dark .engine-gameover-card .bg-orange-50 {
+  background-color: rgba(138, 95, 46, 0.36) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn {
+  background: linear-gradient(180deg, rgba(35, 51, 77, 0.96) 0%, rgba(26, 40, 63, 0.95) 100%) !important;
+  border-color: rgba(79, 104, 146, 0.78) !important;
+  color: #deebff !important;
+  box-shadow: 0 4px 0 0 rgba(9, 18, 33, 0.9) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn:hover {
+  background: linear-gradient(180deg, rgba(43, 62, 92, 0.98) 0%, rgba(33, 51, 78, 0.96) 100%) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn--danger {
+  background: linear-gradient(180deg, rgba(95, 45, 63, 0.96) 0%, rgba(79, 36, 52, 0.95) 100%) !important;
+  border-color: rgba(142, 78, 103, 0.8) !important;
+  color: #ffd7e1 !important;
+  box-shadow: 0 4px 0 0 rgba(57, 21, 35, 0.86) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn--danger:hover {
+  background: linear-gradient(180deg, rgba(110, 52, 73, 0.98) 0%, rgba(89, 41, 58, 0.97) 100%) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn--primary {
+  background: linear-gradient(135deg, #5f88cb 0%, #3e67ab 100%) !important;
+  border-color: rgba(89, 123, 185, 0.84) !important;
+  color: #f2f7ff !important;
+  box-shadow: 0 4px 0 0 rgba(24, 45, 79, 0.94) !important;
+}
+
+.engine-app.theme-dark .engine-pad-btn--primary:hover {
+  background: linear-gradient(135deg, #6b95dc 0%, #4977bf 100%) !important;
+}
+
+.engine-app.theme-dark .engine-option-btn.bg-white {
+  background: linear-gradient(180deg, rgba(33, 49, 75, 0.96) 0%, rgba(25, 40, 63, 0.95) 100%) !important;
+  border-color: rgba(81, 107, 149, 0.78) !important;
+  color: #dbe9ff !important;
+}
+
+.engine-app.theme-dark .engine-option-btn.bg-white\/20 {
+  background: rgba(56, 78, 115, 0.34) !important;
+  color: rgba(210, 226, 252, 0.62) !important;
+}
+
+.engine-app.theme-dark .engine-option-btn.bg-emerald-50 {
+  background: rgba(49, 111, 96, 0.34) !important;
+  border-color: rgba(72, 144, 124, 0.74) !important;
+  color: #b9f2e0 !important;
+}
+
+.engine-app.theme-dark .engine-option-btn.bg-rose-50 {
+  background: rgba(116, 54, 78, 0.34) !important;
+  border-color: rgba(156, 82, 111, 0.74) !important;
+  color: #ffd2e1 !important;
 }
 
 .engine-app.theme-dark .engine-soft-btn,

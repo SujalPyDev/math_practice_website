@@ -2338,6 +2338,8 @@ export default function App() {
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        html[data-theme="dark"] .custom-scrollbar::-webkit-scrollbar-thumb { background: #5f78a3; }
+        html[data-theme="dark"] .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #7f9cca; }
       `}} />
     </div>
   );
