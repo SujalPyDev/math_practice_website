@@ -1274,9 +1274,9 @@ export default function App() {
   }
 
   return (
-    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch">
+    <div className="h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app">
       {/* Main Application Container */}
-      <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden">
+      <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden engine-main">
 
         {showAdminPanel && isAdmin && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm p-4">
@@ -1494,73 +1494,77 @@ export default function App() {
         {/* ========================================= */}
         {/* LIGHT COMPACT HEADER                      */}
         {/* ========================================= */}
-        <div className="bg-white/80 z-20 shrink-0 border-b border-slate-200/50 backdrop-blur-md">
-          <div className="p-3 md:px-6 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-2">
-            
-            {/* Logo */}
-            <h1 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center gap-2 tracking-tight self-start">
-              <Calculator size={22} className="text-blue-600" /> <span className="hidden sm:block">Math Engine</span>
-            </h1>
+        <div className="z-20 shrink-0 engine-header">
+          <div className="engine-header-row">
+            <div className="engine-brand">
+              <div className="engine-brand-logo">
+                <Calculator size={22} className="text-blue-700" />
+              </div>
+              <div>
+                <h1 className="engine-brand-title">Math Engine</h1>
+                <p className="engine-brand-sub">Learn - Practice - Master</p>
+              </div>
+            </div>
 
             {/* Central Toggle */}
-            <div className="flex w-full sm:w-auto bg-slate-100/80 p-1 rounded-xl shadow-inner gap-1 overflow-x-auto no-scrollbar">
+            <div className="engine-op-switch no-scrollbar">
               <button 
                 onClick={() => setOperation('multiply')}
-                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'multiply' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`engine-op-btn ${operation === 'multiply' ? 'is-active is-multiply' : ''}`}
               >
-                <X size={14} /> Multiply
+                <span className="engine-op-btn-icon"><X size={14} /></span> Multiply
               </button>
               <button
                 onClick={() => setOperation('addition')}
-                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'addition' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`engine-op-btn ${operation === 'addition' ? 'is-active is-addition' : ''}`}
               >
-                <span className="text-base leading-none font-black">+</span> Addition
+                <span className="engine-op-btn-icon text-base leading-none font-black">+</span> Addition
               </button>
               <button 
                 onClick={() => setOperation('divide')}
-                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'divide' ? 'bg-white text-pink-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`engine-op-btn ${operation === 'divide' ? 'is-active is-divide' : ''}`}
               >
-                <div className="text-lg leading-none font-black">÷</div> Divide
+                <span className="engine-op-btn-icon text-lg leading-none font-black">÷</span> Divide
               </button>
               <button
                 onClick={() => setOperation('rrb')}
-                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'rrb' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`engine-op-btn ${operation === 'rrb' ? 'is-active is-quant' : ''}`}
               >
-                <Target size={14} /> Quant Lab
+                <span className="engine-op-btn-icon"><Target size={14} /></span> Quant Lab
               </button>
               <button
                 onClick={() => setOperation('formula')}
-                className={`flex items-center justify-center gap-1 flex-none sm:flex-1 min-w-[108px] sm:min-w-0 min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all duration-300 text-[11px] sm:text-sm ${operation === 'formula' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`engine-op-btn ${operation === 'formula' ? 'is-active is-formula' : ''}`}
               >
-                <BookOpen size={14} /> Formula
+                <span className="engine-op-btn-icon"><BookOpen size={14} /></span> Formula
               </button>
             </div>
 
-            <div className="flex w-full sm:w-auto items-center gap-2 flex-wrap justify-between sm:justify-end">
+            <div className="engine-tools-row">
               {/* Difficulty Controls */}
-              <div className="flex bg-slate-100/80 rounded-xl p-1 items-center shadow-inner w-full sm:w-auto justify-start sm:justify-center overflow-x-auto no-scrollbar">
-                <Settings2 size={16} className="text-slate-400 ml-2 mr-1 hidden sm:block" />
-                <button onClick={() => setDifficulty('easy')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'easy' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Easy</button>
-                <button onClick={() => setDifficulty('medium')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'medium' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Med</button>
-                <button onClick={() => setDifficulty('hard')} className={`min-w-[64px] min-h-[42px] px-2 sm:px-3 py-1.5 rounded-lg font-bold transition-all text-xs sm:text-sm ${difficulty === 'hard' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>Hard</button>
+              <div className="engine-difficulty-switch no-scrollbar">
+                <Settings2 size={15} className="engine-setting-icon" />
+                <button onClick={() => setDifficulty('easy')} className={`engine-diff-btn ${difficulty === 'easy' ? 'is-active' : ''}`}>Easy</button>
+                <button onClick={() => setDifficulty('medium')} className={`engine-diff-btn ${difficulty === 'medium' ? 'is-active' : ''}`}>Med</button>
+                <button onClick={() => setDifficulty('hard')} className={`engine-diff-btn ${difficulty === 'hard' ? 'is-active' : ''}`}>Hard</button>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="engine-user-tools">
                 {isAdmin && (
                   <button
                     onClick={() => setShowAdminPanel(true)}
-                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition-colors"
+                    className="engine-tool-btn"
                   >
                     <ShieldCheck size={14} /> Admin
                   </button>
                 )}
-                <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/80 border border-slate-200 shadow-sm">
+                <div className="engine-user-chip">
                   <User size={14} className="text-slate-500" />
                   <span className="text-xs font-bold text-slate-600">{currentUser?.username}</span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white/80 border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
+                  className="engine-tool-btn"
                 >
                   {AUTH_ENABLED ? <LogOut size={14} /> : <Delete size={14} />}
                   {AUTH_ENABLED ? 'Logout' : 'Reset Data'}
@@ -1571,7 +1575,7 @@ export default function App() {
 
           {/* Multiply Tab Navigation */}
           {operation === 'multiply' && gameStatus === 'idle' && (
-            <div className="px-2 sm:px-6">
+            <div className="px-3 sm:px-6 pb-2">
               <div className="tab-switcher" data-active-tab={activeTab} data-switch-dir={viewTransitionMode}>
                 <div className="tab-switcher-indicator"></div>
                 <button
@@ -1596,17 +1600,17 @@ export default function App() {
         {/* ========================================= */}
         {/* MAIN NO-SCROLL CONTENT AREA               */}
         {/* ========================================= */}
-        <div className="flex-grow min-h-0 flex flex-col relative w-full overflow-y-auto">
+        <div className="flex-grow min-h-0 flex flex-col relative w-full overflow-y-auto engine-content">
           <div key={activeViewKey} className={`view-transition ${viewTransitionClass} flex h-full min-h-0 flex-col`}>
           
           {/* MULTIPLICATION: TABLE MASTERY */}
           {operation === 'multiply' && activeTab === 'learn' && gameStatus === 'idle' && (
-             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4">
+             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 engine-section engine-multiply-learn">
               
               {/* Top Controls: Level Pill & Number Selector */}
               <div className="w-full max-w-5xl flex flex-col items-center shrink-0">
                 {/* Level Selector Pill */}
-                <div className="bg-slate-100/80 p-1 rounded-full mb-4 flex shadow-inner w-full sm:w-auto">
+                <div className="bg-slate-100/80 p-1 rounded-full mb-4 flex shadow-inner w-full sm:w-auto engine-level-switch">
                   <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('apprentice'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
                     <Rocket size={16}/> Base (2-10)
                   </button>
@@ -1616,7 +1620,7 @@ export default function App() {
                 </div>
 
                 {/* Number Selector Circles */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 w-full">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 w-full engine-number-rail">
                   {currentNumbers.map((num, idx) => {
                     const t = themes[num];
                     const isCompleted = completedTables.includes(num);
@@ -1640,7 +1644,7 @@ export default function App() {
                 </div>
 
                 {/* Title & Action */}
-                <div className="w-full flex justify-between items-center mb-4 px-2">
+                <div className="w-full flex justify-between items-center mb-4 px-2 engine-title-row">
                   <h3 className={`text-xl sm:text-2xl font-black ${currentTheme.text} flex items-center gap-2`}>
                     Table of {selectedTable}
                   </h3>
@@ -1681,7 +1685,7 @@ export default function App() {
                 
                 {/* PRACTICE VIEW */}
                 {isPracticing ? (
-                  <div className="w-full max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4">
+                  <div className="w-full max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 engine-practice-panel">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 w-full">
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, index) => (
                         <div key={multiplier} className="flex items-center justify-between bg-white p-2 sm:p-3 rounded-xl border border-slate-200 shadow-sm">
@@ -1721,11 +1725,11 @@ export default function App() {
                   </div>
                 ) : (
                   /* STATIC VIEW: Compact Card Grid */
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 w-full min-h-0 pb-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 w-full min-h-0 pb-4 engine-table-grid">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, idx) => (
                       <div 
                         key={multiplier} 
-                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group"
+                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
                         style={{ animationDelay: `${idx * 20}ms`, animationFillMode: 'backwards' }}
                       >
                         <div className="text-slate-400 font-semibold mb-0.5 flex items-center justify-center gap-1 text-xs sm:text-sm">
@@ -1749,8 +1753,8 @@ export default function App() {
           {/* ADDITION PRACTICE                         */}
           {/* ========================================= */}
           {operation === 'addition' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4">
-              <div className="w-full max-w-4xl bg-white/70 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm shrink-0">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 engine-section engine-addition">
+              <div className="w-full max-w-4xl bg-white/70 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-100 p-2 rounded-xl text-emerald-600 text-xl leading-none font-black">+</div>
                   <div className="flex flex-col">
@@ -1764,20 +1768,20 @@ export default function App() {
                   <span className="bg-white/80 px-2 py-1 rounded-md shadow-sm text-emerald-700">Correct: {additionCorrectCount}/{ADDITION_QUESTION_COUNT}</span>
                   <button
                     onClick={handleAdditionCheckAll}
-                    className="px-3 py-1.5 rounded-lg font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-colors"
+                    className="px-3 py-1.5 rounded-lg font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-colors engine-check-btn"
                   >
                     Check All
                   </button>
                   <button
                     onClick={handleAdditionRefresh}
-                    className="px-3 py-1.5 rounded-lg font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
+                    className="px-3 py-1.5 rounded-lg font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors engine-soft-btn"
                   >
                     New 5
                   </button>
                 </div>
               </div>
 
-              <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-3 pb-4">
+              <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-3 pb-4 engine-question-grid">
                 {additionQuestions.map((questionItem, index) => {
                   const result = additionResults[index];
                   const cardTone = [
@@ -1788,7 +1792,7 @@ export default function App() {
                   ][index % 4];
 
                   return (
-                    <div key={questionItem.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3`}>
+                    <div key={questionItem.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3 engine-question-card`}>
                       <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                         <span className="text-slate-400 font-black mr-2">Q{index + 1}.</span>
                         {questionItem.terms.join(' + ')} = ?
@@ -1803,11 +1807,11 @@ export default function App() {
                           onKeyDown={(e) => {
                             if (e.key === 'Enter') handleAdditionCheck(index);
                           }}
-                          className="w-full sm:w-44 text-center text-base sm:text-lg font-black py-2 rounded-xl outline-none transition-all bg-slate-50 border-2 border-slate-100 text-emerald-600 focus:border-emerald-400 focus:bg-white shadow-inner"
+                          className="w-full sm:w-44 text-center text-base sm:text-lg font-black py-2 rounded-xl outline-none transition-all bg-slate-50 border-2 border-slate-100 text-emerald-600 focus:border-emerald-400 focus:bg-white shadow-inner engine-answer-input"
                         />
                         <button
                           onClick={() => handleAdditionCheck(index)}
-                          className="px-4 py-2 rounded-xl font-bold text-sm sm:text-base bg-emerald-600 text-white hover:bg-emerald-700 shadow-md hover:shadow-emerald-500/30 transition-all"
+                          className="px-4 py-2 rounded-xl font-bold text-sm sm:text-base bg-emerald-600 text-white hover:bg-emerald-700 shadow-md hover:shadow-emerald-500/30 transition-all engine-check-btn"
                         >
                           Check
                         </button>
@@ -1838,8 +1842,8 @@ export default function App() {
           {/* MULTIPLICATION: EXPANDED GAMES MENU       */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4">
-              <div className="w-full max-w-6xl bg-white/60 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-6 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 engine-section engine-arcade">
+              <div className="w-full max-w-6xl bg-white/60 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-6 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-2">
                   <div className="bg-blue-100 p-1.5 rounded-lg"><Gamepad2 className="text-blue-600" size={20}/></div>
                   <span>Arcade Selection</span>
@@ -1850,39 +1854,39 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="arcade-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl pb-4">
+              <div className="arcade-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl pb-4 engine-arcade-grid">
                 {/* 1. Classic */}
-                <button onClick={() => startGame('classic')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-blue-200 hover:shadow-[0_8px_20px_rgba(37,99,235,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('classic')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-blue-200 hover:shadow-[0_8px_20px_rgba(37,99,235,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-blue-500 group-hover:text-white transition-colors"><Star size={20} className="text-blue-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">Classic Quiz</h3>
                   <p className="text-slate-500 text-xs font-medium">4 choices. Steady, focused practice.</p>
                 </button>
                 {/* 2. Time Attack */}
-                <button onClick={() => startGame('time_attack')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-orange-200 hover:shadow-[0_8px_20px_rgba(249,115,22,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('time_attack')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-orange-200 hover:shadow-[0_8px_20px_rgba(249,115,22,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-orange-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-orange-500 group-hover:text-white transition-colors"><Timer size={20} className="text-orange-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">Time Attack</h3>
                   <p className="text-slate-500 text-xs font-medium">60 seconds. How fast can you calculate?</p>
                 </button>
                 {/* 3. Missing Link */}
-                <button onClick={() => startGame('missing_number')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-teal-200 hover:shadow-[0_8px_20px_rgba(20,184,166,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('missing_number')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-teal-200 hover:shadow-[0_8px_20px_rgba(20,184,166,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-teal-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-teal-500 group-hover:text-white transition-colors"><HelpCircle size={20} className="text-teal-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">Missing Link</h3>
                   <p className="text-slate-500 text-xs font-medium">Find the missing puzzle piece.</p>
                 </button>
                 {/* 4. True or False */}
-                <button onClick={() => startGame('true_false')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-emerald-200 hover:shadow-[0_8px_20px_rgba(16,185,129,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('true_false')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-emerald-200 hover:shadow-[0_8px_20px_rgba(16,185,129,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-emerald-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-emerald-500 group-hover:text-white transition-colors"><CheckSquare size={20} className="text-emerald-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">True or False</h3>
                   <p className="text-slate-500 text-xs font-medium">Fast-paced logic. Is the answer correct?</p>
                 </button>
                 {/* 5. Grid Strike */}
-                <button onClick={() => startGame('grid_strike')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-indigo-200 hover:shadow-[0_8px_20px_rgba(99,102,241,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('grid_strike')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-indigo-200 hover:shadow-[0_8px_20px_rgba(99,102,241,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-indigo-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-indigo-500 group-hover:text-white transition-colors"><Grid3X3 size={20} className="text-indigo-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">Grid Strike (Bingo)</h3>
                   <p className="text-slate-500 text-xs font-medium">Scan a 3x3 grid to quickly find the right answer.</p>
                 </button>
                 {/* 6. Find the Imposter */}
-                <button onClick={() => startGame('imposter')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-rose-200 hover:shadow-[0_8px_20px_rgba(244,63,94,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
+                <button onClick={() => startGame('imposter')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-rose-200 hover:shadow-[0_8px_20px_rgba(244,63,94,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group engine-feature-card">
                   <div className="bg-rose-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-rose-500 group-hover:text-white transition-colors"><ShieldAlert size={20} className="text-rose-500 group-hover:text-white" /></div>
                   <h3 className="text-lg font-black text-slate-800 mb-1">Find the Imposter</h3>
                   <p className="text-slate-500 text-xs font-medium">3 equations are correct, 1 is a lie. Spot the fake!</p>
@@ -1895,8 +1899,8 @@ export default function App() {
           {/* FORMULA LAB                               */}
           {/* ========================================= */}
           {operation === 'formula' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-indigo-50/65 via-sky-50/60 to-cyan-50/55 border border-white/80">
-              <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-100/75 via-white/75 to-sky-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-indigo-50/65 via-sky-50/60 to-cyan-50/55 border border-white/80 engine-section engine-formula">
+              <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-100/75 via-white/75 to-sky-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-indigo-100 p-2 rounded-xl"><BookOpen className="text-indigo-600" size={20}/></div>
                   <div className="flex flex-col">
@@ -1915,7 +1919,7 @@ export default function App() {
                   <button
                     key={topic.id}
                     onClick={() => setRrbTopic(topic.id)}
-                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
+                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all engine-topic-chip ${
                       rrbTopic === topic.id ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -1927,7 +1931,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-indigo-50/45 to-sky-50/45 border border-white/80">
+              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-indigo-50/45 to-sky-50/45 border border-white/80 engine-scroll-shell">
                 {rrbFormulas.length === 0 ? (
                   <div className="w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-center text-slate-500 font-medium">
                     No formulas added for this topic yet.
@@ -1942,7 +1946,7 @@ export default function App() {
                         'from-amber-50/90 via-white/95 to-orange-50/75 border-amber-100',
                       ][index % 4];
                       return (
-                        <div key={`${rrbTopic}-formula-${index}`} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm`}>
+                        <div key={`${rrbTopic}-formula-${index}`} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm engine-plain-card`}>
                           <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                             <span className="text-indigo-500 font-black mr-2">F{index + 1}.</span>
                             {formula}
@@ -1960,8 +1964,8 @@ export default function App() {
           {/* QUANT PRACTICE                             */}
           {/* ========================================= */}
           {operation === 'rrb' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto sm:overflow-hidden custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80">
-              <div className="w-full max-w-6xl bg-gradient-to-r from-emerald-100/75 via-white/75 to-cyan-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto sm:overflow-hidden custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80 engine-section engine-rrb">
+              <div className="w-full max-w-6xl bg-gradient-to-r from-emerald-100/75 via-white/75 to-cyan-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-100 p-2 rounded-xl"><Target className="text-emerald-600" size={20}/></div>
                   <div className="flex flex-col">
@@ -2005,7 +2009,7 @@ export default function App() {
                   <button
                     key={topic.id}
                     onClick={() => setRrbTopic(topic.id)}
-                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all ${
+                    className={`shrink-0 min-h-[40px] px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border transition-all engine-topic-chip ${
                       rrbTopic === topic.id ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -2017,7 +2021,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80">
+              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80 engine-scroll-shell">
                 {rrbDataLoading ? (
                   <div className="w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-center text-slate-500 font-medium flex items-center justify-center gap-2">
                     <Loader className="animate-spin text-emerald-600" size={18} />
@@ -2038,7 +2042,7 @@ export default function App() {
                         'from-amber-50/90 via-white/95 to-orange-50/75 border-amber-100',
                       ][(rrbPage * RRB_PAGE_SIZE + index) % 4];
                       return (
-                        <div key={question.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3`}>
+                        <div key={question.id} className={`bg-gradient-to-br ${cardTone} backdrop-blur-sm rounded-2xl p-3 sm:p-4 border shadow-sm flex flex-col gap-3 engine-question-card`}>
                           <div className="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed break-words">
                             <span className="text-slate-400 font-black mr-2">Q{rrbPage * RRB_PAGE_SIZE + index + 1}.</span>
                             {question.text}
@@ -2053,11 +2057,11 @@ export default function App() {
                               onKeyDown={(e) => {
                                 if (e.key === 'Enter') handleRrbCheck(question);
                               }}
-                              className="w-full sm:w-56 text-center text-base sm:text-lg font-black py-2 rounded-xl outline-none transition-all bg-slate-50 border-2 border-slate-100 text-emerald-600 focus:border-emerald-400 focus:bg-white shadow-inner"
+                              className="w-full sm:w-56 text-center text-base sm:text-lg font-black py-2 rounded-xl outline-none transition-all bg-slate-50 border-2 border-slate-100 text-emerald-600 focus:border-emerald-400 focus:bg-white shadow-inner engine-answer-input"
                             />
                             <button
                               onClick={() => handleRrbCheck(question)}
-                              className="px-4 py-2 rounded-xl font-bold text-sm sm:text-base bg-emerald-600 text-white hover:bg-emerald-700 shadow-md hover:shadow-emerald-500/30 transition-all"
+                              className="px-4 py-2 rounded-xl font-bold text-sm sm:text-base bg-emerald-600 text-white hover:bg-emerald-700 shadow-md hover:shadow-emerald-500/30 transition-all engine-check-btn"
                             >
                               Check
                             </button>
@@ -2093,9 +2097,9 @@ export default function App() {
           {/* DIVISION MODE: DIRECT ENTRY (CHALLENGE FOCUSED) */}
           {/* ========================================= */}
           {operation === 'divide' && question && gameStatus === 'playing' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in zoom-in-95 duration-500">
+            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in zoom-in-95 duration-500 engine-section engine-divide-play">
               
-              <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white">
+              <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white engine-scoreboard">
                 <div className="flex items-center gap-3">
                   <div className="bg-pink-100 p-2 rounded-xl"><Zap className="text-pink-500" size={20}/></div>
                   <div className="flex flex-col">
@@ -2114,7 +2118,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="w-full max-w-5xl flex-grow flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 shadow-sm border border-white relative overflow-hidden">
+              <div className="w-full max-w-5xl flex-grow flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 shadow-sm border border-white relative overflow-hidden engine-play-card">
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'correct' ? 'opacity-100 bg-green-500' : 'opacity-0'}`}></div>
                 <div className={`absolute inset-0 z-0 transition-all duration-300 ${feedback === 'incorrect' ? 'opacity-100 bg-red-50 animate-shake border-4 border-red-500' : 'opacity-0'}`}></div>
 
@@ -2155,19 +2159,19 @@ export default function App() {
                 {/* Right Side: Numpad */}
                 <div className="relative z-10 w-full md:w-1/2 max-w-[280px]">
                   {!feedback && (
-                    <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full animate-in slide-in-from-bottom-8">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full animate-in slide-in-from-bottom-8 engine-pad-grid">
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-                        <button key={num} onClick={() => handleNumpad(num.toString())} className="bg-white hover:bg-slate-50 text-slate-700 font-black text-xl py-3 rounded-xl border border-slate-200 shadow-[0_4px_0_0_rgba(226,232,240,1)] active:shadow-none active:translate-y-1 transition-all">
+                        <button key={num} onClick={() => handleNumpad(num.toString())} className="bg-white hover:bg-slate-50 text-slate-700 font-black text-xl py-3 rounded-xl border border-slate-200 shadow-[0_4px_0_0_rgba(226,232,240,1)] active:shadow-none active:translate-y-1 transition-all engine-pad-btn">
                           {num}
                         </button>
                       ))}
-                      <button onClick={() => handleNumpad('DEL')} className="bg-red-50 hover:bg-red-100 text-red-500 font-black flex items-center justify-center py-3 rounded-xl border border-red-100 shadow-[0_4px_0_0_rgba(254,226,226,1)] active:shadow-none active:translate-y-1 transition-all">
+                      <button onClick={() => handleNumpad('DEL')} className="bg-red-50 hover:bg-red-100 text-red-500 font-black flex items-center justify-center py-3 rounded-xl border border-red-100 shadow-[0_4px_0_0_rgba(254,226,226,1)] active:shadow-none active:translate-y-1 transition-all engine-pad-btn engine-pad-btn--danger">
                         <Delete size={20}/>
                       </button>
-                      <button onClick={() => handleNumpad('0')} className="bg-white hover:bg-slate-50 text-slate-700 font-black text-xl py-3 rounded-xl border border-slate-200 shadow-[0_4px_0_0_rgba(226,232,240,1)] active:shadow-none active:translate-y-1 transition-all">
+                      <button onClick={() => handleNumpad('0')} className="bg-white hover:bg-slate-50 text-slate-700 font-black text-xl py-3 rounded-xl border border-slate-200 shadow-[0_4px_0_0_rgba(226,232,240,1)] active:shadow-none active:translate-y-1 transition-all engine-pad-btn">
                         0
                       </button>
-                      <button onClick={() => handleNumpad('ENTER')} className="bg-blue-600 hover:bg-blue-700 text-white font-black text-sm flex items-center justify-center py-3 rounded-xl shadow-[0_4px_0_0_rgba(37,99,235,1)] active:shadow-none active:translate-y-1 transition-all">
+                      <button onClick={() => handleNumpad('ENTER')} className="bg-blue-600 hover:bg-blue-700 text-white font-black text-sm flex items-center justify-center py-3 rounded-xl shadow-[0_4px_0_0_rgba(37,99,235,1)] active:shadow-none active:translate-y-1 transition-all engine-pad-btn engine-pad-btn--primary">
                         ENTER
                       </button>
                     </div>
@@ -2181,9 +2185,9 @@ export default function App() {
           {/* MULTIPLICATION ACTIVE GAMEPLAY            */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'playing' && question && (
-             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
+             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in slide-in-from-bottom-4 duration-300 engine-section engine-multiply-play">
               
-              <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white">
+              <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white engine-scoreboard">
                 <button onClick={() => setGameStatus('idle')} className="text-slate-500 hover:text-slate-800 flex items-center gap-1 font-bold bg-white px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors text-sm">
                   <ArrowLeft size={16} /> Exit
                 </button>
@@ -2200,7 +2204,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="w-full max-w-5xl flex-grow flex flex-col justify-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 text-center shadow-lg border border-white relative overflow-hidden min-h-[320px] sm:min-h-[400px]">
+              <div className="w-full max-w-5xl flex-grow flex flex-col justify-center bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-4 sm:p-6 text-center shadow-lg border border-white relative overflow-hidden min-h-[320px] sm:min-h-[400px] engine-play-card">
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'correct' ? 'opacity-100 bg-green-500' : 'opacity-0'} pointer-events-none`}></div>
                 <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${feedback === 'incorrect' ? 'opacity-100 bg-red-500' : 'opacity-0'} pointer-events-none`}></div>
 
@@ -2251,7 +2255,7 @@ export default function App() {
                       }
                       
                       return (
-                        <button key={idx} onClick={() => handleAnswerClick(optVal)} disabled={feedback !== null} className={`font-black rounded-2xl transition-all duration-300 flex items-center justify-center py-4 sm:py-6 ${gameMode === 'grid_strike' ? 'text-xl sm:text-3xl aspect-square' : gameMode === 'imposter' ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'} ${btnState}`}>
+                        <button key={idx} onClick={() => handleAnswerClick(optVal)} disabled={feedback !== null} className={`font-black rounded-2xl transition-all duration-300 flex items-center justify-center py-4 sm:py-6 engine-option-btn ${gameMode === 'grid_strike' ? 'text-xl sm:text-3xl aspect-square' : gameMode === 'imposter' ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'} ${btnState}`}>
                           {optVal}
                         </button>
                       );
@@ -2265,7 +2269,7 @@ export default function App() {
           {/* GAME OVER SCREEN (Shared) */}
           {activeTab === 'games' && gameStatus === 'gameover' && (
             <div className="w-full h-full min-h-0 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto">
-              <div className="animate-in zoom-in duration-500 w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_40px_rgb(0,0,0,0.08)] border border-white">
+              <div className="animate-in zoom-in duration-500 w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_40px_rgb(0,0,0,0.08)] border border-white engine-gameover-card">
                 <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><Timer className="text-orange-500" size={32} /></div>
                 <h2 className="text-2xl font-black text-slate-800 mb-2">Time's Up!</h2>
                 <div className="bg-slate-50 rounded-2xl p-4 mb-6 border border-slate-100 flex flex-col items-center">

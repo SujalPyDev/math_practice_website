@@ -740,3 +740,506 @@ body,
     animation: none;
   }
 }
+
+/* =========================================================
+   Engine redesign (reference-style soft panel system)
+   ========================================================= */
+
+:root {
+  --engine-bg: #e9ecf2;
+  --engine-surface: rgba(246, 249, 255, 0.9);
+  --engine-surface-strong: rgba(255, 255, 255, 0.95);
+  --engine-border: rgba(197, 208, 225, 0.7);
+  --engine-ink: #1f2a44;
+  --engine-muted: #5f6f86;
+  --engine-primary: #4e84d8;
+  --engine-primary-soft: #7ca8e9;
+}
+
+body {
+  background:
+    radial-gradient(1200px 620px at 8% -20%, rgba(144, 174, 225, 0.36), transparent 60%),
+    radial-gradient(1100px 680px at 94% -8%, rgba(176, 196, 230, 0.3), transparent 62%),
+    linear-gradient(180deg, #eef1f6 0%, #e8ebf2 100%);
+}
+
+.engine-app {
+  position: relative;
+}
+
+.engine-main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 14px 14px;
+}
+
+.engine-header {
+  border: 1px solid var(--engine-border);
+  border-bottom: 0;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, rgba(250, 252, 255, 0.94) 0%, rgba(241, 246, 255, 0.86) 100%);
+  box-shadow: 0 14px 40px rgba(31, 42, 68, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.engine-header-row {
+  padding: 14px 16px 12px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(420px, 1.7fr) minmax(260px, 1fr);
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.engine-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.engine-brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f8fbff 0%, #dce8fb 100%);
+  border: 1px solid rgba(154, 181, 225, 0.45);
+  box-shadow: 0 8px 18px rgba(91, 129, 191, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.engine-brand-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.9vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #25314b;
+}
+
+.engine-brand-sub {
+  margin: 3px 0 0;
+  color: #5e6f86;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.engine-op-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #eceff6 0%, #e6ebf5 100%);
+  border: 1px solid rgba(191, 203, 223, 0.82);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.65);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.engine-op-btn {
+  border: 0;
+  min-height: 40px;
+  min-width: 96px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: #2f3c58;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: transform 220ms ease, color 180ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.engine-op-btn:hover {
+  transform: translate3d(0, -1px, 0);
+  color: #1f2a44;
+}
+
+.engine-op-btn.is-active {
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(84, 130, 202, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.engine-op-btn.is-active.is-multiply {
+  background: linear-gradient(135deg, #72a6ef 0%, #4f84d9 100%);
+}
+
+.engine-op-btn.is-active.is-addition {
+  background: linear-gradient(135deg, #72ba9f 0%, #4f9f85 100%);
+}
+
+.engine-op-btn.is-active.is-divide {
+  background: linear-gradient(135deg, #ee90a1 0%, #de6380 100%);
+}
+
+.engine-op-btn.is-active.is-quant {
+  background: linear-gradient(135deg, #72c5b0 0%, #4aa48d 100%);
+}
+
+.engine-op-btn.is-active.is-formula {
+  background: linear-gradient(135deg, #8ca6e9 0%, #6989da 100%);
+}
+
+.engine-op-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.engine-tools-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.engine-difficulty-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #eceff6 0%, #e4e9f4 100%);
+  border: 1px solid rgba(191, 203, 223, 0.82);
+}
+
+.engine-setting-icon {
+  color: #7a879d;
+  margin-left: 6px;
+}
+
+.engine-diff-btn {
+  border: 0;
+  min-height: 34px;
+  min-width: 52px;
+  padding: 0 10px;
+  border-radius: 11px;
+  background: transparent;
+  color: #5f6f86;
+  font-size: 0.76rem;
+  font-weight: 800;
+  transition: all 180ms ease;
+}
+
+.engine-diff-btn.is-active {
+  background: linear-gradient(145deg, #f0b446 0%, #d9952d 100%);
+  color: #fff;
+  box-shadow: 0 7px 16px rgba(198, 135, 31, 0.33);
+}
+
+.engine-user-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.engine-tool-btn {
+  border: 1px solid rgba(190, 203, 223, 0.82);
+  background: rgba(255, 255, 255, 0.85);
+  color: #3a4a66;
+  min-height: 34px;
+  border-radius: 11px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: all 180ms ease;
+}
+
+.engine-tool-btn:hover {
+  background: #fff;
+  color: #1f2a44;
+  box-shadow: 0 8px 20px rgba(64, 89, 130, 0.16);
+}
+
+.engine-user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 11px;
+  border: 1px solid rgba(190, 203, 223, 0.82);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.engine-content {
+  position: relative;
+  border: 1px solid var(--engine-border);
+  border-top: 0;
+  border-radius: 0 0 24px 24px;
+  background:
+    radial-gradient(340px 190px at 7% 4%, rgba(255, 255, 255, 0.46), transparent 72%),
+    radial-gradient(480px 220px at 94% 2%, rgba(255, 255, 255, 0.52), transparent 72%),
+    linear-gradient(180deg, rgba(246, 249, 255, 0.84) 0%, rgba(235, 242, 252, 0.76) 100%);
+  box-shadow: 0 18px 42px rgba(31, 42, 68, 0.12);
+  overflow: hidden;
+}
+
+.engine-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(220px 70px at 15% 13%, rgba(255, 255, 255, 0.52), transparent 76%),
+    radial-gradient(260px 80px at 84% 10%, rgba(255, 255, 255, 0.5), transparent 78%);
+  opacity: 0.9;
+}
+
+.engine-section {
+  position: relative;
+}
+
+.engine-hero-strip {
+  position: relative;
+  border-color: rgba(196, 208, 226, 0.66);
+  background: linear-gradient(180deg, rgba(246, 250, 255, 0.84) 0%, rgba(233, 241, 251, 0.75) 100%);
+  box-shadow: 0 10px 24px rgba(40, 62, 102, 0.1);
+}
+
+.engine-hero-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(180px 56px at 75% 44%, rgba(255, 255, 255, 0.5), transparent 78%),
+    radial-gradient(140px 50px at 90% 55%, rgba(255, 255, 255, 0.35), transparent 80%);
+}
+
+.engine-level-switch {
+  background: linear-gradient(180deg, #edf2fb 0%, #e8eef8 100%);
+  border: 1px solid rgba(189, 202, 224, 0.78);
+}
+
+.engine-number-rail {
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(196, 208, 226, 0.68);
+  background: linear-gradient(180deg, rgba(249, 252, 255, 0.82) 0%, rgba(239, 245, 253, 0.78) 100%);
+}
+
+.engine-title-row {
+  margin-top: 4px;
+}
+
+.engine-practice-panel,
+.engine-scroll-shell,
+.engine-play-card,
+.engine-scoreboard,
+.engine-gameover-card {
+  border-color: rgba(196, 208, 226, 0.72);
+  box-shadow: 0 12px 28px rgba(33, 56, 93, 0.14);
+}
+
+.engine-table-grid {
+  gap: 14px;
+}
+
+.engine-table-card {
+  border-color: rgba(190, 204, 226, 0.66);
+  background: linear-gradient(160deg, rgba(249, 252, 255, 0.96) 0%, rgba(237, 244, 253, 0.92) 100%);
+  box-shadow: 0 10px 22px rgba(39, 57, 94, 0.13);
+}
+
+.engine-question-grid {
+  gap: 14px;
+}
+
+.engine-question-card {
+  border-color: rgba(188, 203, 226, 0.76);
+  box-shadow: 0 10px 24px rgba(39, 57, 94, 0.12);
+}
+
+.engine-answer-input {
+  border-color: rgba(177, 194, 222, 0.72);
+  background: linear-gradient(180deg, rgba(252, 254, 255, 0.92) 0%, rgba(244, 249, 255, 0.86) 100%);
+  color: #2f5f95;
+}
+
+.engine-answer-input:focus {
+  box-shadow: 0 0 0 4px rgba(118, 162, 225, 0.2);
+}
+
+.engine-check-btn {
+  background: linear-gradient(135deg, #70aeb7 0%, #4f8e99 100%);
+  border: 1px solid rgba(70, 132, 145, 0.75);
+  box-shadow: 0 10px 20px rgba(63, 124, 136, 0.24);
+}
+
+.engine-check-btn:hover {
+  transform: translate3d(0, -1px, 0);
+  box-shadow: 0 12px 24px rgba(63, 124, 136, 0.3);
+}
+
+.engine-soft-btn {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 246, 253, 0.88) 100%);
+  border-color: rgba(186, 201, 224, 0.8);
+  color: #455574;
+}
+
+.engine-arcade-grid {
+  gap: 14px;
+}
+
+.engine-feature-card {
+  border-color: rgba(190, 204, 226, 0.68);
+  background: linear-gradient(170deg, rgba(250, 252, 255, 0.95) 0%, rgba(238, 245, 254, 0.9) 100%);
+  box-shadow: 0 12px 24px rgba(33, 56, 93, 0.12);
+}
+
+.engine-topic-chip {
+  border-color: rgba(188, 201, 223, 0.78);
+}
+
+.engine-plain-card {
+  border-color: rgba(188, 202, 226, 0.74);
+  box-shadow: 0 10px 20px rgba(35, 54, 88, 0.1);
+}
+
+.engine-pad-grid {
+  gap: 10px;
+}
+
+.engine-pad-btn {
+  border-color: rgba(187, 201, 224, 0.72);
+  background: linear-gradient(180deg, rgba(254, 255, 255, 0.95) 0%, rgba(242, 248, 255, 0.9) 100%);
+  color: #2d3f5f;
+}
+
+.engine-pad-btn--danger {
+  background: linear-gradient(180deg, rgba(255, 244, 246, 0.98) 0%, rgba(255, 233, 237, 0.95) 100%);
+}
+
+.engine-pad-btn--primary {
+  background: linear-gradient(135deg, #77a5ec 0%, #5d88d9 100%);
+  border-color: rgba(82, 122, 198, 0.78);
+}
+
+.engine-option-btn {
+  border-color: rgba(189, 204, 226, 0.8);
+}
+
+.tab-switcher {
+  background: linear-gradient(180deg, #eef2f9 0%, #e6ecf6 100%);
+  border-color: rgba(193, 205, 224, 0.8);
+}
+
+.tab-switcher-indicator {
+  background: linear-gradient(170deg, rgba(124, 168, 233, 0.98) 0%, rgba(78, 132, 216, 0.96) 100%);
+  border-color: rgba(92, 133, 202, 0.82);
+  box-shadow: 0 12px 24px rgba(74, 117, 184, 0.36);
+}
+
+.tab-switcher-btn {
+  color: #30405d;
+}
+
+.tab-switcher-btn.is-active {
+  color: #fff;
+}
+
+@media (max-width: 1080px) {
+  .engine-header-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .engine-tools-row {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .engine-main {
+    padding: 10px 8px 10px;
+  }
+
+  .engine-header {
+    border-radius: 16px 16px 0 0;
+  }
+
+  .engine-header-row {
+    padding: 12px 10px 10px;
+  }
+
+  .engine-brand-title {
+    font-size: 1.45rem;
+  }
+
+  .engine-brand-sub {
+    font-size: 0.72rem;
+  }
+
+  .engine-op-switch,
+  .engine-difficulty-switch {
+    width: 100%;
+  }
+
+  .engine-op-btn {
+    min-width: 92px;
+    padding: 0 11px;
+    font-size: 0.72rem;
+  }
+
+  .engine-tools-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .engine-user-tools {
+    justify-content: space-between;
+  }
+
+  .engine-user-chip {
+    display: none;
+  }
+
+  .engine-content {
+    border-radius: 0 0 16px 16px;
+  }
+
+  .engine-number-rail {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 460px) {
+  .engine-brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .engine-brand-title {
+    font-size: 1.3rem;
+  }
+
+  .engine-op-btn {
+    min-width: 86px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engine-op-btn,
+  .engine-diff-btn,
+  .engine-tool-btn,
+  .engine-check-btn,
+  .engine-feature-card,
+  .engine-table-card,
+  .engine-pad-btn {
+    transition: none;
+  }
+}
