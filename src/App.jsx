@@ -47,6 +47,10 @@ const themes = {
 };
 
 const ADDITION_QUESTION_COUNT = 5;
+const TAB_SEQUENCE = Object.freeze({
+  learn: 0,
+  games: 1,
+});
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -96,6 +100,7 @@ export default function App() {
   const [levelRange, setLevelRange] = useState('apprentice'); 
   const [difficulty, setDifficulty] = useState('medium'); 
   const [activeTab, setActiveTab] = useState('learn'); 
+  const [viewTransitionMode, setViewTransitionMode] = useState('neutral');
   
   const currentNumbers = levelRange === 'apprentice' ? [2,3,4,5,6,7,8,9,10] : [11,12,13,14,15,16,17,18,19,20];
   const [selectedTable, setSelectedTable] = useState(2);
@@ -297,6 +302,7 @@ export default function App() {
       setLevelRange('apprentice');
       setDifficulty('medium');
       setActiveTab('learn');
+      setViewTransitionMode('neutral');
       setSelectedTable(2);
       setRrbAnswers({});
       setRrbResults({});
@@ -445,6 +451,7 @@ export default function App() {
     } else {
       setGameStatus('idle');
       setActiveTab('learn');
+      setViewTransitionMode('neutral');
     }
   }, [operation, levelRange, difficulty]);
 
@@ -1064,6 +1071,22 @@ export default function App() {
     return `${operation}:${activeTab}:${levelRange}`;
   }, [operation, activeTab, levelRange, gameStatus, gameMode, difficulty, rrbTopic, rrbPage]);
 
+  const handleTabSwitch = useCallback(
+    (nextTab) => {
+      if (nextTab === activeTab) return;
+      const currentIndex = TAB_SEQUENCE[activeTab] ?? 0;
+      const nextIndex = TAB_SEQUENCE[nextTab] ?? currentIndex;
+      setViewTransitionMode(nextIndex >= currentIndex ? 'forward' : 'backward');
+      setActiveTab(nextTab);
+    },
+    [activeTab]
+  );
+
+  const shouldUseDirectionalTransition = operation === 'multiply' && gameStatus === 'idle';
+  const viewTransitionClass = shouldUseDirectionalTransition
+    ? `view-transition--${viewTransitionMode}`
+    : 'view-transition--neutral';
+
   const additionCheckedCount = useMemo(
     () => additionResults.filter((result) => result !== null).length,
     [additionResults]
@@ -1548,15 +1571,22 @@ export default function App() {
 
           {/* Multiply Tab Navigation */}
           {operation === 'multiply' && gameStatus === 'idle' && (
-            <div className="flex px-2 sm:px-6">
-              <button onClick={() => setActiveTab('learn')} className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm md:text-base font-bold transition-all relative ${activeTab === 'learn' ? 'text-blue-600 bg-white/50 rounded-t-xl border-t border-x border-slate-200/50' : 'text-slate-400 hover:bg-slate-50/50 rounded-t-xl'}`}>
-                <BookOpen size={18} /> Complete Tables
-                {activeTab === 'learn' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>}
-              </button>
-              <button onClick={() => setActiveTab('games')} className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm md:text-base font-bold transition-all relative ${activeTab === 'games' ? 'text-blue-600 bg-white/50 rounded-t-xl border-t border-x border-slate-200/50' : 'text-slate-400 hover:bg-slate-50/50 rounded-t-xl'}`}>
-                <Gamepad2 size={18} /> Training Arcade
-                {activeTab === 'games' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>}
-              </button>
+            <div className="px-2 sm:px-6">
+              <div className="tab-switcher" data-active-tab={activeTab}>
+                <div className="tab-switcher-indicator"></div>
+                <button
+                  onClick={() => handleTabSwitch('learn')}
+                  className={`tab-switcher-btn ${activeTab === 'learn' ? 'text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                  <BookOpen size={18} /> Complete Tables
+                </button>
+                <button
+                  onClick={() => handleTabSwitch('games')}
+                  className={`tab-switcher-btn ${activeTab === 'games' ? 'text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                  <Gamepad2 size={18} /> Training Arcade
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -1565,7 +1595,7 @@ export default function App() {
         {/* MAIN NO-SCROLL CONTENT AREA               */}
         {/* ========================================= */}
         <div className="flex-grow min-h-0 flex flex-col relative w-full overflow-y-auto">
-          <div key={activeViewKey} className="view-transition flex h-full min-h-0 flex-col">
+          <div key={activeViewKey} className={`view-transition ${viewTransitionClass} flex h-full min-h-0 flex-col`}>
           
           {/* MULTIPLICATION: TABLE MASTERY */}
           {operation === 'multiply' && activeTab === 'learn' && gameStatus === 'idle' && (
@@ -1575,10 +1605,10 @@ export default function App() {
               <div className="w-full max-w-5xl flex flex-col items-center shrink-0">
                 {/* Level Selector Pill */}
                 <div className="bg-slate-100/80 p-1 rounded-full mb-4 flex shadow-inner w-full sm:w-auto">
-                  <button onClick={() => setLevelRange('apprentice')} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('apprentice'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
                     <Rocket size={16}/> Base (2-10)
                   </button>
-                  <button onClick={() => setLevelRange('wizard')} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'wizard' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('wizard'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'wizard' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
                     <Crown size={16}/> Master (11-20)
                   </button>
                 </div>
@@ -1589,7 +1619,7 @@ export default function App() {
                     const t = themes[num];
                     const isCompleted = completedTables.includes(num);
                     return (
-                      <div key={num} className="relative animate-in zoom-in fade-in" style={{ animationDelay: `${idx * 30}ms` }}>
+                      <div key={num} className="relative table-number-reveal" style={{ animationDelay: `${idx * 30}ms` }}>
                         <button
                           onClick={() => setSelectedTable(num)}
                           className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full text-lg sm:text-xl font-black transition-all duration-300 transform 
@@ -1818,7 +1848,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl pb-4">
+              <div className="arcade-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl pb-4">
                 {/* 1. Classic */}
                 <button onClick={() => startGame('classic')} className="bg-white/80 backdrop-blur-sm border border-white hover:border-blue-200 hover:shadow-[0_8px_20px_rgba(37,99,235,0.08)] hover:-translate-y-1 transition-all rounded-[1.5rem] p-5 text-left group">
                   <div className="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:bg-blue-500 group-hover:text-white transition-colors"><Star size={20} className="text-blue-500 group-hover:text-white" /></div>
