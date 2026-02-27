@@ -63,6 +63,7 @@ body,
 }
 
 @supports (-webkit-touch-callout: none) {
+
   html,
   body,
   #root {
@@ -165,9 +166,11 @@ body,
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(40px, -30px, 0) scale(1.06);
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
@@ -220,7 +223,7 @@ body,
   transition: opacity 320ms ease, background 360ms ease;
 }
 
-.app-bg > * {
+.app-bg>* {
   position: relative;
   z-index: 1;
 }
@@ -258,16 +261,14 @@ html[data-theme="dark"] .app-bg::after {
   border: 2px solid transparent;
   background:
     linear-gradient(135deg, rgba(239, 246, 255, 0.92) 0%, rgba(236, 253, 245, 0.9) 45%, rgba(252, 231, 243, 0.9) 100%) padding-box,
-    conic-gradient(
-      from 130deg at 50% 50%,
+    conic-gradient(from 130deg at 50% 50%,
       rgba(59, 130, 246, 0.8),
       rgba(16, 185, 129, 0.78),
       rgba(249, 115, 22, 0.74),
       rgba(236, 72, 153, 0.74),
       rgba(99, 102, 241, 0.78),
       rgba(14, 165, 233, 0.8),
-      rgba(59, 130, 246, 0.8)
-    ) border-box;
+      rgba(59, 130, 246, 0.8)) border-box;
   box-shadow:
     0 28px 85px rgba(15, 23, 42, 0.18),
     0 10px 28px rgba(59, 130, 246, 0.2),
@@ -301,7 +302,7 @@ html[data-theme="dark"] .app-bg::after {
   animation: stage-sheen 9s ease-in-out infinite;
 }
 
-.app-card.center-stage > * {
+.app-card.center-stage>* {
   position: relative;
   z-index: 1;
 }
@@ -322,12 +323,10 @@ html[data-theme="dark"] .app-bg::after {
   content: "";
   position: absolute;
   inset: -12% -30%;
-  background: linear-gradient(
-    110deg,
-    rgba(255, 255, 255, 0) 36%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(255, 255, 255, 0) 64%
-  );
+  background: linear-gradient(110deg,
+      rgba(255, 255, 255, 0) 36%,
+      rgba(255, 255, 255, 0.55) 50%,
+      rgba(255, 255, 255, 0) 64%);
   opacity: 0;
   pointer-events: none;
   transform: translate3d(-28%, 0, 0);
@@ -378,12 +377,10 @@ html[data-theme="dark"] .app-bg::after {
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(59, 130, 246, 0.08) 0%,
-    rgba(14, 165, 233, 0.1) 50%,
-    rgba(59, 130, 246, 0.08) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(59, 130, 246, 0.08) 0%,
+      rgba(14, 165, 233, 0.1) 50%,
+      rgba(59, 130, 246, 0.08) 100%);
 }
 
 .tab-switcher[data-switch-dir="forward"]::before {
@@ -473,31 +470,31 @@ html[data-theme="dark"] .app-bg::after {
   animation: table-chip-enter 400ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
-.arcade-grid > button {
+.arcade-grid>button {
   animation: arcade-card-enter 520ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
-.arcade-grid > button:nth-child(1) {
+.arcade-grid>button:nth-child(1) {
   animation-delay: 30ms;
 }
 
-.arcade-grid > button:nth-child(2) {
+.arcade-grid>button:nth-child(2) {
   animation-delay: 70ms;
 }
 
-.arcade-grid > button:nth-child(3) {
+.arcade-grid>button:nth-child(3) {
   animation-delay: 110ms;
 }
 
-.arcade-grid > button:nth-child(4) {
+.arcade-grid>button:nth-child(4) {
   animation-delay: 150ms;
 }
 
-.arcade-grid > button:nth-child(5) {
+.arcade-grid>button:nth-child(5) {
   animation-delay: 190ms;
 }
 
-.arcade-grid > button:nth-child(6) {
+.arcade-grid>button:nth-child(6) {
   animation-delay: 230ms;
 }
 
@@ -526,6 +523,7 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(0, 18px, 0) scale(0.988);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
@@ -537,6 +535,7 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(32px, 12px, 0) scale(0.988) rotate(-0.2deg);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
@@ -548,6 +547,7 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(-32px, 12px, 0) scale(0.988) rotate(0.2deg);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
@@ -559,9 +559,11 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(-18%, 0, 0);
   }
+
   35% {
     opacity: 0.42;
   }
+
   100% {
     opacity: 0;
     transform: translate3d(12%, 0, 0);
@@ -573,9 +575,11 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(-24%, 0, 0);
   }
+
   35% {
     opacity: 0.34;
   }
+
   100% {
     opacity: 0;
     transform: translate3d(16%, 0, 0);
@@ -587,9 +591,11 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(16%, 0, 0);
   }
+
   35% {
     opacity: 0.34;
   }
+
   100% {
     opacity: 0;
     transform: translate3d(-24%, 0, 0);
@@ -601,9 +607,11 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(-12%, 0, 0);
   }
+
   35% {
     opacity: 0.42;
   }
+
   100% {
     opacity: 0;
     transform: translate3d(12%, 0, 0);
@@ -615,9 +623,11 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(12%, 0, 0);
   }
+
   35% {
     opacity: 0.42;
   }
+
   100% {
     opacity: 0;
     transform: translate3d(-12%, 0, 0);
@@ -628,9 +638,11 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(8px, 0, 0) scaleX(0.98);
   }
+
   60% {
     transform: translate3d(-3px, 0, 0) scaleX(1.02);
   }
+
   100% {
     transform: translate3d(0, 0, 0) scaleX(1);
   }
@@ -640,9 +652,11 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(calc(100% - 4px), 0, 0) scaleX(0.98);
   }
+
   60% {
     transform: translate3d(calc(100% + 3px), 0, 0) scaleX(1.02);
   }
+
   100% {
     transform: translate3d(calc(100% + 0.25rem), 0, 0) scaleX(1);
   }
@@ -652,9 +666,11 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(0, -2px, 0) scale(1.08);
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
@@ -665,6 +681,7 @@ html[data-theme="dark"] .custom-scrollbar {
     transform: translate3d(0, 5px, 0);
     opacity: 0.72;
   }
+
   100% {
     transform: translate3d(0, 0, 0);
     opacity: 1;
@@ -676,6 +693,7 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(0, 14px, 0) scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
@@ -687,6 +705,7 @@ html[data-theme="dark"] .custom-scrollbar {
     opacity: 0;
     transform: translate3d(0, 18px, 0) scale(0.97);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
@@ -697,18 +716,23 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   20% {
     transform: translate3d(-5px, 0, 0);
   }
+
   40% {
     transform: translate3d(5px, 0, 0);
   }
+
   60% {
     transform: translate3d(-3px, 0, 0);
   }
+
   80% {
     transform: translate3d(3px, 0, 0);
   }
+
   100% {
     transform: translate3d(0, 0, 0);
   }
@@ -722,9 +746,11 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(0, -6px, 0);
   }
+
   100% {
     transform: translate3d(0, 0, 0);
   }
@@ -734,9 +760,11 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     transform: translate3d(-2%, -1%, 0) scale(1);
   }
+
   50% {
     transform: translate3d(2%, 1%, 0) scale(1.04);
   }
+
   100% {
     transform: translate3d(-2%, -1%, 0) scale(1);
   }
@@ -746,15 +774,18 @@ html[data-theme="dark"] .custom-scrollbar {
   0% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 0.78;
   }
+
   100% {
     opacity: 0.5;
   }
 }
 
 @media (max-width: 640px) {
+
   input,
   select,
   textarea {
@@ -794,7 +825,7 @@ html[data-theme="dark"] .custom-scrollbar {
   .tab-switcher-btn.is-active span:last-child,
   .tab-switcher-btn,
   .table-number-reveal,
-  .arcade-grid > button,
+  .arcade-grid>button,
   .view-transition::after {
     animation: none;
     transition: none;
@@ -929,7 +960,7 @@ body {
   transition: transform 220ms ease, color 180ms ease, box-shadow 220ms ease, background 220ms ease, border-color 220ms ease;
 }
 
-.engine-op-btn + .engine-op-btn::before {
+.engine-op-btn+.engine-op-btn::before {
   content: "";
   position: absolute;
   left: -1px;
@@ -939,8 +970,8 @@ body {
   background: rgba(148, 165, 191, 0.42);
 }
 
-.engine-op-btn.is-active + .engine-op-btn::before,
-.engine-op-btn + .engine-op-btn.is-active::before {
+.engine-op-btn.is-active+.engine-op-btn::before,
+.engine-op-btn+.engine-op-btn.is-active::before {
   opacity: 0;
 }
 
@@ -1096,6 +1127,7 @@ body {
   0% {
     transform: scale(0.96);
   }
+
   100% {
     transform: scale(1);
   }
@@ -1170,7 +1202,8 @@ body {
     radial-gradient(520px 240px at 95% 4%, rgba(255, 255, 255, 0.5), transparent 72%),
     linear-gradient(180deg, rgba(245, 249, 255, 0.86) 0%, rgba(236, 243, 253, 0.78) 100%);
   box-shadow: 0 18px 40px rgba(31, 42, 68, 0.12);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1196,7 +1229,6 @@ body {
 
 .engine-middle-card {
   max-width: min(1320px, 100%);
-  min-height: clamp(340px, 46vh, 560px);
   padding-inline: clamp(0px, 0.75vw, 10px);
 }
 
@@ -1465,7 +1497,7 @@ body {
   color: #e4ecff;
 }
 
-.engine-app.theme-dark .engine-op-btn + .engine-op-btn::before {
+.engine-app.theme-dark .engine-op-btn+.engine-op-btn::before {
   background: rgba(95, 120, 160, 0.5);
 }
 
@@ -1818,6 +1850,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   html,
   body,
   .app-bg,

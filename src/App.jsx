@@ -1642,11 +1642,11 @@ export default function App() {
         {/* MAIN NO-SCROLL CONTENT AREA               */}
         {/* ========================================= */}
         <div className="flex-grow min-h-0 flex flex-col relative w-full overflow-y-auto engine-content">
-          <div key={activeViewKey} className={`view-transition ${viewTransitionClass} flex h-full min-h-0 flex-col`}>
+          <div key={activeViewKey} className={`view-transition ${viewTransitionClass} flex min-h-full flex-col`}>
           
           {/* MULTIPLICATION: TABLE MASTERY */}
           {operation === 'multiply' && activeTab === 'learn' && gameStatus === 'idle' && (
-             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 engine-section engine-multiply-learn">
+             <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 engine-section engine-multiply-learn">
               
               {/* Top Controls: Level Pill & Number Selector */}
               <div className="w-full max-w-6xl flex flex-col items-center shrink-0 engine-middle-head">
@@ -1725,7 +1725,7 @@ export default function App() {
               )}
 
               {/* CONTENT AREA: Grid or Practice (Takes remaining height) */}
-              <div className="w-full max-w-7xl flex-grow min-h-0 overflow-y-auto pb-4 custom-scrollbar engine-middle-card">
+              <div className="w-full max-w-7xl pb-4 engine-middle-card">
                 
                 {/* PRACTICE VIEW */}
                 {isPracticing ? (
@@ -1773,7 +1773,7 @@ export default function App() {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, idx) => (
                       <div 
                         key={multiplier} 
-                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 min-h-[116px] sm:min-h-[132px] flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
+                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 min-h-[90px] sm:min-h-[100px] flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
                         style={{ animationDelay: `${idx * 20}ms`, animationFillMode: 'backwards' }}
                       >
                         <div className="text-slate-400 font-semibold mb-0.5 flex items-center justify-center gap-1 text-xs sm:text-sm">
