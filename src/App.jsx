@@ -1701,11 +1701,12 @@ export default function App() {
                   {!isPracticing ? (
                     <button 
                       onClick={handlePracticeStart}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm border shadow-sm hover:shadow-md hover:-translate-y-0.5 engine-cta-btn
-                        ${completedTables.includes(selectedTable) ? 'bg-green-50 text-green-600 border-green-200' : 'bg-white text-blue-600 border-blue-200'}`}
+                      className={`btn-primary${completedTables.includes(selectedTable) ? ' btn-primary--completed' : ''}`}
                     >
-                      <PenTool size={16}/> 
-                      {completedTables.includes(selectedTable) ? 'Practice Again' : 'Practice & Master'}
+                      <span>{completedTables.includes(selectedTable) ? 'Practice Again' : 'Practice & Master'}</span>
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
                     </button>
                   ) : (
                     <button 

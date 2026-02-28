@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@600;700&family=Quicksand:wght@600;700&display=swap");
 
 :root {
   --font-body: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -930,13 +930,13 @@ body::after {
 }
 
 .engine-main {
-  max-width: 1360px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding-top: 18px;
-  padding-right: max(18px, env(safe-area-inset-right));
-  padding-bottom: max(14px, env(safe-area-inset-bottom));
-  padding-left: max(18px, env(safe-area-inset-left));
-  flex: 1 1 auto;
+  padding-top: 0px;
+  padding-right: max(30px, env(safe-area-inset-right));
+  padding-bottom: max(18px, env(safe-area-inset-bottom));
+  padding-left: max(30px, env(safe-area-inset-left));
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   animation: float-card 8s var(--ease-float) infinite;
@@ -2157,9 +2157,9 @@ html[data-theme="dark"] body::after {
 
 .engine-table-unified {
   width: 100%;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid rgba(186, 200, 226, 0.55);
+  border: 1.5px solid rgba(186, 200, 226, 0.55);
   background: rgba(255, 255, 255, 0.72);
   box-shadow:
     0 12px 28px rgba(40, 60, 100, 0.08),
@@ -2214,6 +2214,7 @@ html[data-theme="dark"] body::after {
 
 .engine-table-row-anim:last-child {
   border-bottom: none;
+  border-radius: 0 0 20px 20px;
 }
 
 @media (min-width: 640px) {
@@ -2222,9 +2223,19 @@ html[data-theme="dark"] body::after {
   }
 
   /* Last row in each column (5th and 10th) */
-  .engine-table-row-anim:nth-child(5),
+  .engine-table-row-anim:nth-child(5) {
+    border-bottom: none;
+    border-radius: 0 0 0 20px;
+  }
+
   .engine-table-row-anim:nth-child(10) {
     border-bottom: none;
+    border-radius: 0 0 20px 0;
+  }
+
+  /* Reset the generic last-child rounding for desktop */
+  .engine-table-row-anim:last-child {
+    border-radius: 0 0 20px 0;
   }
 
   /* Left column items (1-5) get right divider */
@@ -2382,7 +2393,7 @@ html[data-theme="dark"] body::after {
 /* Mobile compact */
 @media (max-width: 639px) {
   .engine-table-unified {
-    border-radius: 14px;
+    border-radius: 18px;
   }
 
   .engine-table-row-anim {
@@ -2847,4 +2858,82 @@ html[data-theme="dark"] body::after {
   .engine-pad-btn {
     transition: none;
   }
+}
+
+/* ─────────────────────────────────────────────── */
+/* Primary Action Button — "Liquid Gloss" Effect   */
+/* ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #5c8df6 0%, #4a7cf5 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  font-family: 'Quicksand', var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(74, 124, 245, 0.4),
+    inset 0 4px 4px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Icon */
+.btn-primary svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.4s ease;
+}
+
+/* Interaction States */
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(74, 124, 245, 0.5);
+}
+
+.btn-primary:hover svg {
+  transform: translateX(5px) scale(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 5px 10px rgba(74, 124, 245, 0.4);
+}
+
+/* Glossy Shine Effect */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: 0.6s;
+}
+
+.btn-primary:hover::after {
+  left: 120%;
+}
+
+/* Completed state (green variant) */
+.btn-primary.btn-primary--completed {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4),
+    inset 0 4px 4px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary.btn-primary--completed:hover {
+  box-shadow: 0 15px 25px rgba(16, 185, 129, 0.5);
 }
