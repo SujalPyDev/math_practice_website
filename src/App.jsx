@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+
 import { 
   BookOpen, Gamepad2, Star, CheckCircle2,
   Zap, Timer, HelpCircle, ArrowLeft, ShieldAlert,
@@ -1293,9 +1294,9 @@ export default function App() {
   }
 
   return (
-    <div className={`h-[100dvh] min-h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-x-hidden mobile-safe mobile-touch engine-app engine-viewport theme-${themeMode}`}>
+    <div className={`h-[100dvh] w-full flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 app-bg overflow-hidden mobile-safe mobile-touch engine-app engine-viewport theme-${themeMode}`}>
       {/* Main Application Container */}
-      <div className="w-full h-full min-h-0 flex flex-col relative overflow-x-hidden engine-main">
+      <div className="w-full h-full min-h-0 flex flex-col relative overflow-hidden engine-main">
 
         {showAdminPanel && isAdmin && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm p-4">
@@ -1587,7 +1588,7 @@ export default function App() {
                   <Moon size={14} />
                   Dark
                 </button>
-                <span className={`engine-theme-tag ${themeMode === 'dark' ? 'is-dark' : ''}`}>{themeMode === 'dark' ? 'Dark' : 'Light'}</span>
+                <span className={`hidden sm:inline engine-theme-tag ${themeMode === 'dark' ? 'is-dark' : ''}`}>{themeMode === 'dark' ? 'Dark' : 'Light'}</span>
               </div>
 
               <div className="engine-user-tools">
@@ -1616,7 +1617,7 @@ export default function App() {
 
           {/* Multiply Tab Navigation */}
           {operation === 'multiply' && gameStatus === 'idle' && (
-            <div className="px-3 sm:px-6 pb-2">
+            <div className="px-3 sm:px-6 pb-1">
               <div className="tab-switcher" data-active-tab={activeTab} data-switch-dir={viewTransitionMode}>
                 <div className="tab-switcher-indicator"></div>
                 <button
@@ -1646,22 +1647,25 @@ export default function App() {
           
           {/* MULTIPLICATION: TABLE MASTERY */}
           {operation === 'multiply' && activeTab === 'learn' && gameStatus === 'idle' && (
-             <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 engine-section engine-multiply-learn">
+             <div className="w-full flex flex-col items-center justify-start p-2 sm:p-3 engine-section engine-multiply-learn">
               
               {/* Top Controls: Level Pill & Number Selector */}
               <div className="w-full max-w-6xl flex flex-col items-center shrink-0 engine-middle-head">
-                {/* Level Selector Pill */}
-                <div className="bg-slate-100/80 p-1 rounded-full mb-4 flex shadow-inner w-full sm:w-auto engine-level-switch">
-                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('apprentice'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-                    <Rocket size={16}/> Base (2-10)
+                {/* Level Selector Pill — hidden during practice */}
+                {!isPracticing && (
+                <div className="bg-slate-100/80 p-1 rounded-full mb-2 flex shadow-inner w-full sm:w-auto engine-level-switch">
+                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('apprentice'); }} className={`flex-1 sm:w-44 flex justify-center items-center gap-1.5 px-3 py-1.5 rounded-full font-bold transition-all text-sm ${levelRange === 'apprentice' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                    <Rocket size={14}/> Base (2-10)
                   </button>
-                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('wizard'); }} className={`flex-1 sm:w-48 flex justify-center items-center gap-2 px-4 py-2 rounded-full font-bold transition-all text-sm ${levelRange === 'wizard' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-                    <Crown size={16}/> Master (11-20)
+                  <button onClick={() => { setViewTransitionMode('neutral'); setLevelRange('wizard'); }} className={`flex-1 sm:w-44 flex justify-center items-center gap-1.5 px-3 py-1.5 rounded-full font-bold transition-all text-sm ${levelRange === 'wizard' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                    <Crown size={14}/> Master (11-20)
                   </button>
                 </div>
+                )}
 
-                {/* Number Selector Circles */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 w-full engine-number-rail">
+                {/* Number Selector Circles — hidden during practice */}
+                {!isPracticing && (
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-1 w-full engine-number-rail">
                   {currentNumbers.map((num, idx) => {
                     const t = themes[num];
                     const isCompleted = completedTables.includes(num);
@@ -1669,7 +1673,7 @@ export default function App() {
                       <div key={num} className="relative table-number-reveal" style={{ animationDelay: `${idx * 30}ms` }}>
                         <button
                           onClick={() => setSelectedTable(num)}
-                          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full text-lg sm:text-xl font-black transition-all duration-300 transform 
+                          className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full text-base sm:text-lg font-black transition-all duration-300 transform 
                             ${selectedTable === num ? `${t.bg} text-white scale-110 shadow-lg ring-2 ring-white` : 'bg-white text-slate-500 border border-slate-200 shadow-sm hover:scale-105'}`}
                         >
                           {num}
@@ -1683,9 +1687,10 @@ export default function App() {
                     );
                   })}
                 </div>
+                )}
 
                 {/* Title & Action */}
-                <div className="w-full flex justify-between items-center mb-4 px-2 engine-title-row">
+                <div className="w-full flex justify-between items-center mb-1 px-2 engine-title-row">
                   <div className="flex flex-col">
                     <h3 className={`text-xl sm:text-2xl font-black ${currentTheme.text} flex items-center gap-2 engine-section-title`}>
                       Table of <span className="engine-table-badge">{selectedTable}</span>
@@ -1725,14 +1730,14 @@ export default function App() {
               )}
 
               {/* CONTENT AREA: Grid or Practice (Takes remaining height) */}
-              <div className="w-full max-w-7xl pb-4 engine-middle-card">
+              <div className="w-full max-w-7xl pb-2 engine-middle-card">
                 
                 {/* PRACTICE VIEW */}
                 {isPracticing ? (
-                  <div className="w-full max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 engine-practice-panel">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 w-full">
+                  <div className="w-full max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 engine-practice-panel">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-5 sm:grid-flow-col gap-x-3 gap-y-1 w-full">
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, index) => (
-                        <div key={multiplier} className="flex items-center justify-between bg-white p-2 sm:p-3 rounded-xl border border-slate-200 shadow-sm">
+                        <div key={multiplier} className="flex items-center justify-between bg-white p-1 sm:p-1.5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all">
                           <div className="text-sm sm:text-base font-bold text-slate-500 flex items-center justify-center w-1/2 gap-1">
                             <span className={currentTheme.text}>{selectedTable}</span> × <span>{multiplier}</span> =
                           </div>
@@ -1747,7 +1752,7 @@ export default function App() {
                               newErr[index] = false;
                               setPracticeErrors(newErr);
                             }}
-                            className={`w-16 sm:w-20 text-center text-lg sm:text-xl font-black py-1.5 rounded-lg outline-none transition-all
+                            className={`w-14 sm:w-16 text-center text-base font-black py-0.5 rounded-md outline-none transition-all
                               ${practiceErrors[index] ? 'bg-red-50 text-red-600 border-2 border-red-300' : 'bg-slate-50 border-2 border-slate-100 text-blue-600 focus:border-blue-400 focus:bg-white shadow-inner'}`}
                           />
                         </div>
@@ -1755,38 +1760,38 @@ export default function App() {
                     </div>
                     
                     {feedback === 'practice_error' && (
-                      <div className="mt-4 text-red-500 text-sm font-bold animate-bounce bg-red-50 px-4 py-1.5 rounded-full">
+                      <div className="mt-2 text-red-500 text-sm font-bold animate-bounce bg-red-50 px-4 py-1.5 rounded-full">
                         Check the red boxes!
                       </div>
                     )}
 
                     <button 
                       onClick={handlePracticeSubmit}
-                      className="mt-6 bg-blue-600 text-white font-bold text-base px-10 py-3 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all engine-cta-btn"
+                      className="mt-2 bg-blue-600 text-white font-bold text-sm px-8 py-2 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all engine-cta-btn"
                     >
                       Check Answers
                     </button>
                   </div>
                 ) : (
-                  /* STATIC VIEW: Compact Card Grid */
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 w-full min-h-0 pb-4 engine-table-grid">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier, idx) => (
-                      <div 
-                        key={multiplier} 
-                        className="animate-in fade-in slide-in-from-bottom-4 bg-white/90 backdrop-blur-sm rounded-2xl p-3 min-h-[90px] sm:min-h-[100px] flex flex-col items-center justify-center border border-white shadow-[0_4px_15px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group engine-table-card"
-                        style={{ animationDelay: `${idx * 20}ms`, animationFillMode: 'backwards' }}
-                      >
-                        <div className="text-slate-400 font-semibold mb-0.5 flex items-center justify-center gap-1 text-xs sm:text-sm">
-                          <span className="text-slate-600">{selectedTable}</span> 
-                          <span className="text-[10px]">×</span> 
-                          <span className="text-slate-600">{multiplier}</span>
-                          <span className="text-[10px] ml-0.5">=</span>
+                  <div className="engine-table-unified">
+                    <div className="engine-table-unified-inner">
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((multiplier) => (
+                        <div
+                          key={multiplier}
+                          className="engine-table-row-anim"
+                        >
+                          <div className="engine-row-expression">
+                            <span className={`row-num ${currentTheme.text}`}>{selectedTable}</span>
+                            <span className="row-op">×</span>
+                            <span className="row-num">{multiplier}</span>
+                            <span className="row-op">=</span>
+                          </div>
+                          <div className={`engine-row-result ${currentTheme.text}`}>
+                            {selectedTable * multiplier}
+                          </div>
                         </div>
-                        <div className={`text-3xl sm:text-4xl font-black ${currentTheme.text} transition-transform group-hover:scale-105`}>
-                          {selectedTable * multiplier}
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -1797,7 +1802,7 @@ export default function App() {
           {/* ADDITION PRACTICE                         */}
           {/* ========================================= */}
           {operation === 'addition' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 engine-section engine-addition">
+            <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 animate-in fade-in slide-in-from-bottom-4 engine-section engine-addition">
               <div className="w-full max-w-4xl bg-white/70 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-100 p-2 rounded-xl text-emerald-600 text-xl leading-none font-black">+</div>
@@ -1886,7 +1891,7 @@ export default function App() {
           {/* MULTIPLICATION: EXPANDED GAMES MENU       */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 engine-section engine-arcade">
+            <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 animate-in fade-in slide-in-from-bottom-4 engine-section engine-arcade">
               <div className="w-full max-w-6xl bg-white/60 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-6 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-2">
                   <div className="bg-blue-100 p-1.5 rounded-lg"><Gamepad2 className="text-blue-600" size={20}/></div>
@@ -1943,7 +1948,7 @@ export default function App() {
           {/* FORMULA LAB                               */}
           {/* ========================================= */}
           {operation === 'formula' && gameStatus === 'idle' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-indigo-50/65 via-sky-50/60 to-cyan-50/55 border border-white/80 engine-section engine-formula">
+            <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-indigo-50/65 via-sky-50/60 to-cyan-50/55 border border-white/80 engine-section engine-formula">
               <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-100/75 via-white/75 to-sky-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-indigo-100 p-2 rounded-xl"><BookOpen className="text-indigo-600" size={20}/></div>
@@ -1975,7 +1980,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-indigo-50/45 to-sky-50/45 border border-white/80 engine-scroll-shell">
+              <div className="w-full max-w-6xl pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-indigo-50/45 to-sky-50/45 border border-white/80 engine-scroll-shell">
                 {rrbFormulas.length === 0 ? (
                   <div className="w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-center text-slate-500 font-medium">
                     No formulas added for this topic yet.
@@ -2008,7 +2013,7 @@ export default function App() {
           {/* QUANT PRACTICE                             */}
           {/* ========================================= */}
           {operation === 'rrb' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start p-3 sm:p-4 overflow-y-auto sm:overflow-hidden custom-scrollbar animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80 engine-section engine-rrb">
+            <div className="w-full flex flex-col items-center justify-start p-3 sm:p-4 animate-in fade-in slide-in-from-bottom-4 rounded-[1.25rem] sm:rounded-[1.75rem] bg-gradient-to-br from-emerald-50/65 via-sky-50/60 to-rose-50/55 border border-white/80 engine-section engine-rrb">
               <div className="w-full max-w-6xl bg-gradient-to-r from-emerald-100/75 via-white/75 to-cyan-100/75 backdrop-blur-md border border-white text-slate-700 p-4 rounded-2xl mb-4 font-bold flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm shrink-0 engine-hero-strip">
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-100 p-2 rounded-xl"><Target className="text-emerald-600" size={20}/></div>
@@ -2065,7 +2070,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="w-full max-w-6xl flex-grow min-h-0 overflow-y-auto custom-scrollbar pr-1 pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80 engine-scroll-shell">
+              <div className="w-full max-w-6xl pb-2 rounded-2xl p-2 bg-gradient-to-br from-white/55 via-sky-50/45 to-emerald-50/45 border border-white/80 engine-scroll-shell">
                 {rrbDataLoading ? (
                   <div className="w-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 text-center text-slate-500 font-medium flex items-center justify-center gap-2">
                     <Loader className="animate-spin text-emerald-600" size={18} />
@@ -2141,7 +2146,7 @@ export default function App() {
           {/* DIVISION MODE: DIRECT ENTRY (CHALLENGE FOCUSED) */}
           {/* ========================================= */}
           {operation === 'divide' && question && gameStatus === 'playing' && (
-            <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in zoom-in-95 duration-500 engine-section engine-divide-play">
+            <div className="w-full flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 animate-in fade-in zoom-in-95 duration-500 engine-section engine-divide-play">
               
               <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white engine-scoreboard">
                 <div className="flex items-center gap-3">
@@ -2229,7 +2234,7 @@ export default function App() {
           {/* MULTIPLICATION ACTIVE GAMEPLAY            */}
           {/* ========================================= */}
           {operation === 'multiply' && activeTab === 'games' && gameStatus === 'playing' && question && (
-             <div className="w-full h-full min-h-0 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in slide-in-from-bottom-4 duration-300 engine-section engine-multiply-play">
+             <div className="w-full flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 animate-in fade-in slide-in-from-bottom-4 duration-300 engine-section engine-multiply-play">
               
               <div className="w-full max-w-5xl flex justify-between items-center mb-4 bg-white/80 backdrop-blur-md p-3 rounded-2xl shadow-sm shrink-0 border border-white engine-scoreboard">
                 <button onClick={() => setGameStatus('idle')} className="text-slate-500 hover:text-slate-800 flex items-center gap-1 font-bold bg-white px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors text-sm">
@@ -2312,7 +2317,7 @@ export default function App() {
 
           {/* GAME OVER SCREEN (Shared) */}
           {activeTab === 'games' && gameStatus === 'gameover' && (
-            <div className="w-full h-full min-h-0 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto">
+            <div className="w-full flex items-start sm:items-center justify-center p-3 sm:p-4">
               <div className="animate-in zoom-in duration-500 w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-[1.25rem] sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-[0_10px_40px_rgb(0,0,0,0.08)] border border-white engine-gameover-card">
                 <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><Timer className="text-orange-500" size={32} /></div>
                 <h2 className="text-2xl font-black text-slate-800 mb-2">Time's Up!</h2>
