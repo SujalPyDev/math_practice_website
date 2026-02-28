@@ -3,12 +3,15 @@
 :root {
   --font-body: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --font-display: "Outfit", "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --bg-base: #f6f7ff;
+  --bg-base: #f4f6fc;
   --bg-accent-1: rgba(99, 102, 241, 0.22);
   --bg-accent-2: rgba(14, 165, 233, 0.2);
   --bg-accent-3: rgba(236, 72, 153, 0.16);
   --bg-accent-4: rgba(16, 185, 129, 0.16);
   --bg-ink: rgba(15, 23, 42, 0.06);
+  --ease-smooth: cubic-bezier(0.22, 0.68, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   font-family: var(--font-body);
   line-height: 1.5;
@@ -29,7 +32,8 @@ body {
 
 html,
 body {
-  transition: background-color 280ms ease, color 280ms ease;
+  transition: background-color 400ms var(--ease-smooth), color 400ms var(--ease-smooth);
+  scroll-behavior: smooth;
 }
 
 html[data-theme="light"],
@@ -46,6 +50,8 @@ body[data-theme="dark"] {
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -856,9 +862,10 @@ html[data-theme="dark"] .custom-scrollbar {
 
 body {
   background:
-    radial-gradient(1180px 600px at 8% -18%, rgba(154, 181, 226, 0.32), transparent 60%),
-    radial-gradient(1080px 660px at 94% -8%, rgba(179, 199, 230, 0.27), transparent 62%),
-    linear-gradient(180deg, #eceff4 0%, #e7ebf2 100%);
+    radial-gradient(1200px 620px at 6% -15%, rgba(139, 168, 224, 0.35), transparent 58%),
+    radial-gradient(1100px 680px at 96% -6%, rgba(162, 190, 238, 0.3), transparent 60%),
+    radial-gradient(800px 400px at 50% 100%, rgba(196, 210, 240, 0.18), transparent 50%),
+    linear-gradient(180deg, #edf1f8 0%, #e4eaf4 100%);
 }
 
 .engine-app {
@@ -881,9 +888,10 @@ body {
   border: 1px solid var(--engine-border);
   border-bottom: 0;
   border-radius: 22px 22px 0 0;
-  background: linear-gradient(180deg, rgba(250, 252, 255, 0.95) 0%, rgba(241, 246, 255, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(250, 252, 255, 0.97) 0%, rgba(239, 244, 255, 0.92) 100%);
   box-shadow: var(--engine-soft-shadow);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .engine-header-row {
@@ -904,13 +912,19 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: linear-gradient(145deg, #f8fbff 0%, #dce8fb 100%);
-  border: 1px solid rgba(154, 181, 225, 0.45);
-  box-shadow: 0 8px 18px rgba(91, 129, 191, 0.18);
+  background: linear-gradient(145deg, #f8fbff 0%, #d8e6fb 100%);
+  border: 1px solid rgba(134, 170, 225, 0.45);
+  box-shadow: 0 8px 18px rgba(75, 115, 180, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 300ms var(--ease-spring), box-shadow 300ms var(--ease-smooth);
+}
+
+.engine-brand-logo:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 10px 24px rgba(75, 115, 180, 0.28);
 }
 
 .engine-brand-title {
@@ -960,7 +974,8 @@ body {
   justify-content: center;
   gap: 7px;
   white-space: nowrap;
-  transition: transform 220ms ease, color 180ms ease, box-shadow 220ms ease, background 220ms ease, border-color 220ms ease;
+  transition: transform 220ms var(--ease-smooth), color 180ms var(--ease-smooth), box-shadow 280ms var(--ease-smooth), background 220ms var(--ease-smooth), border-color 220ms ease;
+  will-change: transform;
 }
 
 .engine-op-btn+.engine-op-btn::before {
@@ -991,23 +1006,23 @@ body {
 }
 
 .engine-op-btn.is-active.is-multiply {
-  background: linear-gradient(135deg, #7aacef 0%, #4f84d9 100%);
+  background: linear-gradient(135deg, #6ba3f0 0%, #4270d4 100%);
 }
 
 .engine-op-btn.is-active.is-addition {
-  background: linear-gradient(135deg, #77bea6 0%, #4f9f85 100%);
+  background: linear-gradient(135deg, #5ec0a2 0%, #3a9e7e 100%);
 }
 
 .engine-op-btn.is-active.is-divide {
-  background: linear-gradient(135deg, #ee90a1 0%, #de6380 100%);
+  background: linear-gradient(135deg, #f08798 0%, #db4f6c 100%);
 }
 
 .engine-op-btn.is-active.is-quant {
-  background: linear-gradient(135deg, #72c5b0 0%, #4aa48d 100%);
+  background: linear-gradient(135deg, #4dc5a8 0%, #2da088 100%);
 }
 
 .engine-op-btn.is-active.is-formula {
-  background: linear-gradient(135deg, #8ca6e9 0%, #6989da 100%);
+  background: linear-gradient(135deg, #7c9de8 0%, #5574d4 100%);
 }
 
 .engine-op-btn-icon {
@@ -1055,11 +1070,12 @@ body {
   color: #5f6f86;
   font-size: 0.8rem;
   font-weight: 800;
-  transition: all 180ms ease;
+  transition: all 240ms var(--ease-smooth);
+  will-change: transform;
 }
 
 .engine-diff-btn.is-active {
-  background: linear-gradient(145deg, #f0b446 0%, #d9952d 100%);
+  background: linear-gradient(145deg, #f2b84c 0%, #d69028 100%);
   color: #fff;
   box-shadow: 0 7px 16px rgba(198, 135, 31, 0.33);
 }
@@ -1150,11 +1166,11 @@ body {
 .engine-tool-btn,
 .engine-user-chip {
   transition:
-    background 320ms ease,
-    background-color 320ms ease,
-    border-color 320ms ease,
-    color 320ms ease,
-    box-shadow 320ms ease;
+    background 400ms var(--ease-smooth),
+    background-color 400ms var(--ease-smooth),
+    border-color 400ms var(--ease-smooth),
+    color 400ms var(--ease-smooth),
+    box-shadow 400ms var(--ease-smooth);
 }
 
 .engine-user-tools {
@@ -1287,8 +1303,14 @@ body {
   padding: 0 13px;
   border-radius: 14px;
   color: #fff;
-  background: linear-gradient(145deg, #7cb0f1 0%, #4f84d8 100%);
-  box-shadow: 0 10px 20px rgba(79, 132, 216, 0.34);
+  background: linear-gradient(145deg, #6ba3f0 0%, #4270d4 100%);
+  box-shadow: 0 10px 20px rgba(66, 112, 212, 0.36);
+  transition: transform 280ms var(--ease-spring), box-shadow 280ms var(--ease-smooth);
+}
+
+.engine-table-badge:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 26px rgba(66, 112, 212, 0.42);
 }
 
 .engine-title-sub {
@@ -1355,14 +1377,17 @@ body {
 }
 
 .engine-cta-btn {
-  background: linear-gradient(135deg, #76a9ef 0%, #4f84d8 100%);
-  border: 1px solid rgba(96, 134, 203, 0.82);
+  background: linear-gradient(135deg, #6ba3f0 0%, #4270d4 100%);
+  border: 1px solid rgba(80, 120, 200, 0.82);
   color: #fff !important;
-  box-shadow: 0 12px 22px rgba(74, 117, 184, 0.34);
+  box-shadow: 0 12px 22px rgba(66, 112, 212, 0.34);
+  transition: all 280ms var(--ease-smooth);
+  will-change: transform;
 }
 
 .engine-cta-btn:hover {
-  box-shadow: 0 14px 26px rgba(74, 117, 184, 0.4);
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 16px 30px rgba(66, 112, 212, 0.44);
 }
 
 .engine-cancel-btn {
@@ -1377,6 +1402,14 @@ body {
   border-color: rgba(190, 204, 226, 0.68);
   background: linear-gradient(170deg, rgba(250, 252, 255, 0.95) 0%, rgba(238, 245, 254, 0.9) 100%);
   box-shadow: 0 12px 24px rgba(33, 56, 93, 0.12);
+  transition: transform 280ms var(--ease-smooth), box-shadow 280ms var(--ease-smooth), border-color 280ms var(--ease-smooth);
+  will-change: transform;
+}
+
+.engine-feature-card:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 18px 34px rgba(33, 56, 93, 0.18);
+  border-color: rgba(170, 190, 220, 0.85);
 }
 
 .engine-topic-chip {
@@ -1414,6 +1447,7 @@ body {
 .tab-switcher {
   background: linear-gradient(180deg, #edf2f9 0%, #e8edf7 100%);
   border-color: rgba(193, 205, 224, 0.8);
+  transition: border-color 300ms var(--ease-smooth);
 }
 
 .tab-switcher-indicator {
@@ -1814,11 +1848,12 @@ body {
   justify-content: space-between;
   padding: 8px 18px;
   border-bottom: 1px solid rgba(203, 213, 225, 0.38);
-  transition: background 160ms ease, transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 180ms ease;
-  animation: engine-row-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: background 200ms var(--ease-smooth), transform 240ms var(--ease-smooth), box-shadow 240ms var(--ease-smooth);
+  animation: engine-row-enter 440ms var(--ease-out) both;
   cursor: default;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 /* Shimmer hover effect */
@@ -1829,12 +1864,12 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.08) 50%, transparent 100%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 200ms ease;
+  transition: opacity 260ms var(--ease-smooth);
 }
 
 .engine-table-row-anim:hover::after {
   opacity: 1;
-  animation: engine-row-glow 800ms ease-in-out;
+  animation: engine-row-glow 1000ms var(--ease-smooth);
 }
 
 .engine-table-row-anim:last-child {
@@ -2026,7 +2061,7 @@ body {
 
 /* Number selector button hover pulse */
 .engine-number-rail button {
-  transition: all 200ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  transition: all 240ms var(--ease-smooth);
 }
 
 .engine-number-rail button:hover {
@@ -2039,7 +2074,7 @@ body {
 
 /* Level switch buttons */
 .engine-level-switch button {
-  transition: all 200ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  transition: all 240ms var(--ease-smooth);
 }
 
 .engine-level-switch button:hover {
@@ -2052,12 +2087,12 @@ body {
 
 /* CTA button hover animation */
 .engine-cta-btn {
-  transition: all 220ms cubic-bezier(0.2, 0.9, 0.2, 1) !important;
+  transition: all 280ms var(--ease-smooth) !important;
 }
 
 .engine-cta-btn:hover {
-  transform: translate3d(0, -2px, 0) !important;
-  box-shadow: 0 12px 24px rgba(74, 117, 184, 0.28) !important;
+  transform: translate3d(0, -3px, 0) !important;
+  box-shadow: 0 14px 28px rgba(66, 112, 212, 0.36) !important;
 }
 
 .engine-cta-btn:active {
@@ -2066,12 +2101,12 @@ body {
 
 /* Feature card hover (games arcade) */
 .engine-feature-card {
-  transition: all 260ms cubic-bezier(0.2, 0.9, 0.2, 1) !important;
+  transition: all 300ms var(--ease-smooth) !important;
 }
 
 .engine-feature-card:hover {
-  transform: translate3d(0, -4px, 0) !important;
-  box-shadow: 0 16px 32px rgba(33, 56, 93, 0.16) !important;
+  transform: translate3d(0, -5px, 0) !important;
+  box-shadow: 0 20px 36px rgba(33, 56, 93, 0.18) !important;
 }
 
 .engine-feature-card:active {
@@ -2080,7 +2115,7 @@ body {
 
 /* Topic chips hover */
 .engine-topic-chip {
-  transition: all 180ms cubic-bezier(0.2, 0.9, 0.2, 1) !important;
+  transition: all 220ms var(--ease-smooth) !important;
 }
 
 .engine-topic-chip:hover {
@@ -2110,7 +2145,7 @@ body {
 
 /* Check button hover */
 .engine-check-btn {
-  transition: all 200ms cubic-bezier(0.2, 0.9, 0.2, 1) !important;
+  transition: all 240ms var(--ease-smooth) !important;
 }
 
 .engine-check-btn:active {
@@ -2130,13 +2165,13 @@ body {
 
 /* Option buttons (game choices) hover */
 .engine-option-btn {
-  transition: all 200ms cubic-bezier(0.2, 0.9, 0.2, 1) !important;
+  transition: all 240ms var(--ease-smooth) !important;
 }
 
 /* Practice panel inputs */
 .engine-practice-panel input:focus {
   transform: scale(1.04);
-  transition: all 180ms ease;
+  transition: all 220ms var(--ease-smooth);
 }
 
 @media (max-width: 1080px) {
